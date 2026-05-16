@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bn3aw03yitdgk"]
+
+[ext_resource type="Texture2D" uid="uid://calk0rebc3gb2" path="res://icon.svg" id="1_0x6uu"]
+[ext_resource type="Script" uid="uid://x2guc1cxgykw" path="res://scripts/inventory_item.gd" id="1_oayt2"]
+
+[resource]
+script = ExtResource("1_oayt2")
+item_name = "explosive ammo"
+item_description = "explosive ammo"
+item_sprite = ExtResource("1_0x6uu")
+metadata/_custom_type_script = "uid://x2guc1cxgykw"

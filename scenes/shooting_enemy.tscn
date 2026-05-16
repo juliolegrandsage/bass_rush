@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://do0udphxq67dy"]
+
+[ext_resource type="Script" uid="uid://ke4sons5p0pu" path="res://scenes/shooting_enemy.gd" id="1_7tkxy"]
+[ext_resource type="Texture2D" uid="uid://cu8ujtls6a1n0" path="res://assets/sprites/lazerbeam.png" id="2_2di7f"]
+[ext_resource type="Script" uid="uid://dcknsu4j440uv" path="res://scenes/shooting_enemy_raycast.gd" id="3_2di7f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7tkxy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2o11"]
+atlas = ExtResource("2_2di7f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8xlij"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2o11")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="shooting_enemy" type="CharacterBody2D" unique_id=423327528 groups=["enemies"]]
+script = ExtResource("1_7tkxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1782440776]
+shape = SubResource("CircleShape2D_7tkxy")
+
+[node name="projectil_spawn_point" type="Node2D" parent="." unique_id=1987769163]
+position = Vector2(104, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1900266313]
+sprite_frames = SubResource("SpriteFrames_8xlij")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=2012972299]
+target_position = Vector2(100, 0)
+collide_with_areas = true
+script = ExtResource("3_2di7f")
+
+[node name="shoot_cooldown" type="Timer" parent="RayCast2D" unique_id=1303136111]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="RayCast2D/shoot_cooldown" to="." method="_on_shooy_cooldown_timeout"]
+[connection signal="timeout" from="RayCast2D/shoot_cooldown" to="RayCast2D" method="_on_shoot_cooldown_timeout"]

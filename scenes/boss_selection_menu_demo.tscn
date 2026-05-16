@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dbyp6m6eftgkc"]
+
+[ext_resource type="Script" uid="uid://byy3h2rxnw01t" path="res://scripts/boss_selection_menu_demo.gd" id="1_8tofs"]
+
+[node name="BossSelectionMenuDemo" type="Control" unique_id=2059938204]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8tofs")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1894047021]
+position = Vector2(382, 77)
+
+[node name="boss1" type="Button" parent="." unique_id=38212197]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -603.0
+offset_top = -486.0
+offset_right = -546.0
+offset_bottom = -455.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../boss3")
+focus_neighbor_bottom = NodePath("../boss2")
+text = "boss 1"
+
+[node name="boss2" type="Button" parent="." unique_id=1997253427]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -603.0
+offset_top = -337.0
+offset_right = -546.0
+offset_bottom = -306.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../boss1")
+focus_neighbor_bottom = NodePath("../boss3")
+text = "boss 2
+"
+
+[node name="boss3" type="Button" parent="." unique_id=1833167951]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -601.0
+offset_top = -252.0
+offset_right = -544.0
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../boss2")
+focus_neighbor_bottom = NodePath("../boss1")
+text = "boss 3"
+
+[connection signal="pressed" from="boss1" to="." method="_on_boss_1_pressed"]
+[connection signal="pressed" from="boss2" to="." method="_on_boss_2_pressed"]
+[connection signal="pressed" from="boss3" to="." method="_on_boss_3_pressed"]

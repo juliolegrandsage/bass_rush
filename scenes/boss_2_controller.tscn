@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://bi68q1owy6k1b"]
+
+[ext_resource type="Script" uid="uid://p4klmgektm0r" path="res://scenes/boss_2_controller.gd" id="1_x3len"]
+[ext_resource type="Texture2D" uid="uid://csdc36ayoouba" path="res://assets/sprites/boss_sprites/boss2_top.png" id="2_36eh4"]
+[ext_resource type="Texture2D" uid="uid://c6su6k0vev0dm" path="res://assets/sprites/boss_sprites/boss2_bottom.png" id="3_w2owl"]
+[ext_resource type="Texture2D" uid="uid://cgrcrvjbb35by" path="res://assets/sprites/boss_sprites/bossglotte.png" id="4_w2owl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52hpk"]
+size = Vector2(50, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of8l7"]
+size = Vector2(43, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr7od"]
+size = Vector2(5.928753, 15.571247)
+
+[sub_resource type="Animation" id="Animation_w2owl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_52hpk"]
+resource_name = "glotte_boss2"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.98),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.49741883681838395, 0.86742866, -0.49741883681838395]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_of8l7"]
+_data = {
+&"RESET": SubResource("Animation_w2owl"),
+&"glotte_boss2": SubResource("Animation_52hpk")
+}
+
+[sub_resource type="Animation" id="Animation_uuiwk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face_bottom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 28)]
+}
+
+[sub_resource type="Animation" id="Animation_6b6mb"]
+resource_name = "boss2_open_mouth"
+length = 5.525
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face_bottom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4.95, 5.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 28), Vector2(0, 51.045), Vector2(0, 51.045), Vector2(0, 28)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"set_can_attack_false"
+}, {
+"args": [],
+"method": &"set_can_attack_true"
+}, {
+"args": [],
+"method": &"set_can_attack_false"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_agqi0"]
+_data = {
+&"RESET": SubResource("Animation_uuiwk"),
+&"boss2_open_mouth": SubResource("Animation_6b6mb")
+}
+
+[node name="Boss2Controller" type="CharacterBody2D" unique_id=948884509 groups=["boss_controller", "enemies"]]
+script = ExtResource("1_x3len")
+top_position_max = 17.56
+bottom_position_max = 1.245
+speed = 350.0
+
+[node name="Face_top" type="Sprite2D" parent="." unique_id=28636771]
+texture = ExtResource("2_36eh4")
+
+[node name="Area2D" type="Area2D" parent="Face_top" unique_id=1775171525]
+position = Vector2(15, -2.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Face_top/Area2D" unique_id=2111665950]
+shape = SubResource("RectangleShape2D_52hpk")
+
+[node name="Face_bottom" type="Sprite2D" parent="." unique_id=1807256485]
+position = Vector2(0, 28)
+texture = ExtResource("3_w2owl")
+
+[node name="Area2D" type="Area2D" parent="Face_bottom" unique_id=846338642]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Face_bottom/Area2D" unique_id=505573941]
+position = Vector2(11, 5)
+shape = SubResource("RectangleShape2D_of8l7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2034320119]
+z_index = -2
+position = Vector2(16.76, 25.945)
+scale = Vector2(1.83, 1.83)
+shape = SubResource("RectangleShape2D_fr7od")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1609661701]
+position = Vector2(0.7518793, 1.5037591)
+scale = Vector2(0.155, 0.1875)
+texture = ExtResource("4_w2owl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionShape2D" unique_id=1023396184]
+libraries/ = SubResource("AnimationLibrary_of8l7")
+autoplay = &"glotte_boss2"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1487099090]
+libraries/ = SubResource("AnimationLibrary_agqi0")
+
+[node name="ProjectileSpawnPoint" type="Node2D" parent="." unique_id=759727894]
+position = Vector2(-3, 24)
+
+[node name="attack_repeater" type="Timer" parent="." unique_id=1956065327]
+wait_time = 5.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1215808741]
+autostart = true
+
+[node name="damage_indicator_timer" type="Timer" parent="." unique_id=1416281576]
+wait_time = 0.088
+
+[connection signal="timeout" from="attack_repeater" to="." method="_on_atttack_repeater_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="damage_indicator_timer" to="." method="_on_damage_indicator_timer_timeout"]

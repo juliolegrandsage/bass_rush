@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://6mxexjisfv0d"]
+
+[ext_resource type="Texture2D" uid="uid://c857kawo04nby" path="res://assets/sprites/slash.png" id="1_h8fll"]
+[ext_resource type="Script" uid="uid://x2guc1cxgykw" path="res://scripts/inventory_item.gd" id="1_wk36n"]
+
+[resource]
+script = ExtResource("1_wk36n")
+item_name = "Basic ammo"
+item_description = "Hurts enemies"
+item_sprite = ExtResource("1_h8fll")
+is_current_item = true
+metadata/_custom_type_script = "uid://x2guc1cxgykw"

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dbt8uln8tleet"]
+
+[ext_resource type="Texture2D" uid="uid://d1oqhb01xls5f" path="res://assets/sprites/Sprite-hand_proto_boss.png" id="1_asxk6"]
+[ext_resource type="Script" uid="uid://bu3wpdgyg6vrd" path="res://scenes/proto_boss_hand.gd" id="2_eqh83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqh83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asxk6"]
+
+[node name="proto_boss_hand" type="RigidBody2D" unique_id=13617885]
+scale = Vector2(0.03, 0.03)
+gravity_scale = 0.0
+script = ExtResource("2_eqh83")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1655451616]
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=900447383]
+scale = Vector2(1.295, 1.295)
+shape = SubResource("RectangleShape2D_eqh83")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2012916251]
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("1_asxk6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2093019662]
+shape = SubResource("RectangleShape2D_asxk6")
+
+[node name="Timer" type="Timer" parent="." unique_id=265883014]
+wait_time = 0.526
+one_shot = true
+
+[node name="disapear_timer" type="Timer" parent="." unique_id=2083975070]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="disapear_timer" to="." method="_on_disapear_timer_timeout"]

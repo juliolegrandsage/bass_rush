@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dpkimgmjjvtog"]
+
+[ext_resource type="Script" uid="uid://ch402aloyeaoj" path="res://scripts/boss_3_projectile.gd" id="1_3yfjf"]
+[ext_resource type="Texture2D" uid="uid://calk0rebc3gb2" path="res://icon.svg" id="1_op2os"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tq673"]
+
+[node name="boss_3_projectile" type="RigidBody2D" unique_id=1710768658]
+script = ExtResource("1_3yfjf")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1819758769]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=444659496]
+shape = SubResource("CircleShape2D_tq673")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=206885440]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_op2os")
+
+[node name="despawn_timer" type="Timer" parent="." unique_id=114203190]
+wait_time = 1.6269999999999998
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="despawn_timer" to="." method="_on_despawn_timer_timeout"]

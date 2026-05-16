@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://ba52sy6josyus"]
+
+[ext_resource type="Script" uid="uid://b74xl61w8yln4" path="res://scripts/enemy_template.gd" id="1_cw80a"]
+[ext_resource type="Texture2D" uid="uid://cqqw5xhkmide3" path="res://assets/brackeys_platformer_assets/sprites/slime_green.png" id="2_oqxhu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijien"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cw80a"]
+radius = 9.055386
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qlac"]
+atlas = ExtResource("2_oqxhu")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b54y"]
+atlas = ExtResource("2_oqxhu")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6tsu3"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qlac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2b54y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="enemy" type="CharacterBody2D" unique_id=881289457 groups=["enemies"]]
+script = ExtResource("1_cw80a")
+
+[node name="enemy_collider" type="CollisionShape2D" parent="." unique_id=717015323 groups=["enemies"]]
+shape = SubResource("CircleShape2D_ijien")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1205128785]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1285559121]
+shape = SubResource("CircleShape2D_cw80a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=814325285]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_6tsu3")
+animation = &"idle"
+
+[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D" unique_id=1327527598]
+target_position = Vector2(-70, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=1079571193]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cgai7wyrqetin"]
+
+[ext_resource type="Script" uid="uid://biatik8gnwsy5" path="res://scripts/explosion.gd" id="1_17npe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3oo6d"]
+radius = 57.0
+
+[sub_resource type="Curve" id="Curve_3oo6d"]
+_data = [Vector2(0.010050252, 0.96853817), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="explosion" type="Area2D" unique_id=1553676777]
+script = ExtResource("1_17npe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1376334757]
+shape = SubResource("CircleShape2D_3oo6d")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=776420067]
+emitting = false
+amount = 60
+one_shot = true
+explosiveness = 0.75
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 45.85
+initial_velocity_max = 45.85
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_3oo6d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

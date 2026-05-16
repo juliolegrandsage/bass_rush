@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c2pdraswijai5"]
+
+[ext_resource type="Script" uid="uid://cp71mq6l476gg" path="res://scenes/loot_chest.gd" id="1_4g00c"]
+[ext_resource type="Texture2D" uid="uid://efw0t88equk3" path="res://assets/sprites/chest.png" id="1_nc7si"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4g00c"]
+
+[node name="LootChest" type="StaticBody2D" unique_id=95420115]
+script = ExtResource("1_4g00c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=181003415]
+texture = ExtResource("1_nc7si")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=172383737]
+shape = SubResource("RectangleShape2D_4g00c")

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bdskr7boddq6b"]
+
+[ext_resource type="Script" uid="uid://cg12x46gwt77x" path="res://scenes/shooting_alien.gd" id="1_40jx6"]
+[ext_resource type="Texture2D" uid="uid://f0aiy128vy0b" path="res://assets/brackeys_platformer_assets/sprites/slime_purple.png" id="2_ncibq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d5f2v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufedp"]
+atlas = ExtResource("2_ncibq")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvu2e"]
+atlas = ExtResource("2_ncibq")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_42xps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufedp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvu2e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=619999659 groups=["enemies"]]
+script = ExtResource("1_40jx6")
+health = 10
+metadata/_custom_type_script = "uid://wiyf3y8782if"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=240285620]
+shape = SubResource("CircleShape2D_d5f2v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=379474395]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_42xps")
+
+[node name="Timer" type="Timer" parent="." unique_id=1423427452]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
