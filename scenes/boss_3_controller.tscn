@@ -27,7 +27,8 @@ wait_time = 1.4269999999999998
 position = Vector2(0, -49.858356)
 
 [node name="descending_timer" type="Timer" parent="." unique_id=1421224570]
-wait_time = 12.192
+wait_time = 5.4750000000000005
+autostart = true
 
 [node name="rope" type="Line2D" parent="." unique_id=615800303]
 points = PackedVector2Array(0, -35.977337, 0.56657225, 88.95184)

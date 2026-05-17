@@ -29,8 +29,6 @@ var can_proximity_attack = true
 enum State{
 	top_angle,
 	bottom_angle,
-	left_angle,
-	right_angle,
 	descend,
 	ascend
 }
@@ -55,6 +53,7 @@ var distance_to_player: float
 
 func _ready() -> void:
 	rope.visible = false
+	jump()
 
 
  # A faire : corriger le bug qui fait que le boss ne bouge plus quand il est sur le mur gauche, mettre un randomizer pour aller soit à droite soit à gauche quand le boss est sur le toit
@@ -62,32 +61,28 @@ func _physics_process(delta):
 	match current_state:
 		State.bottom_angle:
 			rotation_degrees = 0
-			jump()
 
 		State.top_angle:
 			rotation_degrees = 180
 			velocity = Vector2(SPEED * top_direction, 0)
 
 
-		State.left_angle:
-			rotation_degrees = 90
-			velocity = Vector2(0, SPEED)
-
-		State.right_angle:
-			rotation_degrees = 270
-			velocity = Vector2(0, -SPEED)
 
 		State.descend:
 			descend()
 
 		State.ascend:
-			ascend()
+			if current_state == State.ascend:
+				ascend()
 
 	move_and_slide()
 	
-	if is_on_wall():
-		jump()
-		set_state(State.top_angle)
+
+		
+	if is_on_wall() and current_state == State.top_angle:
+		top_direction *= -1
+		velocity.x = SPEED * top_direction
+
 	
 func _process(delta: float) -> void:
 	$"../Label".text = str(current_state)
@@ -100,6 +95,8 @@ func descend():
 		velocity = Vector2.ZERO
 		
 func ascend():
+	if current_state != State.ascend:
+		return
 	rotation_degrees = 180
 	velocity = Vector2(0, -100)
 	rope.set_point_position(1, to_local(anchor_point))
@@ -114,6 +111,7 @@ func jump():
 
 func _on_bottom_angle_body_entered(body: Node2D) -> void:
 	set_state(State.bottom_angle)
+
 		
 func _on_top_angle_body_entered(body: Node2D) -> void:
 	if body == self and current_state != State.descend and current_state != State.ascend:		
@@ -125,12 +123,17 @@ func _on_top_angle_body_entered(body: Node2D) -> void:
 			$stop_descending_timer.start()
 		else:
 			set_state(State.top_angle)
+			$descending_timer.start()
 
 
 
 func set_state(new_state):
 	if new_state == current_state:
 		return
+		
+	$descending_timer.stop()
+	$stop_descending_timer.stop()
+	$stop_ascending_timer.stop()
 	
 	var old_state = current_state
 	current_state = new_state
@@ -154,16 +157,14 @@ func on_state_changed(old_state, new_state):
 			$"../Label".text = "borttom angle"
 			jump()
 
-func _on_right_angle_body_entered(body: Node2D) -> void:
-	if body == self:
-		top_direction = -1
-		set_state(State.right_angle)
+	if new_state == State.top_angle:
+		top_direction = rng.randi_range(0, 1) * 2 - 1
+		$descending_timer.start()
+		
 
 
-func _on_left_angle_body_entered(body: Node2D) -> void:	
-	if body == self and current_state != State.descend and current_state != State.ascend:		
-		top_direction = 1
-		set_state(State.left_angle)
+
+
 		
 func attack():
 	pass
@@ -179,3 +180,10 @@ func _on_stop_ascending_timer_timeout() -> void:
 	rope.visible = false
 	top_direction = 1
 	set_state(State.top_angle)
+
+
+func _on_descending_timer_timeout() -> void:
+	if current_state != State.top_angle:
+		return
+		
+	set_state(State.descend)
