@@ -41,5 +41,8 @@ func _on_commit_pressed() -> void:
 	var message = message_input.text.strip_edges()
 	if message == "":
 		message = "WIP commit from Godot"
+	var output = []
 
-	OS.execute("git", ["-C", project_path, "commit", "-am", message], [])
+	OS.execute("git", ["-C", project_path, "add", "."], output)
+	OS.execute("git", ["-C", project_path, "commit", "-m", message], output)
+	print(output)
