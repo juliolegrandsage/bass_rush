@@ -21,7 +21,7 @@ shape = SubResource("RectangleShape2D_vadib")
 wait_time = 2.0
 
 [node name="restart_timer" type="Timer" parent="." unique_id=1152045551]
-wait_time = 1.4269999999999998
+wait_time = 4.340000000000001
 
 [node name="attack_spawn_point" type="Node2D" parent="." unique_id=771339361]
 position = Vector2(0, -49.858356)
@@ -42,8 +42,8 @@ wait_time = 2.468
 [node name="stop_descending_timer" type="Timer" parent="." unique_id=1231512004]
 wait_time = 3.5749999999999997
 
-[connection signal="timeout" from="stop_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="stop_timer" to="." method="_on_stop_timer_timeout"]
+[connection signal="timeout" from="stop_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="restart_timer" to="." method="_on_restart_timer_timeout"]
 [connection signal="timeout" from="descending_timer" to="." method="_on_descending_timer_timeout"]
 [connection signal="timeout" from="stop_ascending_timer" to="." method="_on_stop_ascending_timer_timeout"]

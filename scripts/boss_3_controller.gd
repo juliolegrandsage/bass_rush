@@ -50,6 +50,7 @@ var top_direction =  rng.randi_range(0, 1) * 2 - 1
 var current_state = State.bottom_angle
 
 var distance_to_player: float
+var attack_state
 
 func _ready() -> void:
 	rope.visible = false
@@ -167,7 +168,12 @@ func on_state_changed(old_state, new_state):
 
 		
 func attack():
-	pass
+	var attack_state
+	var random_num = rng.randi_range(0, 1)
+	if random_num == 0:
+		attack_state = Attacks.shot_projectile
+	if random_num == 1:
+		attack_state = Attacks.shot_web
 
 
 func _on_stop_descending_timer_timeout() -> void:
@@ -187,3 +193,10 @@ func _on_descending_timer_timeout() -> void:
 		return
 		
 	set_state(State.descend)
+
+
+func _on_restart_timer_timeout() -> void:
+	if attack_state == Attacks.shot_projectile:
+		var projectile_instance = projectile.instantiate()
+		projectile_instance.position = $attack_spawn_point.global_position
+		add_sibling(projectile_instance)
