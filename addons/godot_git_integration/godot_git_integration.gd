@@ -34,7 +34,8 @@ func _exit_tree() -> void:
 	if dock:
 		remove_control_from_docks(dock)
 		dock.queue_free()
-
+		dock = null
+	print("EXIT TREE CALLED")
 
 
 func _on_commit_pressed() -> void:
