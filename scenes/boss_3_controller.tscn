@@ -35,12 +35,15 @@ points = PackedVector2Array(0, -35.977337, 0.56657225, 88.95184)
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=2003641985]
 target_position = Vector2(0, -105.216)
 
+[node name="stop_ascending_timer" type="Timer" parent="." unique_id=1393250885]
+wait_time = 2.468
+
 [node name="stop_descending_timer" type="Timer" parent="." unique_id=1231512004]
-wait_time = 2.4299999999999997
-one_shot = true
+wait_time = 3.5749999999999997
 
 [connection signal="timeout" from="stop_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="stop_timer" to="." method="_on_stop_timer_timeout"]
 [connection signal="timeout" from="restart_timer" to="." method="_on_restart_timer_timeout"]
 [connection signal="timeout" from="descending_timer" to="." method="_on_descending_timer_timeout"]
+[connection signal="timeout" from="stop_ascending_timer" to="." method="_on_stop_ascending_timer_timeout"]
 [connection signal="timeout" from="stop_descending_timer" to="." method="_on_stop_descending_timer_timeout"]

@@ -40,13 +40,15 @@ enum Attacks{
 	shot_projectile
 }
 
+
+
 const projectile = preload("res://scenes/boss_3_projectile.tscn")
 const web_attack = preload("res://scenes/boss_3_web.tscn")
 
 @onready var player_scene = get_tree().get_first_node_in_group("player")
 
 var rng = RandomNumberGenerator.new()
-
+var top_direction =  rng.randi_range(0, 1) * 2 - 1
 var current_state = State.bottom_angle
 
 var distance_to_player: float
@@ -54,30 +56,41 @@ var distance_to_player: float
 func _ready() -> void:
 	rope.visible = false
 
+
  # A faire : corriger le bug qui fait que le boss ne bouge plus quand il est sur le mur gauche, mettre un randomizer pour aller soit à droite soit à gauche quand le boss est sur le toit
-func _physics_process(delta: float) -> void:
+func _physics_process(delta):
 	match current_state:
 		State.bottom_angle:
 			rotation_degrees = 0
+			jump()
+
 		State.top_angle:
 			rotation_degrees = 180
-			velocity = Vector2(-SPEED, 0)
+			velocity = Vector2(SPEED * top_direction, 0)
+
 
 		State.left_angle:
 			rotation_degrees = 90
 			velocity = Vector2(0, SPEED)
+
 		State.right_angle:
 			rotation_degrees = 270
 			velocity = Vector2(0, -SPEED)
+
 		State.descend:
 			descend()
+
 		State.ascend:
 			ascend()
-	
+
 	move_and_slide()
 	
+	if is_on_wall():
+		jump()
+		set_state(State.top_angle)
+	
 func _process(delta: float) -> void:
-	$"../Label".text = "velocité du boss : " + str(velocity) + " état actuel " + str(current_state)
+	$"../Label".text = str(current_state)
 
 func descend():
 	rotation_degrees = 180
@@ -90,18 +103,17 @@ func ascend():
 	rotation_degrees = 180
 	velocity = Vector2(0, -100)
 	rope.set_point_position(1, to_local(anchor_point))
-	if global_position.y <= anchor_point.y + 10:
-		rope.visible = false
-		current_state = State.top_angle
+	if $stop_ascending_timer.is_stopped():
+		$stop_ascending_timer.start()
 
 func jump():
-	velocity = Vector2(0, -JUMP_FORCE)
+	$"../Label".text = "jump"
+	velocity.y = -JUMP_FORCE
+
 
 
 func _on_bottom_angle_body_entered(body: Node2D) -> void:
-	if body == self and current_state != State.descend and current_state != State.ascend:
-		current_state = State.bottom_angle
-		jump()
+	set_state(State.bottom_angle)
 		
 func _on_top_angle_body_entered(body: Node2D) -> void:
 	if body == self and current_state != State.descend and current_state != State.ascend:		
@@ -109,33 +121,61 @@ func _on_top_angle_body_entered(body: Node2D) -> void:
 			anchor_point = global_position
 			rope.visible = true
 			rope.set_point_position(0, Vector2.ZERO)
-			current_state = State.descend
+			set_state(State.descend)
 			$stop_descending_timer.start()
+		else:
+			set_state(State.top_angle)
 
 
+
+func set_state(new_state):
+	if new_state == current_state:
+		return
+	
+	var old_state = current_state
+	current_state = new_state
+	on_state_changed(old_state, new_state)
+	
+		
+
+func on_state_changed(old_state, new_state):
+	match new_state:
+
+		State.descend:
+			anchor_point = global_position
+			rope.visible = true
+			rope.set_point_position(0, Vector2.ZERO)
+			$stop_descending_timer.start()
+		State.ascend:
+			if $stop_ascending_timer.is_stopped():
+				$stop_ascending_timer.start()
+		
+		State.bottom_angle:
+			$"../Label".text = "borttom angle"
+			jump()
 
 func _on_right_angle_body_entered(body: Node2D) -> void:
-	if body == self and current_state != State.descend and current_state != State.ascend:
-		current_state = State.left_angle
+	if body == self:
+		top_direction = -1
+		set_state(State.right_angle)
 
 
-func _on_left_angle_body_entered(body: Node2D) -> void:
+func _on_left_angle_body_entered(body: Node2D) -> void:	
 	if body == self and current_state != State.descend and current_state != State.ascend:		
-		current_state = State.right_angle
+		top_direction = 1
+		set_state(State.left_angle)
 		
 func attack():
 	pass
 
 
 func _on_stop_descending_timer_timeout() -> void:
-	current_state = State.ascend	
+	set_state(State.ascend)
 
 
-func set_state(new_state):
-	if state_cooldown:
-		return
-	current_state = new_state
-	state_cooldown = true
-	await get_tree().create_timer(0.3).timeout
-	state_cooldown = false
-	
+
+func _on_stop_ascending_timer_timeout() -> void:
+	$"../Label".text = "timer lancé"
+	rope.visible = false
+	top_direction = 1
+	set_state(State.top_angle)
