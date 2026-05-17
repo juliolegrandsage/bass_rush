@@ -1,3 +1,5 @@
 res://scenes/boss_3_controller.tscn
 res://addons/godot_git_integration/plugin.cfg
 res://addons/godot_git_integration/godot_git_integration.gd
+res://scenes/bosses_scenes/boss2.tscn
+res://scripts/boss_3_controller.gd
