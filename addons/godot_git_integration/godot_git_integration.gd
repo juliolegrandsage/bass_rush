@@ -3,6 +3,7 @@ extends EditorPlugin
 
 var dock: Control
 var message_input: LineEdit
+
 var commit_button: Button
 var project_path: String
 
@@ -34,11 +35,11 @@ func _exit_tree() -> void:
 		remove_control_from_docks(dock)
 		dock.queue_free()
 
+
+
 func _on_commit_pressed() -> void:
 	var message = message_input.text.strip_edges()
-
 	if message == "":
 		message = "WIP commit from Godot"
 
-	OS.execute("git", ["-C", project_path, "add", "."], [])
-	OS.execute("git", ["-C", project_path, "commit", "-m", message], [])
+	OS.execute("git", ["-C", project_path, "commit", "-am", message], [])
