@@ -1,205 +1,147 @@
-# commentaire de test
+# A FAIRE : Equilibrer la difficulté
 
 
 extends CharacterBody2D
 
+var speed = 350
+var health = 100
+var max_health = 100
 
-const SPEED = 400.0
-const JUMP_FORCE = 650
+var head_down = false
 
-var is_walking = true
-var has_attacked = false
+# Réferences aux projectiles du boss
 
-
-var health = 30
-var max_health = 30
-
-var state_cooldown = false
+const projectile_reference = preload("res://scenes/boss_3_projectile.tscn")
+const web_reference = preload("res://scenes/boss_3_web.tscn")
 
 
-@onready var rope = $rope
-
-@onready var floor_ray = $RayCast2D
-
-var is_descending = false
-var is_ascending = false
-var anchor_point: Vector2
-
-var is_changing_state
-
-var can_proximity_attack = true
-
-enum State{
-	top_angle,
-	bottom_angle,
+enum States{
+	top,
+	bottom,
 	descend,
-	ascend
+	ascend,
+	stop_before_ground
 }
 
-enum Attacks{
-	shot_web,
-	shot_projectile
-}
+var current_state = States.bottom
 
 
+var just_bounced = false
 
-const projectile = preload("res://scenes/boss_3_projectile.tscn")
-const web_attack = preload("res://scenes/boss_3_web.tscn")
 
-@onready var player_scene = get_tree().get_first_node_in_group("player")
-
-var rng = RandomNumberGenerator.new()
-var top_direction =  rng.randi_range(0, 1) * 2 - 1
-var current_state = State.bottom_angle
-
-var distance_to_player: float
-var attack_state
-
+var descending_stopped = false
+var has_hit_ground = false
 func _ready() -> void:
-	rope.visible = false
-	jump()
+	$rope.visible = false
 
-
- # A faire : corriger le bug qui fait que le boss ne bouge plus quand il est sur le mur gauche, mettre un randomizer pour aller soit à droite soit à gauche quand le boss est sur le toit
-func _physics_process(delta):
-	match current_state:
-		State.bottom_angle:
-			rotation_degrees = 0
-
-		State.top_angle:
-			rotation_degrees = 180
-			velocity = Vector2(SPEED * top_direction, 0)
-
-
-
-		State.descend:
-			descend()
-
-		State.ascend:
-			if current_state == State.ascend:
-				ascend()
-
-	move_and_slide()
-	
-
-		
-	if is_on_wall() and current_state == State.top_angle:
-		top_direction *= -1
-		velocity.x = SPEED * top_direction
-
-	
 func _process(delta: float) -> void:
+	if health <= 0:
+		die()
+
+func _physics_process(delta: float) -> void:
 	$"../Label".text = str(current_state)
-
-func descend():
-	rotation_degrees = 180
-	velocity = Vector2(0, 100)
-	rope.set_point_position(1, to_local(anchor_point))
-	if floor_ray.is_colliding():
-		velocity = Vector2.ZERO
-		
-func ascend():
-	if current_state != State.ascend:
-		return
-	rotation_degrees = 180
-	velocity = Vector2(0, -100)
-	rope.set_point_position(1, to_local(anchor_point))
-	if $stop_ascending_timer.is_stopped():
-		$stop_ascending_timer.start()
-
-func jump():
-	$"../Label".text = "jump"
-	velocity.y = -JUMP_FORCE
-
-
-
-func _on_bottom_angle_body_entered(body: Node2D) -> void:
-	set_state(State.bottom_angle)
-
-		
-func _on_top_angle_body_entered(body: Node2D) -> void:
-	if body == self and current_state != State.descend and current_state != State.ascend:		
-		if rng.randi_range(0, 1) == 0:
-			anchor_point = global_position
-			rope.visible = true
-			rope.set_point_position(0, Vector2.ZERO)
-			set_state(State.descend)
-			$stop_descending_timer.start()
-		else:
-			set_state(State.top_angle)
-			$descending_timer.start()
-
+	match current_state:
+		States.top:
+			velocity = Vector2(speed, 0)
+			rotation_degrees = 180
+			if is_on_wall() and not just_bounced:
+				speed *= -1
+				just_bounced = true
+			elif not is_on_wall():
+				just_bounced = false
+		States.bottom:
+			velocity = Vector2(0, -speed)
+			rotation_degrees = 0
+		States.descend:
+			velocity = Vector2(0, 200)
+			if $RayCast2D.is_colliding() and not has_hit_ground:
+				$"../Label".text = "stop"
+				has_hit_ground = true
+				call_deferred("set_state", States.stop_before_ground)
+		States.stop_before_ground:
+			velocity = Vector2.ZERO
+		States.ascend:
+			velocity = Vector2(0, -150)
+			rotation_degrees = 180
+			
+	move_and_slide()
 
 
 func set_state(new_state):
 	if new_state == current_state:
 		return
-		
-	$descending_timer.stop()
-	$stop_descending_timer.stop()
-	$stop_ascending_timer.stop()
-	
-	var old_state = current_state
 	current_state = new_state
-	on_state_changed(old_state, new_state)
 	
-		
+	if new_state != States.stop_before_ground:
+		descending_stopped = false
+	
+	_on_state_enter(new_state)
 
-func on_state_changed(old_state, new_state):
-	match new_state:
-
-		State.descend:
-			anchor_point = global_position
-			rope.visible = true
-			rope.set_point_position(0, Vector2.ZERO)
+func _on_state_enter(state):
+	match state:
+		States.top:
+			has_hit_ground = false
+			$rope.visible = false
+		States.bottom:
+			$rope.visible = false
+			
+		States.descend:
+			$rope.visible = true
+			
+		States.ascend:
+			pass
+		States.stop_before_ground:
+			$"../Label".text = "ground"
 			$stop_descending_timer.start()
-		State.ascend:
-			if $stop_ascending_timer.is_stopped():
-				$stop_ascending_timer.start()
-		
-		State.bottom_angle:
-			$"../Label".text = "borttom angle"
-			jump()
-
-	if new_state == State.top_angle:
-		top_direction = rng.randi_range(0, 1) * 2 - 1
+			$attack_timer.start()
+func _on_top_angle_body_entered(body: Node2D) -> void:
+	if body == self:
+		set_state(States.top)
 		$descending_timer.start()
-		
-
-
-
-
-		
-func attack():
-	var attack_state
-	var random_num = rng.randi_range(0, 1)
-	if random_num == 0:
-		attack_state = Attacks.shot_projectile
-	if random_num == 1:
-		attack_state = Attacks.shot_web
-
-
-func _on_stop_descending_timer_timeout() -> void:
-	set_state(State.ascend)
-
-
-
-func _on_stop_ascending_timer_timeout() -> void:
-	$"../Label".text = "timer lancé"
-	rope.visible = false
-	top_direction = 1
-	set_state(State.top_angle)
 
 
 func _on_descending_timer_timeout() -> void:
-	if current_state != State.top_angle:
+	descend()
+	
+func descend():
+	if current_state != States.top:
 		return
-		
-	set_state(State.descend)
+	set_state(States.descend)
+	$rope.visible = true
 
 
-func _on_restart_timer_timeout() -> void:
-	if attack_state == Attacks.shot_projectile:
-		var projectile_instance = projectile.instantiate()
+func _on_stop_descending_timer_timeout() -> void:
+	$"../Label".text = "ascend"
+	set_state(States.ascend)
+
+
+# Fonctions d'attaques
+
+var rng = RandomNumberGenerator.new()
+
+func attack():
+	var selector = rng.randi_range(0, 1)
+	if selector == 0:
+		var projectile_instance = projectile_reference.instantiate()
 		projectile_instance.position = $attack_spawn_point.global_position
 		add_sibling(projectile_instance)
+		selector = rng.randi_range(0, 1)
+	elif selector == 1:
+		var web_instance = web_reference.instantiate()
+		web_instance.position = $attack_spawn_point.global_position
+		add_sibling(web_instance)
+		selector = rng.randi_range(0, 1)
+
+
+func _on_attack_timer_timeout() -> void:
+	if current_state == States.stop_before_ground:
+		attack()
+		
+		
+# Fonctions de prise de dégats et mort
+
+func take_damage(damage):
+	health -= damage
+
+func die():
+	queue_free()

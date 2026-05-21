@@ -46,4 +46,3 @@ func _on_commit_pressed() -> void:
 
 	OS.execute("git", ["-C", project_path, "add", "."], output)
 	OS.execute("git", ["-C", project_path, "commit", "-m", message], output)
-	print(output)

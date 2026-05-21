@@ -31,7 +31,7 @@ func _on_despawn_timer_timeout() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 
 	if body.is_in_group("player"):
-		player_scene.take_damage(2)
+		player_scene.take_damage(1)
 		var explosion_instance = explosion_scene.instantiate()
 		explosion_instance.does_affect_player = true
 		explosion_instance.position = global_position

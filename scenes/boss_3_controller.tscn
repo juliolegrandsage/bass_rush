@@ -27,7 +27,7 @@ wait_time = 4.340000000000001
 position = Vector2(0, -49.858356)
 
 [node name="descending_timer" type="Timer" parent="." unique_id=1421224570]
-wait_time = 5.4750000000000005
+wait_time = 2.069
 autostart = true
 
 [node name="rope" type="Line2D" parent="." unique_id=615800303]
@@ -38,13 +38,19 @@ target_position = Vector2(0, -105.216)
 
 [node name="stop_ascending_timer" type="Timer" parent="." unique_id=1393250885]
 wait_time = 2.468
+one_shot = true
 
 [node name="stop_descending_timer" type="Timer" parent="." unique_id=1231512004]
 wait_time = 3.5749999999999997
+one_shot = true
 
-[connection signal="timeout" from="stop_timer" to="." method="_on_stop_timer_timeout"]
+[node name="attack_timer" type="Timer" parent="." unique_id=248243539]
+wait_time = 0.534
+
 [connection signal="timeout" from="stop_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="stop_timer" to="." method="_on_stop_timer_timeout"]
 [connection signal="timeout" from="restart_timer" to="." method="_on_restart_timer_timeout"]
 [connection signal="timeout" from="descending_timer" to="." method="_on_descending_timer_timeout"]
 [connection signal="timeout" from="stop_ascending_timer" to="." method="_on_stop_ascending_timer_timeout"]
 [connection signal="timeout" from="stop_descending_timer" to="." method="_on_stop_descending_timer_timeout"]
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]

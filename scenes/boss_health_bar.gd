@@ -2,6 +2,7 @@ extends ProgressBar
 
 @export var boss_controller: Node2D
 
+
 func _ready():
 	max_value = 100
 
