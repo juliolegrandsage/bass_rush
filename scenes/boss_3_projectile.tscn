@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpkimgmjjvtog"]
 
 [ext_resource type="Script" uid="uid://ch402aloyeaoj" path="res://scripts/boss_3_projectile.gd" id="1_3yfjf"]
-[ext_resource type="Texture2D" uid="uid://calk0rebc3gb2" path="res://icon.svg" id="1_op2os"]
+[ext_resource type="Texture2D" uid="uid://uafx4agwfoox" path="res://assets/sprites/boss_sprites/bomb.png" id="2_3yfjf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq673"]
 
@@ -14,8 +14,8 @@ script = ExtResource("1_3yfjf")
 shape = SubResource("CircleShape2D_tq673")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=206885440]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_op2os")
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("2_3yfjf")
 
 [node name="despawn_timer" type="Timer" parent="." unique_id=114203190]
 wait_time = 1.6269999999999998

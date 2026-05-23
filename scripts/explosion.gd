@@ -20,4 +20,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies") and !body.is_in_group("boss_controller"):
 		body.take_damage(50)
 	if does_affect_player and body.is_in_group("player"):
-		body.take_damage(5)
+		body.take_damage(2)

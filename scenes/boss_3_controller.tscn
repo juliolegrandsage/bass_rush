@@ -45,10 +45,10 @@ wait_time = 3.5749999999999997
 one_shot = true
 
 [node name="attack_timer" type="Timer" parent="." unique_id=248243539]
-wait_time = 0.534
+wait_time = 1.1469999999999998
 
-[connection signal="timeout" from="stop_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="stop_timer" to="." method="_on_stop_timer_timeout"]
+[connection signal="timeout" from="stop_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="restart_timer" to="." method="_on_restart_timer_timeout"]
 [connection signal="timeout" from="descending_timer" to="." method="_on_descending_timer_timeout"]
 [connection signal="timeout" from="stop_ascending_timer" to="." method="_on_stop_ascending_timer_timeout"]

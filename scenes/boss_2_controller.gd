@@ -58,6 +58,8 @@ func attack():
 		platform_instance.scale = Vector2(0.5, 0.5)
 		platform_instance.position = $ProjectileSpawnPoint.global_position
 		add_sibling(platform_instance)
+		if current_phase == phases.phase2:
+			platform_instance.get_node("Sprite2D").modulate = Color.RED
 
 
 
