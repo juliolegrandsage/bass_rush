@@ -30,7 +30,9 @@ func _ready() -> void:
 		$Sprite2D.modulate = Color.GREEN
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if is_healing:
+		$Sprite2D.modulate = Color.GREEN
+
 
 func _on_despawn_timer_timeout() -> void:
 	queue_free()

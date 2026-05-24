@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 var speed = 350
 var health = 50
-var max_health = 50
+var max_health = 80
 
 var head_down = false
 
@@ -20,26 +20,34 @@ enum States{
 	bottom,
 	descend,
 	ascend,
-	stop_before_ground
+	stop_before_ground,
+	transition
+}
+
+enum Phases{
+	phase1,
+	phase2
 }
 
 var current_state = States.bottom
-
+var current_phase = Phases.phase1
 
 var just_bounced = false
 
+var descending_speed = 200
 
 var descending_stopped = false
 var has_hit_ground = false
 func _ready() -> void:
 	$rope.visible = false
+	current_phase = Phases.phase1
 
 func _process(delta: float) -> void:
-	if health <= 0:
-		die()
+
+	if current_phase == Phases.phase2:
+		$"../Label".text = str(current_phase)
 
 func _physics_process(delta: float) -> void:
-	# $"../Label".text = str($attack_timer.is_stopped())
 	match current_state:
 		States.top:
 			velocity = Vector2(speed, 0)
@@ -53,9 +61,8 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2(0, -speed)
 			rotation_degrees = 0
 		States.descend:
-			velocity = Vector2(0, 200)
+			velocity = Vector2(0, descending_speed)
 			if $RayCast2D.is_colliding() and not has_hit_ground:
-				$"../Label".text = "stop"
 				has_hit_ground = true
 				call_deferred("set_state", States.stop_before_ground)
 				
@@ -68,6 +75,8 @@ func _physics_process(delta: float) -> void:
 				set_state(States.top)
 			
 	move_and_slide()
+	
+	update_rope()
 
 
 func set_state(new_state):
@@ -86,7 +95,6 @@ func _on_state_enter(state):
 			has_hit_ground = false
 			$rope.visible = false
 			$attack_timer.start()
-			$"../Label".text = "top"
 		States.bottom:
 			$rope.visible = false
 		States.descend:
@@ -95,7 +103,6 @@ func _on_state_enter(state):
 		States.ascend:
 			$attack_timer.stop()
 		States.stop_before_ground:
-			$"../Label".text = "ground"
 			$stop_descending_timer.start()
 			
 			$attack_timer.start()
@@ -117,15 +124,26 @@ func descend():
 
 
 func _on_stop_descending_timer_timeout() -> void:
-	$"../Label".text = "ascend"
 	set_state(States.ascend)
+
+func update_rope():
+	if not $rope.visible:
+		return
+	
+	if $rope_raycast.is_colliding():
+		$rope.points = [
+			Vector2.ZERO,
+			to_local($rope_raycast.get_collision_point())
+		]
 
 
 # Fonctions d'attaques
 
 var rng = RandomNumberGenerator.new()
-
 func attack():
+	if is_in_transition:
+		return
+
 	var selector = rng.randi_range(0, 1)
 	if selector == 0:
 		var projectile_instance = projectile_reference.instantiate()
@@ -137,23 +155,71 @@ func attack():
 		web_instance.position = $attack_spawn_point.global_position
 		add_sibling(web_instance)
 		selector = rng.randi_range(0, 1)
-
+	await get_tree().create_timer(0.25).timeout
 
 func _on_attack_timer_timeout() -> void:
-	if current_state == States.stop_before_ground:
+	if current_state == States.stop_before_ground and current_phase == Phases.phase1:
 		$attack_timer.wait_time = 1
 		attack()
 		$attack_timer.start()
-	if current_state == States.top:
-		$attack_timer.wait_time = 0.5
+	elif current_state == States.stop_before_ground and current_phase == Phases.phase2:
+		$attack_timer.wait_time = 0.45
 		attack()
 		$attack_timer.start()
-		
+
 		
 # Fonctions de prise de dégats et mort
 
 func take_damage(damage):
 	health -= damage
+	
+	if health > 0:
+		return
+	
+	if health <= 0:
+		if current_phase == Phases.phase1:
+			healing_transition()
+			
+		else:
+			die()
 
 func die():
-	queue_free()
+
+	queue_free()	
+
+
+func enter_phase2():
+	current_phase = Phases.phase2
+	health = max_health
+	speed = 420
+	descending_speed = 400
+	$attack_timer.wait_time = 0.45
+	$"../Label".text = "phase2"
+	
+# A FAIRE : un état de transitions entre les deux phases ou le boss "vomit" du soin
+
+var is_in_transition := false
+
+func healing_transition():
+	is_in_transition = true
+	set_state(States.transition)
+
+	$attack_timer.stop()
+
+	for i in range(20):
+		var projectile_instance = projectile_reference.instantiate()
+		projectile_instance.is_healing = true
+		projectile_instance.position = global_position + Vector2(randi_range(-100,100), randi_range(-100,100))
+		add_sibling(projectile_instance)
+
+		await get_tree().create_timer(0.2).timeout
+
+	$transition_timer.start(5.0)
+
+
+func _on_transition_timer_timeout() -> void:
+	is_in_transition = false
+	enter_phase2()
+	
+	
+# A FAIRE : Mettre un laser qui suit le joueur peu avant l'attaque (avec un timer et une line 2d)

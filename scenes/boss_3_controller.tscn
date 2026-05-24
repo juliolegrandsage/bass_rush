@@ -47,10 +47,18 @@ one_shot = true
 [node name="attack_timer" type="Timer" parent="." unique_id=248243539]
 wait_time = 1.1469999999999998
 
-[connection signal="timeout" from="stop_timer" to="." method="_on_stop_timer_timeout"]
+[node name="rope_raycast" type="RayCast2D" parent="." unique_id=27119108]
+target_position = Vector2(0, 500)
+
+[node name="transition_timer" type="Timer" parent="." unique_id=1719775303]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="stop_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="stop_timer" to="." method="_on_stop_timer_timeout"]
 [connection signal="timeout" from="restart_timer" to="." method="_on_restart_timer_timeout"]
 [connection signal="timeout" from="descending_timer" to="." method="_on_descending_timer_timeout"]
 [connection signal="timeout" from="stop_ascending_timer" to="." method="_on_stop_ascending_timer_timeout"]
 [connection signal="timeout" from="stop_descending_timer" to="." method="_on_stop_descending_timer_timeout"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="transition_timer" to="." method="_on_transition_timer_timeout"]
