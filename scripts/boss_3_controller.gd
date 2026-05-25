@@ -14,6 +14,7 @@ var head_down = false
 const projectile_reference = preload("res://scenes/boss_3_projectile.tscn")
 const web_reference = preload("res://scenes/boss_3_web.tscn")
 
+var player_ref: CharacterBody2D
 
 enum States{
 	top,
@@ -21,7 +22,9 @@ enum States{
 	descend,
 	ascend,
 	stop_before_ground,
-	transition
+	transition,
+	left_wall,
+	right_wall
 }
 
 enum Phases{
@@ -41,7 +44,8 @@ var has_hit_ground = false
 func _ready() -> void:
 	$rope.visible = false
 	current_phase = Phases.phase1
-
+	player_ref = get_tree().get_first_node_in_group("player")
+	is_laser_active = true
 func _process(delta: float) -> void:
 
 	if current_phase == Phases.phase2:
@@ -77,6 +81,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	update_rope()
+	update_laser()
 
 
 func set_state(new_state):
@@ -223,3 +228,37 @@ func _on_transition_timer_timeout() -> void:
 	
 	
 # A FAIRE : Mettre un laser qui suit le joueur peu avant l'attaque (avec un timer et une line 2d)
+
+enum laser_states{
+	track,
+	lock,
+	fire,
+}
+
+var is_laser_active = false
+var laser_dir = Vector2.RIGHT
+var laser_length = 2000
+var laser_state = laser_states.track
+
+func update_laser():
+	if not is_laser_active:
+		return
+	if player_ref == null:
+		return
+
+	var origin = global_position
+	
+	match laser_state:
+		laser_states.track:
+			var target = player_ref.global_position
+			var dir = (target - origin).normalized()
+			laser_dir = dir
+		laser_states.lock:
+			pass
+		laser_states.fire:
+			pass
+	var end_point_global = origin + laser_dir * laser_length
+	$laser_line.points = [
+		Vector2.ZERO,
+		to_local(end_point_global)
+	]
