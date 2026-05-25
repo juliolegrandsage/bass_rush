@@ -4,7 +4,7 @@
 extends CharacterBody2D
 
 var speed = 350
-var health = 50
+var health = 20
 var max_health = 80
 
 var head_down = false
@@ -45,11 +45,12 @@ func _ready() -> void:
 	$rope.visible = false
 	current_phase = Phases.phase1
 	player_ref = get_tree().get_first_node_in_group("player")
-	is_laser_active = true
+	is_laser_active = false
 func _process(delta: float) -> void:
 
 	if current_phase == Phases.phase2:
 		$"../Label".text = str(current_phase)
+		is_laser_active = true
 
 func _physics_process(delta: float) -> void:
 	match current_state:
@@ -81,7 +82,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	update_rope()
-	update_laser()
+	if current_phase == Phases.phase2:
+		update_laser()
 
 
 func set_state(new_state):
@@ -239,26 +241,36 @@ var is_laser_active = false
 var laser_dir = Vector2.RIGHT
 var laser_length = 2000
 var laser_state = laser_states.track
-
+var locked_dir = Vector2.ZERO
+var lock_target = Vector2.ZERO
 func update_laser():
 	if not is_laser_active:
 		return
 	if player_ref == null:
 		return
 
-	var origin = global_position
-	
+	var origin = $laser_spawn_point.global_position
+	var target = player_ref.global_position
+	var end_point_global = target
+
 	match laser_state:
 		laser_states.track:
-			var target = player_ref.global_position
 			var dir = (target - origin).normalized()
 			laser_dir = dir
+			if $laser_spawn_point/laser_timer.is_stopped():
+				$laser_spawn_point/laser_timer.start()
+				laser_dir = (target - origin).normalized()
+				lock_target = target
 		laser_states.lock:
+			laser_dir = (lock_target - origin).normalized()
 			pass
-		laser_states.fire:
-			pass
-	var end_point_global = origin + laser_dir * laser_length
 	$laser_line.points = [
-		Vector2.ZERO,
+		to_local(origin),
 		to_local(end_point_global)
 	]
+
+
+func _on_laser_timer_timeout() -> void:
+	if laser_state == laser_states.track:
+		$"../Label".text = "state change"
+		laser_state = laser_states.lock

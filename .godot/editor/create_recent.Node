@@ -1,5 +1,6 @@
-Line2D
 Timer
+Node2D
+Line2D
 RayCast2D
 Label
 ProgressBar
@@ -9,6 +10,5 @@ Sprite2D
 CollisionShape2D
 Area2D
 RigidBody2D
-Node2D
 Node
 TileMapLayer

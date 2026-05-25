@@ -59,6 +59,12 @@ points = PackedVector2Array(-0.28328612, -49.858356, 0.28328612, -101.69972)
 width = 3.23
 default_color = Color(0.89155775, 0.1642093, 0.25869164, 1)
 
+[node name="laser_spawn_point" type="Node2D" parent="." unique_id=1915546095]
+position = Vector2(0, -50.141644)
+
+[node name="laser_timer" type="Timer" parent="laser_spawn_point" unique_id=2051994912]
+one_shot = true
+
 [connection signal="timeout" from="stop_timer" to="." method="_on_stop_timer_timeout"]
 [connection signal="timeout" from="stop_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="restart_timer" to="." method="_on_restart_timer_timeout"]
@@ -67,3 +73,4 @@ default_color = Color(0.89155775, 0.1642093, 0.25869164, 1)
 [connection signal="timeout" from="stop_descending_timer" to="." method="_on_stop_descending_timer_timeout"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="transition_timer" to="." method="_on_transition_timer_timeout"]
+[connection signal="timeout" from="laser_spawn_point/laser_timer" to="." method="_on_laser_timer_timeout"]
