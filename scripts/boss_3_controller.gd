@@ -53,6 +53,7 @@ func _process(delta: float) -> void:
 		is_laser_active = true
 
 func _physics_process(delta: float) -> void:
+	$laser_spawn_point.rotation_degrees = 0
 	match current_state:
 		States.top:
 			velocity = Vector2(speed, 0)
@@ -82,8 +83,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	update_rope()
+	if current_phase == Phases.phase1:
+		is_laser_active = false
+		$laser_line.visible = false
 	if current_phase == Phases.phase2:
+		$laser_line.visible = true
 		update_laser()
+	
 
 
 func set_state(new_state):
@@ -243,6 +249,8 @@ var laser_length = 2000
 var laser_state = laser_states.track
 var locked_dir = Vector2.ZERO
 var lock_target = Vector2.ZERO
+var laser_timer_started := false
+
 func update_laser():
 	if not is_laser_active:
 		return
@@ -251,19 +259,21 @@ func update_laser():
 
 	var origin = $laser_spawn_point.global_position
 	var target = player_ref.global_position
-	var end_point_global = target
 
 	match laser_state:
 		laser_states.track:
-			var dir = (target - origin).normalized()
-			laser_dir = dir
-			if $laser_spawn_point/laser_timer.is_stopped():
+			laser_dir = (target - origin).normalized()
+
+			if not laser_timer_started:
 				$laser_spawn_point/laser_timer.start()
-				laser_dir = (target - origin).normalized()
-				lock_target = target
+				laser_timer_started = true
+				locked_dir = laser_dir
+
 		laser_states.lock:
-			laser_dir = (lock_target - origin).normalized()
-			pass
+			target = lock_target
+			velocity = Vector2.ZERO
+	var end_point_global = origin + laser_dir * laser_length
+
 	$laser_line.points = [
 		to_local(origin),
 		to_local(end_point_global)
@@ -272,5 +282,6 @@ func update_laser():
 
 func _on_laser_timer_timeout() -> void:
 	if laser_state == laser_states.track:
-		$"../Label".text = "state change"
 		laser_state = laser_states.lock
+		lock_target = player_ref.global_position
+		laser_timer_started = false
