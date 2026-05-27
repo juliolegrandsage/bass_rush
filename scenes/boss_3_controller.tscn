@@ -65,6 +65,10 @@ position = Vector2(0, -50.141644)
 [node name="laser_timer" type="Timer" parent="laser_spawn_point" unique_id=2051994912]
 one_shot = true
 
+[node name="laser_shoot_timer" type="Timer" parent="laser_spawn_point" unique_id=2107084548]
+wait_time = 0.351
+one_shot = true
+
 [connection signal="timeout" from="stop_timer" to="." method="_on_stop_timer_timeout"]
 [connection signal="timeout" from="stop_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="restart_timer" to="." method="_on_restart_timer_timeout"]
@@ -74,3 +78,4 @@ one_shot = true
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="transition_timer" to="." method="_on_transition_timer_timeout"]
 [connection signal="timeout" from="laser_spawn_point/laser_timer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="laser_spawn_point/laser_shoot_timer" to="." method="_on_laser_shoot_timer_timeout"]

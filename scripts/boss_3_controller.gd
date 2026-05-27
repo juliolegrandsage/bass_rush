@@ -281,9 +281,19 @@ func update_laser():
 var saved_position = Vector2.ZERO
 
 func save_player_position():
-	saved_position = player_ref.global_position
+	saved_position = player_ref.global_position  
 
 
 func _on_laser_timer_timeout() -> void:
 	current_laser_state = laser_states.lock
 	is_locked = false
+	$laser_spawn_point/laser_shoot_timer.start()
+	
+var rocket_ref = preload("res://scenes/boss_3_rocket.tscn")
+
+func _on_laser_shoot_timer_timeout() -> void:
+	current_laser_state = laser_states.fire
+	var rocket_instance = rocket_ref.instantiate()
+	rocket_instance.global_position = $laser_spawn_point.global_position
+	add_sibling(rocket_instance)
+	current_laser_state = laser_states.track
