@@ -49,10 +49,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 
 	if current_phase == Phases.phase2:
-		$"../Label".text = str(current_phase)
 		is_laser_active = true
 
 func _physics_process(delta: float) -> void:
+	if is_laser_locked:
+		rotation_degrees = 180
+		velocity = Vector2.ZERO
 	$laser_spawn_point.rotation_degrees = 0
 	match current_state:
 		States.top:
@@ -116,9 +118,14 @@ func _on_state_enter(state):
 		States.ascend:
 			$attack_timer.stop()
 		States.stop_before_ground:
-			$stop_descending_timer.start()
-			
-			$attack_timer.start()
+			if current_phase == Phases.phase1:
+				$stop_descending_timer.start()
+				$attack_timer.start()
+
+			elif current_phase == Phases.phase2:
+				is_laser_locked = true
+				$stop_descending_timer.start()
+				$"../Label".text = "Phase laser"
 func _on_top_angle_body_entered(body: Node2D) -> void:
 	if body == self:
 		set_state(States.top)
@@ -137,8 +144,8 @@ func descend():
 
 
 func _on_stop_descending_timer_timeout() -> void:
+	is_laser_locked = false
 	set_state(States.ascend)
-
 func update_rope():
 	if not $rope.visible:
 		return
@@ -207,9 +214,8 @@ func enter_phase2():
 	speed = 420
 	descending_speed = 400
 	$attack_timer.wait_time = 0.45
-	$"../Label".text = "phase2"
 	
-# A FAIRE : un état de transitions entre les deux phases ou le boss "vomit" du soin
+# FAIT : un état de transitions entre les deux phases ou le boss "vomit" du soin
 
 var is_in_transition := false
 
@@ -243,45 +249,41 @@ enum laser_states{
 	fire,
 }
 
+var laser_lenght = 2400
 var is_laser_active = false
-var laser_dir = Vector2.RIGHT
-var laser_length = 2000
-var laser_state = laser_states.track
-var locked_dir = Vector2.ZERO
-var lock_target = Vector2.ZERO
-var laser_timer_started := false
+var is_laser_locked = false
 
+var current_laser_state = laser_states.track
+var is_locked := false
 func update_laser():
-	if not is_laser_active:
-		return
 	if player_ref == null:
 		return
 
 	var origin = $laser_spawn_point.global_position
 	var target = player_ref.global_position
 
-	match laser_state:
+	match current_laser_state:
 		laser_states.track:
-			laser_dir = (target - origin).normalized()
-
-			if not laser_timer_started:
+			if not is_locked:
 				$laser_spawn_point/laser_timer.start()
-				laser_timer_started = true
-				locked_dir = laser_dir
+				is_locked = true
+				save_player_position()
 
 		laser_states.lock:
-			target = lock_target
-			velocity = Vector2.ZERO
-	var end_point_global = origin + laser_dir * laser_length
+			target = saved_position
 
-	$laser_line.points = [
-		to_local(origin),
-		to_local(end_point_global)
-	]
+		laser_states.fire:
+			target = saved_position
+
+	$laser_line.set_point_position(0, to_local(origin))
+	$laser_line.set_point_position(1, to_local(target))
+
+var saved_position = Vector2.ZERO
+
+func save_player_position():
+	saved_position = player_ref.global_position
 
 
 func _on_laser_timer_timeout() -> void:
-	if laser_state == laser_states.track:
-		laser_state = laser_states.lock
-		lock_target = player_ref.global_position
-		laser_timer_started = false
+	current_laser_state = laser_states.lock
+	is_locked = false
