@@ -81,6 +81,8 @@ func _physics_process(delta: float) -> void:
 			rotation_degrees = 180
 			if is_on_ceiling():
 				set_state(States.top)
+		States.transition:
+			velocity = Vector2.ZERO
 			
 	move_and_slide()
 	
@@ -124,7 +126,6 @@ func _on_state_enter(state):
 
 			elif current_phase == Phases.phase2:
 				is_laser_locked = true
-				$stop_descending_timer.start()
 				$"../Label".text = "Phase laser"
 func _on_top_angle_body_entered(body: Node2D) -> void:
 	if body == self:
