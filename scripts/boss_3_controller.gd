@@ -16,6 +16,9 @@ const web_reference = preload("res://scenes/boss_3_web.tscn")
 
 var player_ref: CharacterBody2D
 
+@onready var crosshair = $laser_line/Sprite2D
+
+
 enum States{
 	top,
 	bottom,
@@ -46,10 +49,16 @@ func _ready() -> void:
 	current_phase = Phases.phase1
 	player_ref = get_tree().get_first_node_in_group("player")
 	is_laser_active = false
+	crosshair.visible = false
 func _process(delta: float) -> void:
 
 	if current_phase == Phases.phase2:
 		is_laser_active = true
+		
+	if current_state == States.transition:
+		if health < max_health:
+			health += 500 * delta
+			health = min(health, max_health)
 
 func _physics_process(delta: float) -> void:
 	if is_laser_locked:
@@ -123,19 +132,23 @@ func _on_state_enter(state):
 			if current_phase == Phases.phase1:
 				$stop_descending_timer.start()
 				$attack_timer.start()
-
+		
 			elif current_phase == Phases.phase2:
 				is_laser_locked = true
 				$"../Label".text = "Phase laser"
+		States.transition:
+			velocity = Vector2.ZERO
 func _on_top_angle_body_entered(body: Node2D) -> void:
 	if body == self:
-		set_state(States.top)
-		$descending_timer.start()
-		$attack_timer.start()
+		if not current_state == States.transition:
+			set_state(States.top)
+			$descending_timer.start()
+			$attack_timer.start()
 
 
 func _on_descending_timer_timeout() -> void:
-	descend()
+	if not is_in_transition:
+		descend()
 	
 func descend():
 	if current_state != States.top:
@@ -265,17 +278,19 @@ func update_laser():
 
 	match current_laser_state:
 		laser_states.track:
+			crosshair.global_position = target
+			crosshair.visible = true
 			if not is_locked:
 				$laser_spawn_point/laser_timer.start()
 				is_locked = true
-				save_player_position()
 
 		laser_states.lock:
 			target = saved_position
-
+			crosshair.global_position = target
+			crosshair.visible = true
 		laser_states.fire:
 			target = saved_position
-
+			crosshair.global_position = target
 	$laser_line.set_point_position(0, to_local(origin))
 	$laser_line.set_point_position(1, to_local(target))
 
@@ -286,8 +301,10 @@ func save_player_position():
 
 
 func _on_laser_timer_timeout() -> void:
+	save_player_position()
+
 	current_laser_state = laser_states.lock
-	is_locked = false
+	is_locked = true
 	$laser_spawn_point/laser_shoot_timer.start()
 	
 var rocket_ref = preload("res://scenes/boss_3_rocket.tscn")
@@ -296,5 +313,8 @@ func _on_laser_shoot_timer_timeout() -> void:
 	current_laser_state = laser_states.fire
 	var rocket_instance = rocket_ref.instantiate()
 	rocket_instance.global_position = $laser_spawn_point.global_position
+	rocket_instance.rocket_target = saved_position
 	add_sibling(rocket_instance)
+	is_locked = false
+	crosshair.visible = false
 	current_laser_state = laser_states.track

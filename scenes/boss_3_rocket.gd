@@ -2,6 +2,9 @@ extends RigidBody2D
 
 @onready var player_ref = get_tree().get_first_node_in_group("player")
 
+@export var rocket_target := Vector2.ZERO
+
+
 var explosion_asset = preload("res://scenes/explosion.tscn")
 
 var target_position := Vector2.ZERO
@@ -9,7 +12,7 @@ var dir = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if player_ref != null:
-		dir = (player_ref.global_position - global_position).normalized()
+		dir = (rocket_target - global_position).normalized()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

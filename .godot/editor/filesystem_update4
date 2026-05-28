@@ -1,0 +1,4 @@
+res://scenes/boss_3_controller.tscn
+res://scripts/boss_3_controller.gd
+res://scenes/bosses_scenes/boss_3.tscn
+res://scenes/boss_3_rocket.gd
