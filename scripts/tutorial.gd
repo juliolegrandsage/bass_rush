@@ -22,5 +22,5 @@ func _on_grappin_panel_body_entered(body: Node2D) -> void:
 
 func _on_dash_panel_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		$CanvasLayer/tutorial_card.label_text = "Appuyez sur LT pour effectuer une ruée"
+		$CanvasLayer/tutorial_card.label_text = "Appuyez sur LT en l'air pour effectuer une ruée"
 		$CanvasLayer/tutorial_card.visible = true
