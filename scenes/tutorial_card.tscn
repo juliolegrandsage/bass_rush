@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://efqchflsv23o"]
+
+[ext_resource type="Script" uid="uid://7yph1r5krakg" path="res://scripts/tutorial_card.gd" id="1_ej6eg"]
+
+[node name="tutorial_card" type="Control" unique_id=1754271472]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ej6eg")
+
+[node name="Panel" type="Panel" parent="." unique_id=1659041531]
+layout_mode = 0
+offset_right = 586.0
+offset_bottom = 299.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=847082873]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press A to close"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel" unique_id=773939243]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -82.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+clip_text = true

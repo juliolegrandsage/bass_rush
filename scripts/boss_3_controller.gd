@@ -1,4 +1,4 @@
-# A FAIRE : Equilibrer la difficulté
+# A FAIRE : rajouter des annonces pour les attaques + animations des pattes de l'araignée
 
 
 extends CharacterBody2D
@@ -49,7 +49,8 @@ func _ready() -> void:
 	current_phase = Phases.phase1
 	player_ref = get_tree().get_first_node_in_group("player")
 	is_laser_active = false
-	crosshair.visible = false
+	crosshair.visible = false 
+	add_collision_exception_with(player_ref)
 func _process(delta: float) -> void:
 
 	if current_phase == Phases.phase2:
@@ -65,6 +66,7 @@ func _physics_process(delta: float) -> void:
 		rotation_degrees = 180
 		velocity = Vector2.ZERO
 	$laser_spawn_point.rotation_degrees = 0
+	
 	match current_state:
 		States.top:
 			velocity = Vector2(speed, 0)
@@ -78,6 +80,9 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2(0, -speed)
 			rotation_degrees = 0
 		States.descend:
+			$Sprites/AnimationPlayer.speed_scale = 1
+
+			$Sprites/AnimationPlayer.play("RESET")
 			velocity = Vector2(0, descending_speed)
 			if $RayCast2D.is_colliding() and not has_hit_ground:
 				has_hit_ground = true
@@ -86,6 +91,8 @@ func _physics_process(delta: float) -> void:
 		States.stop_before_ground:
 			velocity = Vector2.ZERO
 		States.ascend:
+			$Sprites/AnimationPlayer.speed_scale = -1.0
+			$Sprites/AnimationPlayer.play("RESET")
 			velocity = Vector2(0, -150)
 			rotation_degrees = 180
 			if is_on_ceiling():
@@ -175,6 +182,7 @@ func update_rope():
 
 var rng = RandomNumberGenerator.new()
 func attack():
+	$Sprites/AnimationPlayer.play("switch_head")
 	if is_in_transition:
 		return
 
@@ -205,7 +213,8 @@ func _on_attack_timer_timeout() -> void:
 # Fonctions de prise de dégats et mort
 
 func take_damage(damage):
-	health -= damage
+	if not is_in_transition:
+		health -= damage
 	
 	if health > 0:
 		return
@@ -255,7 +264,6 @@ func _on_transition_timer_timeout() -> void:
 	enter_phase2()
 	
 	
-# A FAIRE : Mettre un laser qui suit le joueur peu avant l'attaque (avec un timer et une line 2d)
 
 enum laser_states{
 	track,

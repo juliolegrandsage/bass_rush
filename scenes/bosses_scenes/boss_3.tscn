@@ -274,6 +274,7 @@ zoom = Vector2(2.445, 2.445)
 
 [node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("3_8lhg8")]
 position = Vector2(187, 359)
+collision_layer = 1
 
 [node name="Label" type="Label" parent="." unique_id=124266621]
 offset_left = 6.0

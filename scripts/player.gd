@@ -27,7 +27,7 @@ func _ready() -> void:
 		projectile_spawn_point.position.x = -40
 	elif sprite.flip_h == false:
 		projectile_spawn_point.position.x = 40
-
+	collision_mask = 1
 
 
 func _process(delta: float) -> void:

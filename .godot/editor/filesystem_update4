@@ -1,4 +1,4 @@
-res://scenes/boss_3_controller.tscn
-res://scripts/boss_3_controller.gd
-res://scenes/bosses_scenes/boss_3.tscn
-res://scenes/boss_3_rocket.gd
+res://scenes/tutorial.tscn
+res://scenes/tutorial_card.tscn
+res://scripts/tutorial_card.gd
+res://scripts/tutorial.gd
