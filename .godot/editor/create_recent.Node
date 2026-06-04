@@ -1,3 +1,6 @@
+Node2D
+Timer
+Sprite2D
 CollisionShape2D
 Area2D
 CanvasLayer
@@ -7,8 +10,5 @@ Panel
 Camera2D
 TileMapLayer
 AnimationPlayer
-Sprite2D
-Node2D
-Timer
 RigidBody2D
 Line2D

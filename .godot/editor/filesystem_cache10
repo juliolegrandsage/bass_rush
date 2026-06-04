@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1780530973
+::res://::1780566771
 enemy_projectile.gd::GDScript::4709756373500588504::1775150794::0::1::::<>CharacterBody2D<><>0<>0<><>::
 enemy_projectile.tscn::PackedScene::7365271805169563638::1778924239::0::1::::<><><>0<>0<><>::uid://calk0rebc3gb2::::res://icon.svg<>uid://b8do88je21hdw::::res://enemy_projectile.gd
 export_presets.cfg::TextFile::-1::1778924239::0::1::::<><><>0<>0<><>::
@@ -32,7 +32,7 @@ platforms.png::CompressedTexture2D::2400778502132764539::1770329774::1770329792:
 slime_green.png::CompressedTexture2D::5930283476639078320::1770329774::1770329792::1::::<><><>0<>0<>3bb9251c20ff149fd0154ab3e8247e94<>res://.godot/imported/slime_green.png-7537a22022111bb8764aa544858b4d35.ctex::
 slime_purple.png::CompressedTexture2D::402569250389923275::1770329774::1770329792::1::::<><><>0<>0<>ef5dcb6b534017edc53d6b06d8495b57<>res://.godot/imported/slime_purple.png-eba899fd7a6bf06f36da4e8018847f7c.ctex::
 world_tileset.png::CompressedTexture2D::1851775967374030894::1770329774::1770329792::1::::<><><>0<>0<>03cdd168e617c77471d3c3f802bc393f<>res://.godot/imported/world_tileset.png-e79a61bbddfb4c4d3adb9fd28f1e547f.ctex::
-::res://assets/sprites/::1780246144
+::res://assets/sprites/::1780566888
 alpha_tileset.png::CompressedTexture2D::344221768544865610::1775135214::1775135214::1::::<><><>0<>0<>69fb6ef98a63b4765f1eca5303d18bc1<>res://.godot/imported/alpha_tileset.png-220e585eeab1dd9dc87a97c41cbb29c3.ctex::
 bg.png::CompressedTexture2D::6398728625644162457::1778924205::1778924688::1::::<><><>0<>0<>1f93c06f8367e690c73cf3b0a14b08c9<>res://.godot/imported/bg.png-c77278129744470f7e66ac3bb62c4cd4.ctex::
 bvoss2projectile.png::CompressedTexture2D::3385927078341601010::1778924205::1778924687::1::::<><><>0<>0<>4aa7ed7d706645ba4b4843d003124cde<>res://.godot/imported/bvoss2projectile.png-f3512b59198c1e3994f4b5db05e35e81.ctex::
@@ -45,6 +45,7 @@ slash.png::CompressedTexture2D::7152965376426996262::1774972358::1774972359::1::
 Sprite-0002.png::CompressedTexture2D::1067022282420398860::1775139207::1775139207::1::::<><><>0<>0<>5771fdfe6c84606e6064c171878b8009<>res://.godot/imported/Sprite-0002.png-d2bb6a1e6c09c6a1c056596c20c65cc5.ctex::
 Sprite-hand_proto_boss.png::CompressedTexture2D::9014057339022551185::1775061545::1775061546::1::::<><><>0<>0<>183bc7d9b1d7c358797094aa7a5cac6b<>res://.godot/imported/Sprite-hand_proto_boss.png-39b58844f772d4c8e8804f9e82e1be89.ctex::
 tilesheet.png::CompressedTexture2D::7736857592965520961::1775123374::1775123375::1::::<><><>0<>0<>55a4df8a65a8294849c14b7fa5819210<>res://.godot/imported/tilesheet.png-e934876da40351657406b0e03144b2dc.ctex::
+warning.png::CompressedTexture2D::960535330241043080::1780566888::1780566888::1::::<><><>0<>0<>674a8aa3af62dd237e76efe7db9275b2<>res://.godot/imported/warning.png-df6138690569530dfb2c407b7c7c21b3.ctex::
 ::res://assets/sprites/boss_sprites/::1780076002
 bomb.png::CompressedTexture2D::1404123054463671923::1779392571::1779392571::1::::<><><>0<>0<>11e1854efd13e050d0798bb2cad8daa6<>res://.godot/imported/bomb.png-5ca0198f2d2863b04c5f5cb17fe586f8.ctex::
 boss1.png::CompressedTexture2D::3323185544710757073::1778924205::1778924687::1::::<><><>0<>0<>fc387c32e463051d553621c5d529a661<>res://.godot/imported/boss1.png-d471e609a376625f6694b2ae34c35cef.ctex::

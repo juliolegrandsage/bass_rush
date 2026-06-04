@@ -5,6 +5,9 @@ extends RigidBody2D
 @onready var camera = get_tree().get_first_node_in_group("camera")
 
 @onready var boss_controller = get_parent().get_node("../demo_boss_controller")
+
+@onready var warning_sprite = load("res://scenes/boss_1_warning.tscn")
+
 var spawn_pos := Vector2.ZERO
 var target_pos := Vector2.ZERO
 
@@ -31,6 +34,7 @@ func _ready() -> void:
 		spawn_pos = Vector2(player.position.x, player.position.y - 50)
 		position = spawn_pos
 		$Timer.start()
+		spawn_warning_sprite()
 	boss_controller = get_parent().get_node("../demo_boss_controller")
 	var randomInteger = rng.randi_range(1, 5)
 	print(randomInteger)
@@ -91,3 +95,8 @@ func take_damage(damage):
 func _on_disapear_timer_timeout() -> void:
 	queue_free()
 	
+	
+func spawn_warning_sprite():
+	var warning_instance = warning_sprite.instantiate()
+	warning_instance.global_position = Vector2(spawn_pos.x, 290)
+	get_tree().current_scene.add_child(warning_instance)

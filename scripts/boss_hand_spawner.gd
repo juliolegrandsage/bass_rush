@@ -21,6 +21,6 @@ func _on_timer_timeout() -> void:
 	var instance = boss_hand.instantiate()
 	add_child(instance)
 	boss_hand_instance_number += 1
-	instance.position = Vector2(player.position.x, player.position.y - 200)
+	instance.position = Vector2(player.position.x, 290)
 	print(instance.name)
 	

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bjyeatbmt8soi"]
+
+[ext_resource type="Texture2D" uid="uid://nxj42kbp3yjg" path="res://assets/sprites/warning.png" id="1_bwqv6"]
+[ext_resource type="Script" uid="uid://dl6gwl1r4ibyo" path="res://scenes/boss_1_warning.gd" id="2_ly4qf"]
+
+[node name="boss1_warning" type="Sprite2D" unique_id=658933301]
+texture = ExtResource("1_bwqv6")
+script = ExtResource("2_ly4qf")
+
+[node name="Timer" type="Timer" parent="." unique_id=1861855367]
+wait_time = 0.6
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
