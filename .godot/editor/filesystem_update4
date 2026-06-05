@@ -1,6 +1,0 @@
-res://scenes/boss_1_warning.tscn
-res://scenes/boss_1_warning.gd
-res://scenes/proto_boss_hand.tscn
-res://scenes/proto_boss_hand.gd
-res://scenes/bosses_scenes/boss1.tscn
-res://scripts/boss_hand_spawner.gd
