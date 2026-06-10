@@ -1,3 +1,5 @@
+Camera2D
+TileMapLayer
 Node2D
 Timer
 Sprite2D
@@ -7,8 +9,6 @@ CanvasLayer
 Label
 TextEdit
 Panel
-Camera2D
-TileMapLayer
 AnimationPlayer
 RigidBody2D
 Line2D
