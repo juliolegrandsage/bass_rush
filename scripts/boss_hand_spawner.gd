@@ -1,5 +1,6 @@
 extends Node2D
 
+# Références à des nodes extérieur
 @onready var boss_controller = $"../demo_boss_controller"
 @export var boss_hand = preload("res://scenes/proto_boss_hand.tscn")
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -12,12 +13,14 @@ func _ready() -> void:
 	print("apparu")
 
 func _process(delta: float) -> void:
+	# Changement de la vitesse d'attaque en fonction de la phase courrente
 	if boss_controller.current_phase == boss_controller.Phases.phase1:
 		$Timer.wait_time = 1
 	elif boss_controller.current_phase == boss_controller.Phases.phase2:
 		$Timer.wait_time = 0.85
 
 func _on_timer_timeout() -> void:
+	# Invoque un poing du boss
 	var instance = boss_hand.instantiate()
 	add_child(instance)
 	boss_hand_instance_number += 1
