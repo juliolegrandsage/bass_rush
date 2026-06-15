@@ -11,24 +11,69 @@ var is_player_detected:bool
 var direction = -1
 var health = 5
 
-var animator = null
+var projectile_ref = load("res://scenes/oduro_projectile.tscn")
 
+var animator = null
+var distance_to_player: float
 func _ready() -> void:
 	animator = $AnimatedSprite2D
 	animator.play("idle")
 
+func _process(delta: float) -> void:
+	if health <= 0:
+		die()
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
 	velocity.x = SPEED * direction
 
 	# petit offset de sécurité
 	if is_on_floor() and !$RayCast2D.is_colliding():
 		flip()
-	print(direction, " | ", $RayCast2D.target_position, " is colliding : ", str($RayCast2D.is_colliding()))
 	move_and_slide()
+	distance_to_player = player.global_position.distance_to(self.global_position)
+	if(distance_to_player <= 300):
+		if $attack_timer.is_stopped():
+			$attack_timer.start()
+	elif(distance_to_player > 100 and !$attack_timer.is_stopped()):
+		if not $attack_timer.is_stopped():
+			$attack_timer.stop()
+
 func flip():
 	direction *= -1
+	$AnimatedSprite2D.flip_h = direction > 0
+	$RayCast2D.target_position.x = abs($RayCast2D.target_position.x) * direction
+	
+func take_damage(damage:int):
+	health -= damage
+	
+	
+func die():
+	queue_free()
+	
+func attack():
+	var projectile_instance = projectile_ref.instantiate()
+
+	var spawn = $projectile_spawn_point.global_position
+	var dir = (player.global_position - spawn).normalized()
+
+	projectile_instance.spawn_pos = spawn
+	projectile_instance.spawn_rot = rotation
+	projectile_instance.direction = dir
+
+	add_sibling(projectile_instance)
+
+func _on_attack_timer_timeout() -> void:
+	attack()
+
+func update_facing():
+	if not player :
+		return
+		
+	var to_player = player.global_position.x - global_position.x
+	if to_player != 0:
+		direction = sign(to_player)
+		
 	$AnimatedSprite2D.flip_h = direction > 0
 	$RayCast2D.target_position.x = abs($RayCast2D.target_position.x) * direction

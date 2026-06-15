@@ -78,9 +78,17 @@ autoplay = "idle"
 position = Vector2(0, 17)
 shape = SubResource("CircleShape2D_l0ltd")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1210361494]
+[node name="projectile_spawn_point" type="Node2D" parent="." unique_id=1210361494]
 position = Vector2(-53, -20)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1672219454]
 position = Vector2(-90, -3)
 target_position = Vector2(-87, 68)
+
+[node name="attack_timer" type="Timer" parent="." unique_id=1819661244]
+wait_time = 0.449
+
+[node name="player_detector" type="RayCast2D" parent="." unique_id=159717559]
+target_position = Vector2(-900, 0)
+
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
