@@ -15,6 +15,7 @@ var projectile_ref = load("res://scenes/oduro_projectile.tscn")
 
 var animator = null
 var distance_to_player: float
+var can_attack = true
 func _ready() -> void:
 	animator = $AnimatedSprite2D
 	animator.play("idle")
@@ -22,6 +23,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if health <= 0:
 		die()
+	update_facing()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -33,18 +35,21 @@ func _physics_process(delta: float) -> void:
 		flip()
 	move_and_slide()
 	distance_to_player = player.global_position.distance_to(self.global_position)
-	if(distance_to_player <= 300):
-		if $attack_timer.is_stopped():
-			$attack_timer.start()
-	elif(distance_to_player > 100 and !$attack_timer.is_stopped()):
-		if not $attack_timer.is_stopped():
-			$attack_timer.stop()
+	if can_attack:
+		if(distance_to_player <= 300):
+			if $attack_timer.is_stopped():
+				$attack_timer.start()
+		elif(distance_to_player > 100 and !$attack_timer.is_stopped()):
+			if not $attack_timer.is_stopped():
+				$attack_timer.stop()
 
 func flip():
 	direction *= -1
+
 	$AnimatedSprite2D.flip_h = direction > 0
-	$RayCast2D.target_position.x = abs($RayCast2D.target_position.x) * direction
-	
+
+	$RayCast2D.target_position.x = 86 * direction
+
 func take_damage(damage:int):
 	health -= damage
 	
@@ -70,10 +75,9 @@ func _on_attack_timer_timeout() -> void:
 func update_facing():
 	if not player :
 		return
-		
-	var to_player = player.global_position.x - global_position.x
-	if to_player != 0:
-		direction = sign(to_player)
-		
-	$AnimatedSprite2D.flip_h = direction > 0
-	$RayCast2D.target_position.x = abs($RayCast2D.target_position.x) * direction
+	var player_detector_collider = $player_detector.get_collider()
+
+	if player_detector_collider and player_detector_collider.is_in_group("player"):
+		can_attack = true
+	else:
+		can_attack = false

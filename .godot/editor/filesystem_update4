@@ -1,5 +1,4 @@
-res://scenes/oduro_projectile.tscn
-res://scenes/oduro_projectile.gd
 res://scenes/level_1.tscn
 res://scenes/oduro.tscn
 res://scenes/oduro.gd
+res://scenes/oduro_projectile.gd

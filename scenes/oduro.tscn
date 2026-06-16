@@ -69,6 +69,10 @@ radius = 45.01111
 [node name="oduro" type="CharacterBody2D" unique_id=1890799837 groups=["enemies"]]
 script = ExtResource("1_6kvvu")
 
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1672219454]
+position = Vector2(-62, 16)
+target_position = Vector2(-86.745, 68.64)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1713039543]
 sprite_frames = SubResource("SpriteFrames_l0ltd")
 animation = &"idle"
@@ -80,10 +84,6 @@ shape = SubResource("CircleShape2D_l0ltd")
 
 [node name="projectile_spawn_point" type="Node2D" parent="." unique_id=1210361494]
 position = Vector2(-53, -20)
-
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1672219454]
-position = Vector2(-90, -3)
-target_position = Vector2(-87, 68)
 
 [node name="attack_timer" type="Timer" parent="." unique_id=1819661244]
 wait_time = 0.449
