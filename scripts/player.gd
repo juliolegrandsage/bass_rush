@@ -35,9 +35,10 @@ func _process(delta: float) -> void:
 		die()
 	
 
-	if Input.is_action_just_pressed("dash") and is_on_floor() == false:
+	if Input.is_action_just_pressed("dash") and !is_on_floor():
 		dashing = true
 		$DashTimer.start()
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -59,6 +60,9 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+
+	
 	if !is_paralyzed:
 		move_and_slide()
 

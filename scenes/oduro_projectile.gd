@@ -18,5 +18,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		#body.take_damage(3)
+		body.take_damage(3)
 		queue_free()
+	if body.is_in_group("tilemap"):
+		queue_free()
+
+
+func _on_disapear_timeout() -> void:
+	queue_free()
