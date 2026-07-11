@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dra6p2kkq8d6s"]
+
+[ext_resource type="Script" uid="uid://bvevmnmsp8tir" path="res://scenes/oduro_projectile.gd" id="1_62qie"]
+[ext_resource type="Texture2D" uid="uid://calk0rebc3gb2" path="res://icon.svg" id="1_hqmim"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_62qie"]
+radius = 113.03982
+
+[node name="oduro_projectile" type="CharacterBody2D" unique_id=660240161]
+scale = Vector2(0.225, 0.225)
+script = ExtResource("1_62qie")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1802853444]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1158533524]
+shape = SubResource("CircleShape2D_62qie")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1541374793]
+texture = ExtResource("1_hqmim")
+
+[node name="disapear" type="Timer" parent="." unique_id=2115694382]
+wait_time = 4.345000000000001
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="disapear" to="." method="_on_disapear_timeout"]
