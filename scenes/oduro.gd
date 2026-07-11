@@ -25,6 +25,17 @@ func _process(delta: float) -> void:
 	if health <= 0:
 		die()
 	update_facing()
+	if $player_detector.get_collider() != null:
+		if $player_detector.get_collider().is_in_group("player"):
+			is_player_detected = true
+		else:
+			is_player_detected = false
+	if is_player_detected:
+		if global_position.x <= player.global_position.x:
+			$AnimatedSprite2D.flip_h = true
+		if global_position.x > player.global_position.x:
+			$AnimatedSprite2D.flip_h = false
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -90,11 +101,14 @@ func update_facing():
 	if global_position.x <= player.global_position.x and $AnimatedSprite2D.flip_h == true:
 		$player_detector.target_position.x = 900
 		$projectile_spawn_point.position.x = 82
+		
 	elif global_position.x > player.global_position.x and $AnimatedSprite2D.flip_h == false:
 		$player_detector.target_position.x = -900
 		$projectile_spawn_point.position.x = -82
 
+		
 	if player_detector_collider and player_detector_collider.is_in_group("player"):
 		can_attack = true
 	else:
 		can_attack = false
+		

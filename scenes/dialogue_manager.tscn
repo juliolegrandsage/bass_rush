@@ -84,8 +84,9 @@ offset_left = 2.0
 offset_top = 3.0
 offset_right = 91.0
 offset_bottom = 26.0
-text = "Hello world"
+text = "aaaaaaaaaaaaaaaaaaaaa $n aaaaaaaaaaaaaaaaaaaaaaa"
 label_settings = SubResource("LabelSettings_516v5")
+paragraph_separator = "$n"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=461896694]
 libraries/ = SubResource("AnimationLibrary_5hf3l")

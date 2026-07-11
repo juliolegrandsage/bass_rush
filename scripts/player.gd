@@ -22,6 +22,8 @@ var on_ladder := false
 const DASH_SPEED = 900
 var dashing = false
 
+@export var is_interacting = false
+
 func _ready() -> void:
 	if sprite.flip_h == true:
 		projectile_spawn_point.position.x = -40
@@ -69,21 +71,23 @@ func _physics_process(delta: float) -> void:
 
 	
 	# Flip the character's sprite when it turns left
-	if velocity.x < 0:
-		sprite.flip_h = true
-		projectile_spawn_point.position.x = -40
-		sprite.animation = "walk"
-	elif velocity.x > 0:
-		sprite.flip_h = false
-		projectile_spawn_point.position.x = 40
-		sprite.animation = "walk"
-	else: 
-		sprite.animation = "idle"
+	if !is_interacting:
+		if velocity.x < 0:
+			sprite.flip_h = true
+			projectile_spawn_point.position.x = -40
+			sprite.animation = "walk"
+		elif velocity.x > 0:
+			sprite.flip_h = false
+			projectile_spawn_point.position.x = 40
+			sprite.animation = "walk"
+		else: 
+			sprite.animation = "idle"
 
 
 	
 	if Input.is_action_just_pressed("shoot"):
-		shoot()
+		if !is_interacting:
+			shoot()
 	
 
 func shoot():
