@@ -11,6 +11,8 @@ var health = 1
 var target_pos: Vector2
 var can_attack: bool
 
+var has_exploded = false
+
 func _ready() -> void:
 	can_attack = false
 	$AnimationPlayer.play("idle")
@@ -27,8 +29,10 @@ func _physics_process(delta: float) -> void:
 		if player != null:
 			velocity = target_pos * SPEED
 			$AnimationPlayer.play("RESET")
-			if player.global_position.distance_to(global_position) <= 60:
-				$explode_timer.start()
+			if player.global_position.distance_to(global_position) <= 70:
+				if has_exploded == false:
+					has_exploded = true
+					$explode_timer.start()
 
 			
 	if player != null:
@@ -47,5 +51,7 @@ func take_damage(damage: int):
 
 func _on_explode_timer_timeout() -> void:
 	var explosion_asset = explosion.instantiate()
+	explosion_asset.does_affect_player = true
 	explosion_asset.global_position = global_position
 	add_sibling(explosion_asset)
+	

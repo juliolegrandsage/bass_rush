@@ -80,7 +80,7 @@ frame_progress = 0.71150386
 libraries/ = SubResource("AnimationLibrary_jukti")
 
 [node name="explode_timer" type="Timer" parent="." unique_id=1778184973]
-wait_time = 0.036000000000000004
+wait_time = 0.264
 one_shot = true
 
 [connection signal="timeout" from="explode_timer" to="." method="_on_explode_timer_timeout"]
