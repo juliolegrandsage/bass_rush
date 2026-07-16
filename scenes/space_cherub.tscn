@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://byyiaiw84rh4x"]
+
+[ext_resource type="Texture2D" uid="uid://cct18n0maoo6w" path="res://assets/sprites/space_cherubim.png" id="1_imwve"]
+[ext_resource type="Script" uid="uid://5a0xtnhq6fih" path="res://scripts/space_cherub.gd" id="1_kufl5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77ah2"]
+radius = 41.01219
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kufl5"]
+atlas = ExtResource("1_imwve")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4vnt"]
+atlas = ExtResource("1_imwve")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1v1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kufl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4vnt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_kufl5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h4vnt"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -10.52), Vector2(0, 3.4799995), Vector2(0, -10.52)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jukti"]
+_data = {
+&"RESET": SubResource("Animation_kufl5"),
+&"idle": SubResource("Animation_h4vnt")
+}
+
+[node name="SpaceCherub" type="CharacterBody2D" unique_id=130952627 groups=["enemies"]]
+script = ExtResource("1_kufl5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1721976620]
+shape = SubResource("CircleShape2D_77ah2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=29108123]
+sprite_frames = SubResource("SpriteFrames_r1v1j")
+autoplay = "default"
+frame_progress = 0.71150386
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=556768165]
+libraries/ = SubResource("AnimationLibrary_jukti")
+
+[node name="explode_timer" type="Timer" parent="." unique_id=1778184973]
+wait_time = 0.264
+one_shot = true
+
+[connection signal="timeout" from="explode_timer" to="." method="_on_explode_timer_timeout"]

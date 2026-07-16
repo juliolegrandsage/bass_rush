@@ -36,7 +36,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6kvvu")
 }],
-"loop": false,
+"loop": 0,
 "name": &"attack",
 "speed": 3.0
 }, {
@@ -47,7 +47,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l0ltd")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 3.0
 }, {
@@ -58,7 +58,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yx3up")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 3.0
 }]
@@ -75,7 +75,7 @@ target_position = Vector2(-86.745, 68.64)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1713039543]
 sprite_frames = SubResource("SpriteFrames_l0ltd")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=16350865]
@@ -83,10 +83,10 @@ position = Vector2(0, 17)
 shape = SubResource("CircleShape2D_l0ltd")
 
 [node name="projectile_spawn_point" type="Node2D" parent="." unique_id=1210361494]
-position = Vector2(-53, -20)
+position = Vector2(-82, -23)
 
 [node name="attack_timer" type="Timer" parent="." unique_id=1819661244]
-wait_time = 0.449
+wait_time = 0.9
 
 [node name="player_detector" type="RayCast2D" parent="." unique_id=159717559]
 target_position = Vector2(-900, 0)
