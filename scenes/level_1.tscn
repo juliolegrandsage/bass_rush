@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ypfumjx4fw0k" path="res://scenes/panel.tscn" id="6_15mv3"]
 [ext_resource type="PackedScene" uid="uid://befxwttone5jw" path="res://scenes/oduro.tscn" id="6_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://cvd2rmilu082o" path="res://scenes/dialogue_manager.tscn" id="6_pa8r4"]
-[ext_resource type="PackedScene" uid="uid://c2pdraswijai5" path="res://scenes/loot_chest.tscn" id="7_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://dtc1mmtlbybjm" path="res://scenes/ui.tscn" id="8_15mv3"]
+[ext_resource type="PackedScene" uid="uid://mh355lqmodug" path="res://scenes/heart.tscn" id="9_2y5yt"]
 [ext_resource type="PackedScene" uid="uid://byyiaiw84rh4x" path="res://scenes/space_cherub.tscn" id="9_e3sih"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xbjy"]
@@ -78,8 +78,6 @@ sources/0 = SubResource("TileSetAtlasSource_5xbjy")
 
 [node name="Level1" type="Node2D" unique_id=152215072]
 
-[node name="DialogueManager" parent="." unique_id=1902451503 instance=ExtResource("6_pa8r4")]
-
 [node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("2_rus8k")]
 position = Vector2(-308, 168)
 
@@ -121,19 +119,21 @@ new_cam = NodePath("../Camera2D2")
 [node name="panel" parent="." unique_id=2041662363 instance=ExtResource("6_15mv3")]
 z_index = -2
 position = Vector2(-123, 165)
-message = "A panel says: $n\"You can use your grapple with RT\""
+message = "A panel says : \"You can use your grapple with RT\""
 
 [node name="panel2" parent="." unique_id=147048207 instance=ExtResource("6_15mv3")]
 z_index = -2
 position = Vector2(138, 608)
 message = "A panel says: $n\"You can dash with LT\""
 
-[node name="LootChest" parent="." unique_id=95420115 instance=ExtResource("7_pa8r4")]
-position = Vector2(-291, 610)
-scale = Vector2(3.805, 3.805)
-
 [node name="CanvasLayer" parent="." unique_id=1079517282 instance=ExtResource("8_15mv3")]
+
+[node name="DialogueManager" parent="CanvasLayer" unique_id=1902451503 instance=ExtResource("6_pa8r4")]
+layer = 10
 
 [node name="SpaceCherub" parent="." unique_id=130952627 node_paths=PackedStringArray("player") instance=ExtResource("9_e3sih")]
 position = Vector2(-115, 519)
 player = NodePath("../CharacterBody2D")
+
+[node name="heart" parent="." unique_id=369458415 instance=ExtResource("9_2y5yt")]
+position = Vector2(-337, 591)

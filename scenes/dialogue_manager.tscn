@@ -1,56 +1,18 @@
 [gd_scene format=3 uid="uid://cvd2rmilu082o"]
 
 [ext_resource type="Script" uid="uid://bbmjuujp8yvq0" path="res://scripts/dialogue_manager.gd" id="1_516v5"]
-[ext_resource type="Texture2D" uid="uid://dua550xwr4ptc" path="res://assets/sprites/dialoguebubble.png" id="1_jbixp"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_516v5"]
+[ext_resource type="Texture2D" uid="uid://bn3wlehqws1ui" path="res://assets/sprites/bubble.png" id="2_516v5"]
 
 [sub_resource type="Animation" id="Animation_smvbx"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NinePatchRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(637, 1167)]
-}
 
 [sub_resource type="Animation" id="Animation_516v5"]
 resource_name = "clos_dialogue"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NinePatchRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(637, 600), Vector2(637, 1225)]
-}
 
 [sub_resource type="Animation" id="Animation_61474"]
 resource_name = "open_dialogue"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NinePatchRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 0.9659315),
-"update": 0,
-"values": [Vector2(637, 1167), Vector2(637, 600)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5hf3l"]
 _data = {
@@ -59,36 +21,55 @@ _data = {
 &"open_dialogue": SubResource("Animation_61474")
 }
 
-[node name="DialogueManager" type="CanvasLayer" unique_id=1902451503]
+[node name="DialogueManager" type="CanvasLayer" unique_id=1902451503 node_paths=PackedStringArray("label")]
+visible = false
 script = ExtResource("1_516v5")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1648089765]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -323.0
-offset_top = 87.0
-offset_right = -3.0
-offset_bottom = 223.00012
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2, 2)
-texture = ExtResource("1_jbixp")
-region_rect = Rect2(24, 0, 80, 64)
-
-[node name="Label" type="Label" parent="NinePatchRect" unique_id=1580106260]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 91.0
-offset_bottom = 26.0
-text = "aaaaaaaaaaaaaaaaaaaaa $n aaaaaaaaaaaaaaaaaaaaaaa"
-label_settings = SubResource("LabelSettings_516v5")
-paragraph_separator = "$n"
+new_text = "Mi bombo"
+wait_time = 0.1
+label = NodePath("MarginContainer/Control/Label")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=461896694]
 libraries/ = SubResource("AnimationLibrary_5hf3l")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=795888115]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = 190.0
+offset_right = 351.0
+offset_bottom = 505.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=1748581806]
+layout_mode = 2
+texture = ExtResource("2_516v5")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Control" type="Control" parent="MarginContainer" unique_id=555029363]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control" unique_id=988543909]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.99999
+offset_top = 22.0
+offset_right = 747.54553
+offset_bottom = 295.63635
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.44, 0.44)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 47
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
