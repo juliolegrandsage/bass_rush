@@ -130,6 +130,7 @@ message = "A panel says: $n\"You can dash with LT\""
 
 [node name="DialogueManager" parent="CanvasLayer" unique_id=1902451503 instance=ExtResource("6_pa8r4")]
 layer = 10
+wait_time = 0.05
 
 [node name="SpaceCherub" parent="." unique_id=130952627 node_paths=PackedStringArray("player") instance=ExtResource("9_e3sih")]
 position = Vector2(-115, 519)
