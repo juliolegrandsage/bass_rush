@@ -12,23 +12,31 @@ func _ready() -> void:
 	x_indicator.visible = false
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
-		if canInteract and not dialogue_box.visible:
-			show_dialogue_panel()			
-		elif dialogue_box.visible and canInteract and Engine.time_scale == 0:
-			dialogue_box.quit_dialogue()
-			Engine.time_scale = 1
+		if canInteract and dialogue_box.visible == false:
+			show_dialogue_panel()
+		elif canInteract and dialogue_box.visible == true:
+			quit_dialogue_panel()
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		canInteract = true
-		hasEnteredPanelZone = true
-		x_indicator.visible = true
-		print(canInteract)
+		dialogue_box.new_text = ""
+		dialogue_box.new_text = message
+		
 
-func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		canInteract = false
-		x_indicator.visible = false
+
 func show_dialogue_panel():
 	dialogue_box.new_text = ""
 	dialogue_box.new_text = message
 	dialogue_box.show_dialogue()
+
+func quit_dialogue_panel():
+	dialogue_box.new_text = ""
+	dialogue_box.new_text = message
+	dialogue_box.quit_dialogue()
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		canInteract = false
+		dialogue_box.new_text = ""
+		dialogue_box.new_text = message

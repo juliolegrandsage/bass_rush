@@ -21,3 +21,4 @@ func show_dialogue() -> void:
 func quit_dialogue():
 	visible = false
 	Engine.time_scale = 1
+	print("quiited")

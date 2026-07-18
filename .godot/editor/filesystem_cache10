@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1784218973
+::res://::1784385705
 enemy_projectile.gd::GDScript::4709756373500588504::1781231751::0::1::::<>CharacterBody2D<><>0<>0<><>::
 enemy_projectile.tscn::PackedScene::7365271805169563638::1781231751::0::1::::<><><>0<>0<><>::uid://calk0rebc3gb2::::res://icon.svg<>uid://b8do88je21hdw::::res://enemy_projectile.gd
 export_presets.cfg::TextFile::-1::1781231751::0::1::::<><><>0<>0<><>::
@@ -32,9 +32,10 @@ platforms.png::CompressedTexture2D::2400778502132764539::1781231751::1781231751:
 slime_green.png::CompressedTexture2D::5930283476639078320::1781231751::1781231751::1::::<><><>0<>0<>3bb9251c20ff149fd0154ab3e8247e94<>res://.godot/imported/slime_green.png-7537a22022111bb8764aa544858b4d35.ctex::
 slime_purple.png::CompressedTexture2D::402569250389923275::1781231751::1781231751::1::::<><><>0<>0<>ef5dcb6b534017edc53d6b06d8495b57<>res://.godot/imported/slime_purple.png-eba899fd7a6bf06f36da4e8018847f7c.ctex::
 world_tileset.png::CompressedTexture2D::1851775967374030894::1781231751::1781231751::1::::<><><>0<>0<>03cdd168e617c77471d3c3f802bc393f<>res://.godot/imported/world_tileset.png-e79a61bbddfb4c4d3adb9fd28f1e547f.ctex::
-::res://assets/sprites/::1783995153
+::res://assets/sprites/::1784352728
 alpha_tileset.png::CompressedTexture2D::344221768544865610::1781231751::1781231751::1::::<><><>0<>0<>69fb6ef98a63b4765f1eca5303d18bc1<>res://.godot/imported/alpha_tileset.png-220e585eeab1dd9dc87a97c41cbb29c3.ctex::
 bg.png::CompressedTexture2D::6398728625644162457::1781231751::1781231751::1::::<><><>0<>0<>1f93c06f8367e690c73cf3b0a14b08c9<>res://.godot/imported/bg.png-c77278129744470f7e66ac3bb62c4cd4.ctex::
+bg_lvl1.png::CompressedTexture2D::932377078611616895::1784352728::1784352728::1::::<><><>0<>0<>4165190bb221d1ccdb2ff6675a56850e<>res://.godot/imported/bg_lvl1.png-15b86def8bef34fa064f6bd699472b2c.ctex::
 bubble.png::CompressedTexture2D::3358033867339147720::1783995153::1783995153::1::::<><><>0<>0<>908b90678bbbcc0beb2b64c9fc5107b8<>res://.godot/imported/bubble.png-9b2731b7346f121ef1fc1a9c24d375f3.ctex::
 button_indicator_empty.png::CompressedTexture2D::6658162503109321690::1783694859::1783694859::1::::<><><>0<>0<>8dc1cf20794cdac81fd2963e1edf04c1<>res://.godot/imported/button_indicator_empty.png-e2bf663eae01baeaf5b7e09c713b8d04.ctex::
 button_indicator_filled.png::CompressedTexture2D::6138936713129349619::1783694859::1783694859::1::::<><><>0<>0<>c44beb3f5a9f1f9230bb86fbb8621389<>res://.godot/imported/button_indicator_filled.png-eb9306f2747ca38ace8fd3202a688d12.ctex::
@@ -71,7 +72,7 @@ bossglotte.png::CompressedTexture2D::5229221760456828546::1781231751::1781231751
 rocket.png::CompressedTexture2D::902789439586336188::1781231751::1781231751::1::::<><><>0<>0<>15735a2b10d0b5c1582bb412c1db69e0<>res://.godot/imported/rocket.png-44be6a46c9772883095b26d55a79fa26.ctex::
 ::res://Levels/::1781231751
 lvl1.tscn::PackedScene::8197816768923510657::1781231751::0::1::::<><><>0<>0<><>::uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://ba52sy6josyus::::res://scenes/enemy_template.tscn<>uid://pg4x3p6514no::::res://assets/sprites/Sprite-0002.png<>uid://c2pdraswijai5::::res://scenes/loot_chest.tscn<>uid://r876oh3iad8v::::res://scenes/ladder.tscn
-::res://scenes/::1784057241
+::res://scenes/::1784352906
 boss_1_warning.gd::GDScript::7995739249629257714::1781231751::0::1::::<>Sprite2D<><>0<>0<><>::
 boss_1_warning.tscn::PackedScene::3067909210564283940::1781231751::0::1::::<><><>0<>0<><>::uid://nxj42kbp3yjg::::res://assets/sprites/warning.png<>uid://dl6gwl1r4ibyo::::res://scenes/boss_1_warning.gd
 boss_2_controller.gd::GDScript::1113327062843732555::1781231751::0::1::::<>CharacterBody2D<><>0<>0<><>::
@@ -84,7 +85,7 @@ boss_3_rocket.tscn::PackedScene::2947364473512500449::1781231751::0::1::::<><><>
 boss_3_web.tscn::PackedScene::6518048709175579674::1781231751::0::1::::<><><>0<>0<><>::uid://d51hydrlw7qr::::res://scripts/boss_3_web.gd<>uid://calk0rebc3gb2::::res://icon.svg
 boss_health_bar.gd::GDScript::6430820073606440574::1781231751::0::1::::<>ProgressBar<><>0<>0<><>::
 boss_selection_menu_demo.tscn::PackedScene::7279962753675634966::1781231751::0::1::::<><><>0<>0<><>::uid://byy3h2rxnw01t::::res://scripts/boss_selection_menu_demo.gd
-dialogue_manager.tscn::PackedScene::6254670577514314384::1784057051::0::1::::<><><>0<>0<><>::uid://bbmjuujp8yvq0::::res://scripts/dialogue_manager.gd<>uid://bn3wlehqws1ui::::res://assets/sprites/bubble.png
+dialogue_manager.tscn::PackedScene::6254670577514314384::1784242295::0::1::::<><><>0<>0<><>::uid://bbmjuujp8yvq0::::res://scripts/dialogue_manager.gd<>uid://bn3wlehqws1ui::::res://assets/sprites/bubble.png
 enemy_template.tscn::PackedScene::2450024828287580778::1781231751::0::1::::<><><>0<>0<><>::uid://b74xl61w8yln4::::res://scripts/enemy_template.gd<>uid://cqqw5xhkmide3::::res://assets/brackeys_platformer_assets/sprites/slime_green.png
 explosion.tscn::PackedScene::5194518503944457001::1781231751::0::1::::<><><>0<>0<><>::uid://biatik8gnwsy5::::res://scripts/explosion.gd
 explosive_projectile.gd::GDScript::8099781708390596473::1781231751::0::1::::<>Projectile<><>0<>0<><>::
@@ -95,7 +96,7 @@ inventory_item.tscn::PackedScene::6130886248682710179::1781231751::0::1::::<><><
 inventory_system.tscn::PackedScene::7580408117357261222::1781231751::0::1::::<><><>0<>0<><>::uid://bsvctg33hvyh3::::res://scripts/inventory_system.gd<>uid://calk0rebc3gb2::::res://icon.svg<>uid://6mxexjisfv0d::::res://scenes/items/ammo_basic.tres<>uid://x2guc1cxgykw::::res://scripts/inventory_item.gd<>uid://bn3aw03yitdgk::::res://scenes/items/explosive_ammo.tres
 ladder.gd::GDScript::6695461949197302898::1781231751::0::1::::<>Area2D<><>0<>0<><>::
 ladder.tscn::PackedScene::1263333858533521859::1781231751::0::1::::<><><>0<>0<><>::uid://c2nljr1onnx6a::::res://scenes/ladder.gd<>uid://cslogqebhxo6l::::res://assets/sprites/ladder.png
-level_1.tscn::PackedScene::4428824481837426279::1784057241::0::1::::<><><>0<>0<><>::uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://cbtv2vd82tf6q::::res://assets/sprites/tileset2.png<>uid://dtajg8vp082yx::::res://scenes/level_transition.tscn<>uid://ypfumjx4fw0k::::res://scenes/panel.tscn<>uid://befxwttone5jw::::res://scenes/oduro.tscn<>uid://cvd2rmilu082o::::res://scenes/dialogue_manager.tscn<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://mh355lqmodug::::res://scenes/heart.tscn<>uid://byyiaiw84rh4x::::res://scenes/space_cherub.tscn
+level_1.tscn::PackedScene::4428824481837426279::1784352906::0::1::::<><><>0<>0<><>::uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://njwd5c8n6g84::::res://assets/sprites/bg_lvl1.png<>uid://cbtv2vd82tf6q::::res://assets/sprites/tileset2.png<>uid://dtajg8vp082yx::::res://scenes/level_transition.tscn<>uid://ypfumjx4fw0k::::res://scenes/panel.tscn<>uid://befxwttone5jw::::res://scenes/oduro.tscn<>uid://cvd2rmilu082o::::res://scenes/dialogue_manager.tscn<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://mh355lqmodug::::res://scenes/heart.tscn<>uid://byyiaiw84rh4x::::res://scenes/space_cherub.tscn
 level_transition.tscn::PackedScene::8493409014327962347::1783724404::0::1::::<><><>0<>0<><>::uid://bv7o3hsf7gbwc::::res://scripts/level_transition.gd
 loot_chest.gd::GDScript::5893335070227763902::1783967987::0::1::::<>StaticBody2D<><>0<>0<><>::
 loot_chest.tscn::PackedScene::6699118350215759286::1783968001::0::1::::<><><>0<>0<><>::uid://cp71mq6l476gg::::res://scenes/loot_chest.gd<>uid://efw0t88equk3::::res://assets/sprites/chest.png
@@ -103,7 +104,7 @@ oduro.gd::GDScript::5262512667432344607::1783723519::0::1::::<>CharacterBody2D<>
 oduro.tscn::PackedScene::2678934753263663024::1783723422::0::1::::<><><>0<>0<><>::uid://x6p4wumpvpqm::::res://assets/sprites/oduro.png<>uid://cg8g2x4ylkrtv::::res://scenes/oduro.gd
 oduro_projectile.gd::GDScript::3869941099663381541::1781757019::0::1::::<>CharacterBody2D<><>0<>0<><>::
 oduro_projectile.tscn::PackedScene::8354382840665722756::1781757027::0::1::::<><><>0<>0<><>::uid://bvevmnmsp8tir::::res://scenes/oduro_projectile.gd<>uid://calk0rebc3gb2::::res://icon.svg
-panel.tscn::PackedScene::1715837859733036876::1784057020::0::1::::<><><>0<>0<><>::uid://c58suwktqeyft::::res://assets/sprites/panneau.png<>uid://huxqo6j6tbvb::::res://scripts/panel.gd<>uid://c14i708s4om0y::::res://assets/sprites/button_indicator_empty.png<>uid://ctp0njyipso3d::::res://assets/sprites/button_indicator_filled.png
+panel.tscn::PackedScene::1715837859733036876::1784243061::0::1::::<><><>0<>0<><>::uid://c58suwktqeyft::::res://assets/sprites/panneau.png<>uid://huxqo6j6tbvb::::res://scripts/panel.gd<>uid://c14i708s4om0y::::res://assets/sprites/button_indicator_empty.png<>uid://ctp0njyipso3d::::res://assets/sprites/button_indicator_filled.png
 phase2_proto_boss_hand.tscn::PackedScene::5620498364137012860::1781231751::0::1::::<><><>0<>0<><>::uid://dbt8uln8tleet::::res://scenes/proto_boss_hand.tscn
 player.tscn::PackedScene::3651653707260440839::1781231751::0::1::::<><><>0<>0<><>::uid://bt8fkpmt8nsqe::::res://scripts/player.gd<>uid://daom51no64avh::::res://assets/sprites/jeff spritesheet.png<>uid://cnu1b8mmup8u8::::res://scripts/grapple_controller.gd
 player_health_bar.gd::GDScript::136583967755980599::1781231751::0::1::::<>ProgressBar<><>0<>0<><>::
@@ -132,7 +133,7 @@ boss_sprite.gd::GDScript::6448335491415261647::1781231751::0::1::::<>Sprite2D<><
 ::res://scenes/items/::1781231751
 ammo_basic.tres::Resource/Item::2202031542165021617::1781231751::0::1::::<><><>0<>0<><>::uid://c857kawo04nby::::res://assets/sprites/slash.png<>uid://x2guc1cxgykw::::res://scripts/inventory_item.gd
 explosive_ammo.tres::Resource/Item::3356718873007272058::1781231751::0::1::::<><><>0<>0<><>::uid://calk0rebc3gb2::::res://icon.svg<>uid://x2guc1cxgykw::::res://scripts/inventory_item.gd
-::res://scripts/::1784057232
+::res://scripts/::1784243060
 boss_2_projectile.gd::GDScript::2320606164796518932::1781231751::0::1::::<>CharacterBody2D<><>0<>0<><>::
 boss_3_controller.gd::GDScript::1829247065261073982::1781231751::0::1::::<>CharacterBody2D<><>0<>0<><>::
 boss_3_projectile.gd::GDScript::5325596386635930373::1781231751::0::1::::<>RigidBody2D<><>0<>0<><>::
@@ -141,7 +142,7 @@ boss_hand_spawner.gd::GDScript::5394660329632499809::1781231751::0::1::::<>Node2
 boss_selection_menu_demo.gd::GDScript::4122212018913518731::1781231751::0::1::::<>Control<><>0<>0<><>::
 camera_shake.gd::GDScript::1542176726685894620::1781231751::0::1::::<>Camera2D<><>0<>0<><>::
 demo_boss_controller.gd::GDScript::3187174135142677609::1781231751::0::1::::<>Node2D<><>0<>0<><>::
-dialogue_manager.gd::GDScript::2481965294289688061::1784057232::0::1::::<>CanvasLayer<><>0<>0<><>::
+dialogue_manager.gd::GDScript::2481965294289688061::1784242848::0::1::::<>CanvasLayer<><>0<>0<><>::
 enemy_template.gd::GDScript::4693748438977857555::1781231751::0::1::::<>CharacterBody2D<><>0<>0<><>::
 explosion.gd::GDScript::2949099918514080534::1781231751::0::1::::<>Area2D<><>0<>0<><>::
 grapple_controller.gd::GDScript::5728166069748439557::1781231751::0::1::::<>Node2D<><>0<>0<><>::
@@ -150,7 +151,7 @@ heart.gd::GDScript::5119679609198714509::1783968651::0::1::::<>Area2D<><>0<>0<><
 inventory_item.gd::GDScript::1670481766202541098::1781231751::0::1::::Item<>Resource<><>0<>0<><>::
 inventory_system.gd::GDScript::3693327525759689346::1781231751::0::1::::<>Node<><>0<>0<><>::
 level_transition.gd::GDScript::3927346924089869634::1783724275::0::1::::<>Area2D<><>0<>0<><>::
-panel.gd::GDScript::534035307750462007::1784057221::0::1::::<>Area2D<><>0<>0<><>::
+panel.gd::GDScript::534035307750462007::1784243060::0::1::::<>Area2D<><>0<>0<><>::
 player.gd::GDScript::3788455428898379844::1783695302::0::1::::<>CharacterBody2D<><>0<>0<><>::
 projectile.gd::GDScript::1136985696803018522::1781231751::0::1::::Projectile<>CharacterBody2D<><>0<>0<><>::
 space_cherub.gd::GDScript::2107225325586709699::1784056022::0::1::::<>CharacterBody2D<><>0<>0<><>::
