@@ -6,7 +6,7 @@ extends StaticBody2D
 @export var loot = preload("res://scenes/health_giver.tscn")
 
 func _ready() -> void:
-	add_to_group("enemies")
+	pass
 
 func take_damage(damage):
 	health -= damage

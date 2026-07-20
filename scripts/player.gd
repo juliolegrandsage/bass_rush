@@ -5,6 +5,9 @@ extends CharacterBody2D
 @onready var projectile_spawn_point = $ProjectileSpawnPoint
 @onready var hp_bar = $"../CanvasLayer/Control/Label2"
 
+
+var config_save_file = "user://save.cfg"
+
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 
@@ -30,8 +33,6 @@ func _ready() -> void:
 	elif sprite.flip_h == false:
 		projectile_spawn_point.position.x = 40
 	collision_mask = 1
-
-
 func _process(delta: float) -> void:
 	if health <= 0:
 		die()
@@ -127,3 +128,6 @@ func take_boss_3_web_attack():
 
 func _on_paralysis_timer_timeout() -> void:
 	is_paralyzed = false
+	
+
+	

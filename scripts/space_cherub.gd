@@ -18,8 +18,7 @@ func _ready() -> void:
 	$AnimationPlayer.play("idle")
 
 func _physics_process(delta: float) -> void:
-	
-	print(player.global_position.distance_to(global_position))
+
 	if player.global_position.distance_to(global_position) < 200:
 		can_attack = true
 	
