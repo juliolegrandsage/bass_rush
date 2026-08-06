@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var projectile_spawn_point = $ProjectileSpawnPoint
 @onready var hp_bar = $"../CanvasLayer/Control/Label2"
 
+@onready var anim_player = $"AnimationPlayer"
 
 var config_save_file = "user://save.cfg"
 
@@ -52,6 +53,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or gc.launched):
 		velocity.y += JUMP_VELOCITY
+		anim_player.play("jump_scale_update")
 		gc.retract()
 			# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
