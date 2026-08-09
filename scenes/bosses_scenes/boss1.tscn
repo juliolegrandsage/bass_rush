@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://cpf2v6buvphoi"]
 
+[ext_resource type="Script" uid="uid://b241j4osjuiim" path="res://scenes/bosses_scenes/boss_1_scene_script.gd" id="1_ksx06"]
 [ext_resource type="PackedScene" uid="uid://bsa5g5yq0d1dr" path="res://scenes/player.tscn" id="1_r5mel"]
 [ext_resource type="Script" uid="uid://v8bopy5fm3lg" path="res://scripts/camera_shake.gd" id="2_jksfp"]
+[ext_resource type="Texture2D" uid="uid://cjxab5bsxjmnb" path="res://assets/sprites/background_pattern.png" id="3_ksx06"]
 [ext_resource type="Texture2D" uid="uid://njwd5c8n6g84" path="res://assets/sprites/bg_lvl1.png" id="3_phlx0"]
 [ext_resource type="PackedScene" uid="uid://dtc1mmtlbybjm" path="res://scenes/ui.tscn" id="4_1ngao"]
 [ext_resource type="Texture2D" uid="uid://cbtv2vd82tf6q" path="res://assets/sprites/tileset2.png" id="4_ksx06"]
@@ -9,8 +11,25 @@
 [ext_resource type="Script" uid="uid://ci4hjdghrd5r6" path="res://scripts/boss_hand_spawner.gd" id="6_wrg7j"]
 [ext_resource type="Script" uid="uid://bln5j67w7jl26" path="res://scripts/demo_boss_controller.gd" id="7_lrumy"]
 [ext_resource type="Texture2D" uid="uid://bnl1m60fn7qc4" path="res://assets/sprites/boss_sprites/boss1.png" id="8_37n7o"]
-[ext_resource type="Texture2D" uid="uid://cxfuejgrw5iaj" path="res://assets/sprites/bg.png" id="8_bgejt"]
 [ext_resource type="Script" uid="uid://cx4ve42mxa2m2" path="res://scenes/bosses_scenes/boss_sprite.gd" id="9_bgejt"]
+[ext_resource type="Texture2D" uid="uid://dnwumwbgiwwxg" path="res://assets/sprites/explosion.png" id="13_lxpn0"]
+[ext_resource type="PackedScene" uid="uid://3ww3rryxamjb" path="res://scenes/transition_screen.tscn" id="14_i7pjh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yuh76"]
+texture = ExtResource("3_ksx06")
+texture_region_size = Vector2i(64, 64)
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+3:0/0 = 0
+2:0/0 = 0
+1:0/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_r1v1j"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_yuh76")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lxpn0"]
 texture = ExtResource("3_phlx0")
@@ -24,78 +43,6 @@ texture_region_size = Vector2i(64, 64)
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, 10.725006, -6.7736893)
 5:0/0 = 0
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -0.5644684, -1.6934242, 32, 32, -32, 32)
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
-16:0/0 = 0
-17:0/0 = 0
-18:0/0 = 0
-19:0/0 = 0
-20:0/0 = 0
-21:0/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-14:1/0 = 0
-15:1/0 = 0
-18:1/0 = 0
-19:1/0 = 0
-20:1/0 = 0
-21:1/0 = 0
-22:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-14:2/0 = 0
-15:2/0 = 0
-19:2/0 = 0
-20:2/0 = 0
-21:2/0 = 0
-22:2/0 = 0
-23:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-14:3/0 = 0
-15:3/0 = 0
-19:3/0 = 0
-20:3/0 = 0
-21:3/0 = 0
-22:3/0 = 0
-23:3/0 = 0
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.6447372, -6.7736893, 32, -32, 32, 32, -32, 32)
 1:0/0 = 0
@@ -109,16 +56,132 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lxpn0")
 sources/1 = SubResource("TileSetAtlasSource_i7pjh")
 
+[sub_resource type="Animation" id="Animation_i7pjh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(261, 265)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_37n7o")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:texture:atlas:atlas")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_lxpn0")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 64, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_yuh76"]
+resource_name = "death"
+length = 1.52
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.050940275, 0.08150444, 0.13244471, 0.15485844, 0.20579872, 0.23840049, 0.28934076, 0.33009297, 0.38103324, 0.39937174, 0.45031202, 0.47272575, 0.523666, 0.56645584, 0.6173961, 0.67648685, 0.7274271, 0.80689394, 0.8578342),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.88228554, 0.9013911, 0.9414161, 1.4418631),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_37n7o"), ExtResource("8_37n7o"), ExtResource("13_lxpn0"), ExtResource("13_lxpn0"), null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:texture:atlas:atlas")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.93333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_lxpn0")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.90193194, 0.9023648, 1.0666667, 1.2666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 64, 64), Rect2(0, 0, 64, 64), Rect2(64, 0, 64, 64), Rect2(128, 0, 64, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f23rf"]
+_data = {
+&"RESET": SubResource("Animation_i7pjh"),
+&"death": SubResource("Animation_yuh76")
+}
+
 [node name="PrototypeScene" type="Node2D" unique_id=200160628]
+script = ExtResource("1_ksx06")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1668563250 groups=["camera"]]
+position = Vector2(273, 379)
+zoom = Vector2(3.33, 3.33)
+position_smoothing_enabled = true
+script = ExtResource("2_jksfp")
 
 [node name="Player" parent="." unique_id=1352397146 instance=ExtResource("1_r5mel")]
 position = Vector2(273, 379)
 slide_on_ceiling = false
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1668563250 groups=["camera"]]
-zoom = Vector2(3.33, 3.33)
-position_smoothing_enabled = true
-script = ExtResource("2_jksfp")
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1868635718]
+z_index = -99
+tile_map_data = PackedByteArray("AAAAAAMAAAAHAAAAAAABAAMAAAAHAAAAAAACAAMAAAAHAAAAAAADAAMAAAAHAAAAAAAEAAMAAAAHAAAAAAAFAAMAAAAHAAAAAAAGAAMAAAAHAAAAAAAHAAMAAAAHAAAAAAAIAAMAAAAHAAAAAAAIAAcAAAAHAAAAAAAHAAcAAAAHAAAAAAAGAAcAAAAHAAAAAAAFAAcAAAAHAAAAAAAEAAcAAAAHAAAAAAADAAcAAAAHAAAAAAACAAcAAAAHAAAAAAABAAcAAAAHAAAAAAAAAAcAAAAHAAAAAAAAAAYAAAADAAAAAAABAAYAAAADAAAAAAACAAYAAAADAAAAAAADAAYAAAADAAAAAAAEAAYAAAADAAAAAAAFAAYAAAADAAAAAAAGAAYAAAADAAAAAAAHAAYAAAADAAAAAAAIAAYAAAADAAAAAAAAAAQAAAAHAAAAAAAAAAUAAAAHAAAAAAABAAUAAAAHAAAAAAACAAQAAAAHAAAAAAACAAUAAAAHAAAAAAABAAQAAAAHAAAAAAADAAQAAAAHAAAAAAADAAUAAAAHAAAAAAAEAAUAAAAHAAAAAAAEAAQAAAAHAAAAAAAFAAQAAAAHAAAAAAAFAAUAAAAHAAAAAAAGAAUAAAAHAAAAAAAGAAQAAAAHAAAAAAAHAAUAAAAHAAAAAAAHAAQAAAAHAAAAAAAIAAQAAAAHAAAAAAAIAAUAAAAHAAAAAAA=")
+tile_set = SubResource("TileSet_r1v1j")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=307596507 groups=["tilemap"]]
 tile_map_data = PackedByteArray("AAAIAAgAAQABAAAAAAAHAAgAAQABAAAAAAAGAAgAAQADAAAAAAAFAAgAAQABAAAAAAAEAAgAAQABAAAAAAADAAgAAQABAAAAAAACAAgAAQABAAAAAAABAAgAAQABAAAAAAAAAAgAAQABAAAAAAD//wgAAQABAAAAAAD//wcAAQABAAAAAAD//wYAAQABAAAAAAD//wUAAQADAAAAAAD//wQAAQABAAAAAAD//wMAAQABAAAAAAD//wIAAQABAAAAAAAAAAIAAQABAAAAAAABAAIAAQABAAAAAAACAAIAAQABAAAAAAADAAIAAQABAAAAAAAEAAIAAQABAAAAAAAFAAIAAQABAAAAAAAGAAIAAQABAAAAAAAHAAIAAQABAAAAAAAIAAIAAQABAAAAAAAJAAIAAQABAAAAAAAJAAMAAQABAAAAAAAJAAQAAQABAAAAAAAJAAUAAQABAAAAAAAJAAYAAQABAAAAAAAJAAcAAQABAAAAAAAJAAgAAQABAAAAAAAIAAcAAQAAAAAAAAAAAAcAAQAFAAAAAAAAAAMAAQACAAAAAAAIAAMAAQAEAAAAAAA=")
@@ -146,23 +209,20 @@ autostart = true
 [node name="demo_boss_controller" type="Node2D" parent="." unique_id=1793319790]
 script = ExtResource("7_lrumy")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=602688020]
-scale = Vector2(2.21, 2.21)
-transform = Transform2D(2.21, 0, 0, 2.21, 0, 0)
-scroll_ignore_camera_zoom = true
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground" unique_id=1785757972]
-position = Vector2(-2.0000305, -3.0000305)
-scale = Vector2(3.015, 3.015)
-texture = ExtResource("8_bgejt")
-centered = false
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=47108434]
 z_index = -2
 position = Vector2(261, 265)
 scale = Vector2(0.345, 0.345)
 texture = ExtResource("8_37n7o")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
 script = ExtResource("9_bgejt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=2094359877]
+libraries/ = SubResource("AnimationLibrary_f23rf")
+
+[node name="Timer2" type="Timer" parent="Sprite2D" unique_id=1462856833]
+one_shot = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1345161684]
 wait_time = 2.0
@@ -170,6 +230,10 @@ wait_time = 2.0
 [node name="spawn_point" type="Node2D" parent="." unique_id=860085664]
 position = Vector2(0, 240)
 
+[node name="CanvasLayer2" parent="." unique_id=1046878331 instance=ExtResource("14_i7pjh")]
+level_file = "res://scenes/boss_selection_menu_demo.tscn"
+
 [connection signal="timeout" from="boss_hand_spawner/Timer" to="boss_hand_spawner" method="_on_timer_timeout"]
 [connection signal="switch_phase" from="demo_boss_controller" to="Player" method="_on_boss_switch_phase"]
+[connection signal="timeout" from="Sprite2D/Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
