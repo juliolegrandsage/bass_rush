@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var projectile = preload("res://scenes/projectile.tscn")
 @onready var projectile_spawn_point = $ProjectileSpawnPoint
 @onready var hp_bar = $"../CanvasLayer/Control/Label2"
-
+@onready var collider = $CollisionShape2D
 @onready var anim_player = $"AnimationPlayer"
 
 var config_save_file = "user://save.cfg"
@@ -15,7 +15,6 @@ const JUMP_VELOCITY = -300.0
 const GRAPPLE_ACCELERATION = 0.1
 
 @export var is_paralyzed = false
-
 @export var health = 20
 var max_health = 20
 
@@ -25,8 +24,11 @@ var on_ladder := false
 
 const DASH_SPEED = 900
 var dashing = false
+var jumping = false
 
 @export var is_interacting = false
+
+var is_crouched = false
 
 func _ready() -> void:
 	if sprite.flip_h == true:
@@ -42,10 +44,17 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("dash") and !is_on_floor():
 		dashing = true
 		$DashTimer.start()
+		
+		# Character crouch system
+	
+	if !is_interacting:
+		if Input.is_action_pressed("ui_down"):
+			is_crouched = true
+		elif Input.is_action_just_released("ui_down"):
+			is_crouched = false
 
 
 func _physics_process(delta: float) -> void:
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -53,8 +62,10 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or gc.launched):
 		velocity.y += JUMP_VELOCITY
-		anim_player.play("jump_scale_update")
 		gc.retract()
+
+
+			
 			# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -66,7 +77,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-
+	
 	
 	if !is_paralyzed:
 		move_and_slide()
@@ -74,7 +85,7 @@ func _physics_process(delta: float) -> void:
 
 	
 	# Flip the character's sprite when it turns left
-	if !is_interacting:
+	if !is_interacting and not is_crouched:
 		if velocity.x < 0:
 			sprite.flip_h = true
 			projectile_spawn_point.position.x = -40
@@ -83,10 +94,28 @@ func _physics_process(delta: float) -> void:
 			sprite.flip_h = false
 			projectile_spawn_point.position.x = 40
 			sprite.animation = "walk"
+		elif velocity.y != 0:
+			sprite.animation = "jump"
 		else: 
 			sprite.animation = "idle"
 
-
+	# play crouch animations
+	if is_crouched and velocity.x == 0:
+		sprite.play("crouch_idle")
+	elif is_crouched and velocity.x != 0:
+		sprite.play("crouch_walk")
+		if velocity.x < 0:
+			sprite.flip_h = true
+		elif velocity.x > 0:
+			sprite.flip_h = false
+	
+	# change collision shape scale on the Y axis when crouched
+	if is_crouched:
+		collider.scale.y = 0.5
+		collider.position.y = 15
+	else:
+		collider.scale.y = 1
+		collider.position.y = 0
 	
 	if Input.is_action_just_pressed("shoot"):
 		if !is_interacting:
