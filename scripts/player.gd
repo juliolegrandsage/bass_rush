@@ -3,10 +3,11 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var projectile = preload("res://scenes/projectile.tscn")
 @onready var projectile_spawn_point = $ProjectileSpawnPoint
+@onready var projectile_spawn_point_crouched = $ProjectileSpawnPoint_crouched
 @onready var hp_bar = $"../CanvasLayer/Control/Label2"
 @onready var collider = $CollisionShape2D
 @onready var anim_player = $"AnimationPlayer"
-
+@onready var particle_emitter = $GPUParticles2D
 var config_save_file = "user://save.cfg"
 
 const SPEED = 200.0
@@ -29,7 +30,7 @@ var jumping = false
 @export var is_interacting = false
 
 var is_crouched = false
-
+var dash_up_counter = 0
 func _ready() -> void:
 	if sprite.flip_h == true:
 		projectile_spawn_point.position.x = -40
@@ -40,11 +41,17 @@ func _process(delta: float) -> void:
 	if health <= 0:
 		die()
 	
-
 	if Input.is_action_just_pressed("dash") and !is_on_floor():
 		dashing = true
 		$DashTimer.start()
-		
+		particle_emitter.emitting = true
+		if particle_emitter.emitting == true:
+			sprite.visible = false
+		elif particle_emitter.emitting == false:
+			sprite.visible = true
+			
+
+	
 		# Character crouch system
 	
 	if !is_interacting:
@@ -58,7 +65,6 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or gc.launched):
 		velocity.y += JUMP_VELOCITY
@@ -76,9 +82,15 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	
 	
+	
+	if dashing and velocity.x == 0 and dash_up_counter == 0:
+		velocity.y = -DASH_SPEED / 2
+		dash_up_counter += 1	
+	
+	if is_on_floor() and dash_up_counter != 0:
+		dash_up_counter = 0		
 	if !is_paralyzed:
 		move_and_slide()
 
@@ -89,16 +101,18 @@ func _physics_process(delta: float) -> void:
 		if velocity.x < 0:
 			sprite.flip_h = true
 			projectile_spawn_point.position.x = -40
+			projectile_spawn_point_crouched.position.x = -40
 			sprite.animation = "walk"
 		elif velocity.x > 0:
 			sprite.flip_h = false
 			projectile_spawn_point.position.x = 40
+			projectile_spawn_point_crouched.position.x = 40
 			sprite.animation = "walk"
 		elif velocity.y != 0:
 			sprite.animation = "jump"
 		else: 
 			sprite.animation = "idle"
-
+		sprite.play()
 	# play crouch animations
 	if is_crouched and velocity.x == 0:
 		sprite.play("crouch_idle")
@@ -106,8 +120,11 @@ func _physics_process(delta: float) -> void:
 		sprite.play("crouch_walk")
 		if velocity.x < 0:
 			sprite.flip_h = true
+			projectile_spawn_point_crouched.position.x = -40
 		elif velocity.x > 0:
 			sprite.flip_h = false
+			projectile_spawn_point_crouched.position.x = 40
+
 	
 	# change collision shape scale on the Y axis when crouched
 	if is_crouched:
@@ -116,7 +133,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		collider.scale.y = 1
 		collider.position.y = 0
-	
+
 	if Input.is_action_just_pressed("shoot"):
 		if !is_interacting:
 			shoot()
@@ -124,20 +141,27 @@ func _physics_process(delta: float) -> void:
 
 func shoot():
 	var bullet = projectile.instantiate()
-	
-	bullet.global_position = projectile_spawn_point.global_position
-	if $AnimatedSprite2D.flip_h == true:
-		bullet.direction = -1
-		bullet.get_node("Sprite2D").flip_h = false
-	elif $AnimatedSprite2D.flip_h == false:
-		bullet.direction = 1
-		bullet.get_node("Sprite2D").flip_h = true
+	if is_crouched == false:
+		bullet.global_position = projectile_spawn_point.global_position
+		if $AnimatedSprite2D.flip_h == true:
+			bullet.direction = -1
+			bullet.get_node("Sprite2D").flip_h = false
+		elif $AnimatedSprite2D.flip_h == false:
+			bullet.direction = 1
+			bullet.get_node("Sprite2D").flip_h = true
+	if is_crouched == true:
+		bullet.global_position = projectile_spawn_point_crouched.global_position
+		if $AnimatedSprite2D.flip_h == true:
+			bullet.direction = -1
+			bullet.get_node("Sprite2D").flip_h = false
+		elif $AnimatedSprite2D.flip_h == false:
+			bullet.direction = 1
+			bullet.get_node("Sprite2D").flip_h = true
 
 	
 	get_parent().add_child(bullet)
 	
 func die():
-	print("joueur mort")
 	get_tree().reload_current_scene()
 	
 func take_damage(damage):
@@ -148,8 +172,8 @@ func take_damage(damage):
 
 func _on_dash_timer_timeout() -> void:
 	dashing = false
-
-
+	sprite.visible = true
+	particle_emitter.emitting = false
 func _on_boss_switch_phase() -> void:
 	health = max_health
 

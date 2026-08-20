@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bt8fkpmt8nsqe" path="res://scripts/player.gd" id="2_onrkg"]
 [ext_resource type="Texture2D" uid="uid://dg6c86v1r8rg8" path="res://assets/sprites/player.png" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://cnu1b8mmup8u8" path="res://scripts/grapple_controller.gd" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://11lxu084uer7" path="res://assets/sprites/dash_particle.png" id="4_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_qhqgy")
@@ -80,7 +81,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 2.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_tuyoq")
 }, {
 "duration": 1.0,
@@ -149,22 +150,31 @@ _data = {
 &"jump_scale_update": SubResource("Animation_dqkch")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qwiki"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+inherit_velocity_ratio = 0.48
+initial_velocity_min = -64.2
+initial_velocity_max = 177.2
+gravity = Vector3(0, 0, 0)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=584086009 groups=["player"]]
 collision_layer = 9
 script = ExtResource("2_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1501479359]
 sprite_frames = SubResource("SpriteFrames_qwiki")
-animation = &"crouch_walk"
+animation = &"crouch_idle"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.8920055
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1615213390]
 shape = SubResource("RectangleShape2D_qhqgy")
 
 [node name="ProjectileSpawnPoint" type="Node2D" parent="." unique_id=230220090]
 position = Vector2(24, 2)
+
+[node name="ProjectileSpawnPoint_crouched" type="Node2D" parent="." unique_id=1642315069]
+position = Vector2(24, 17)
 
 [node name="GrappleController" type="Node2D" parent="." unique_id=1384406839]
 script = ExtResource("3_i3pqv")
@@ -203,6 +213,19 @@ libraries/ = SubResource("AnimationLibrary_qlg0r")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1689140632]
 libraries/ = SubResource("AnimationLibrary_qlg0r")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=440953535]
+emitting = false
+texture = ExtResource("4_dqkch")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.44
+randomness = 0.3
+interpolate = false
+fract_delta = false
+collision_base_size = 0.0
+draw_order = 2
+process_material = SubResource("ParticleProcessMaterial_qwiki")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="paralysis_timer" to="." method="_on_paralysis_timer_timeout"]

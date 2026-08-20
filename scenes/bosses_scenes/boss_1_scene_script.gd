@@ -5,11 +5,12 @@ extends Node2D
 
 @onready var boss_controller = $demo_boss_controller
 
+@onready var player = $Player
+
 var is_camera_zoomed_on_boss = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	player.scale = Vector2(0.5, 0.5)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

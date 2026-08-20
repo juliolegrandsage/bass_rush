@@ -28,8 +28,9 @@ func _physics_process(delta: float) -> void:
 		if player != null:
 			velocity = target_pos * SPEED
 			$AnimationPlayer.play("RESET")
-			if player.global_position.distance_to(global_position) <= 70:
+			if player.global_position.distance_to(global_position) <= 90:
 				if has_exploded == false:
+					velocity = Vector2.ZERO
 					has_exploded = true
 					$explode_timer.start()
 
