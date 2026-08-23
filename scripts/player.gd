@@ -5,6 +5,10 @@ extends CharacterBody2D
 @onready var projectile_spawn_point = $ProjectileSpawnPoint
 @onready var hp_bar = $"../CanvasLayer/Control/Label2"
 
+@onready var anim_player = $"AnimationPlayer"
+
+var config_save_file = "user://save.cfg"
+
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 
@@ -30,8 +34,6 @@ func _ready() -> void:
 	elif sprite.flip_h == false:
 		projectile_spawn_point.position.x = 40
 	collision_mask = 1
-
-
 func _process(delta: float) -> void:
 	if health <= 0:
 		die()
@@ -51,6 +53,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or gc.launched):
 		velocity.y += JUMP_VELOCITY
+		anim_player.play("jump_scale_update")
 		gc.retract()
 			# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -127,3 +130,6 @@ func take_boss_3_web_attack():
 
 func _on_paralysis_timer_timeout() -> void:
 	is_paralyzed = false
+	
+
+	

@@ -1,25 +1,24 @@
 extends CanvasLayer
 
-@export var dialogue = "Test message"
-@onready var label = $NinePatchRect/Label
-@export var voice = null
+@export var new_text : String
+@export var wait_time : float
 
-func _ready() -> void:
-	visible = false
+@export var label : Label
 
+
+	
 func _process(delta: float) -> void:
-	label.text = dialogue	
-
+	pass
 func show_dialogue() -> void:
+	label.text = ""
 	visible = true
-	$AnimationPlayer.play("open_dialogue")
-	print("dialogue")
+
+	Engine.time_scale = 0
+	for i in new_text:
+		label.text += i
+		await get_tree().create_timer(wait_time, true, false, true).timeout
 
 func quit_dialogue():
+	visible = false
 	Engine.time_scale = 1
-	$AnimationPlayer.play("clos_dialogue")
-
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if(anim_name == "open_dialogue"):
-		Engine.time_scale = 0
+	print("quiited")
