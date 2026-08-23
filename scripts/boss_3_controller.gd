@@ -1,6 +1,3 @@
-# A FAIRE : rajouter des annonces pour les attaques + animations des pattes de l'araignée
-
-
 extends CharacterBody2D
 
 var speed = 350
