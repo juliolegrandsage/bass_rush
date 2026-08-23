@@ -2,7 +2,7 @@ res://Levels/lvl1.tscn::48332dc9786b6cf2a3e2042df30f9df8::1781231751::res://.god
 res://scenes/enemy_template.tscn::899b55a767bde229047a500001b0c3af::1781231751::res://.godot/exported/133200997/export-0042a31e4dfbc043967da6033e8626c5-enemy_template.scn
 res://scenes/ladder.tscn::c224687f907c963ef3deffde76e89e54::1781231751::res://.godot/exported/133200997/export-ccee5f233e89c192c1c7880cf7b4d226-ladder.scn
 res://scenes/player.tscn::4e0cf3a9b859b42eade395b28e4f0525::1787183104::res://.godot/exported/133200997/export-234fb6894ec6226e856ab7f825500d3d-player.scn
-res://scenes/projectile.tscn::664a70bdbe47f66c43ef131db17c32ff::1782726868::res://.godot/exported/133200997/export-a882d3c243bffac1c7822c1c45b18505-projectile.scn
+res://scenes/projectile.tscn::115c613d34e1bc26be461e71d7f9328c::1787271143::res://.godot/exported/133200997/export-a882d3c243bffac1c7822c1c45b18505-projectile.scn
 res://scenes/prototype_scene.tscn::c15fbcdd515deaca0e92074e630982cd::1781231751::res://.godot/exported/133200997/export-533b8171fb50257f3bee54fbe6295644-prototype_scene.scn
 res://scenes/proto_boss_hand.tscn::7b1fdcbff9fa56b8448968ead20b36f0::1781231751::res://.godot/exported/133200997/export-e79dd9cec9225c5f957a75798bca4ddb-proto_boss_hand.scn
 res://scenes/shooting_enemy.tscn::938fa2abcf6ea3f4cc60820d78f766f2::1781231751::res://.godot/exported/133200997/export-fa66ed1f23b10c00c1d80515fa842f97-shooting_enemy.scn
@@ -32,12 +32,12 @@ res://scenes/boss_3_rocket.tscn::3f3e1fcaa5599ec41c10e94dd3b83e56::1781231751::r
 res://scenes/boss_transition.tscn::084308335e694f16c2de3c8dd78ff38b::1786371872::res://.godot/exported/133200997/export-390726e26b96a114e536722aaad68a23-boss_transition.scn
 res://scenes/dialogue_manager.tscn::7049fca3c44e2ebe2def55033397aea7::1784242295::res://.godot/exported/133200997/export-f01acd414d4c3ce7b49824aa6eaa26dc-dialogue_manager.scn
 res://scenes/heart.tscn::638991e522201c68ea90775bb838126e::1783968706::res://.godot/exported/133200997/export-79edeac40d592684e55ba74036767dc5-heart.scn
-res://scenes/level_1.tscn::9acf43c282f39f6529151a0f4d77e359::1787184421::res://.godot/exported/133200997/export-6887eba858c6ae48b5ca13a7525fa2f9-level_1.scn
+res://scenes/level_1.tscn::9acf43c282f39f6529151a0f4d77e359::1787271254::res://.godot/exported/133200997/export-6887eba858c6ae48b5ca13a7525fa2f9-level_1.scn
 res://scenes/level_transition.tscn::8f292ac5ee14c63e9814531d4747a0b1::1783724404::res://.godot/exported/133200997/export-23005b89bff0adec6ef9d0ebeb48b294-level_transition.scn
-res://scenes/oduro.tscn::df795442f0409fc110ddf82faf4d525b::1783723422::res://.godot/exported/133200997/export-6737c440082f8445a9a2f84ef90b2531-oduro.scn
+res://scenes/oduro.tscn::df795442f0409fc110ddf82faf4d525b::1787270891::res://.godot/exported/133200997/export-6737c440082f8445a9a2f84ef90b2531-oduro.scn
 res://scenes/oduro_projectile.tscn::d23832fb5146036f1fda43b03434f042::1781757027::res://.godot/exported/133200997/export-af86b0f6a4a4082b267fbc68635b5e5f-oduro_projectile.scn
 res://scenes/panel.tscn::6e1758500dd4aee20386f9a56fa9c862::1786910915::res://.godot/exported/133200997/export-0b3f27b0e515ee141de22e3ec6d6e255-panel.scn
-res://scenes/space_cherub.tscn::bcf87348622cc8f585ab6bc67ffbb2d4::1786748383::res://.godot/exported/133200997/export-01656c6da0b877028e94aa3c229c756d-space_cherub.scn
+res://scenes/space_cherub.tscn::1c8b73a3a3ffac359d82a49aef24d420::1787270143::res://.godot/exported/133200997/export-01656c6da0b877028e94aa3c229c756d-space_cherub.scn
 res://scenes/transition_screen.tscn::261199b1305c2da50f65ab201f9fa4a4::1786372250::res://.godot/exported/133200997/export-d22afcb00b9ab379a08a9b07cc5bccdc-transition_screen.scn
 res://scenes/tutorial.tscn::a2265a5e0977da4483a08a45423ee9d7::1781231751::res://.godot/exported/133200997/export-42ce494387c984238fc1312df9601261-tutorial.scn
 res://scenes/tutorial_card.tscn::9cd41f31d5a3708bcac47a48bf33aa4a::1781231751::res://.godot/exported/133200997/export-bea11fe96aea8e85e7d944dba8f07a4d-tutorial_card.scn

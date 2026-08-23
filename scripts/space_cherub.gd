@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var health = 1
+var health = 3
 @export var player: CharacterBody2D
 
 @onready var explosion = preload("res://scenes/explosion.tscn")
@@ -47,7 +47,8 @@ func _physics_process(delta: float) -> void:
 	
 func take_damage(damage: int):
 	health -= damage
-
+	$AnimatedSprite2D.modulate = Color.RED
+	$Timer.start()
 
 func _on_explode_timer_timeout() -> void:
 	var explosion_asset = explosion.instantiate()
@@ -55,3 +56,7 @@ func _on_explode_timer_timeout() -> void:
 	explosion_asset.global_position = global_position
 	add_sibling(explosion_asset)
 	
+
+
+func _on_timer_timeout() -> void:
+		$AnimatedSprite2D.modulate = Color.WHITE

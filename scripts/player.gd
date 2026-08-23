@@ -166,7 +166,7 @@ func die():
 	
 func take_damage(damage):
 	health -= damage
-	
+	velocity.y = -150
 	
 
 
