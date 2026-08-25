@@ -11,13 +11,16 @@ extends Node2D
 func _ready() -> void:
 	$Timer.start()
 	print("apparu")
-
+	boss_controller.is_dead = false
 func _process(delta: float) -> void:
 	# Changement de la vitesse d'attaque en fonction de la phase courrente
-	if boss_controller.current_phase == boss_controller.Phases.phase1:
-		$Timer.wait_time = 1
-	elif boss_controller.current_phase == boss_controller.Phases.phase2:
-		$Timer.wait_time = 0.85
+	if !boss_controller.is_dead:
+		if boss_controller.current_phase == boss_controller.Phases.phase1:
+			$Timer.wait_time = 1
+		elif boss_controller.current_phase == boss_controller.Phases.phase2:
+			$Timer.wait_time = 0.85
+	else:
+		$Timer.stop()
 
 func _on_timer_timeout() -> void:
 	# Invoque un poing du boss

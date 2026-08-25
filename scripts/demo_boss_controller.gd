@@ -7,6 +7,8 @@ extends Node2D
 
 @export var current_phase = Phases.phase1
 
+@export var is_dead = false
+
 enum Phases{
 	phase1,
 	phase2
@@ -24,7 +26,7 @@ func _process(delta: float) -> void:
 		switch_phase.emit()
 		health = 30
 	if health <= 0 and current_phase == Phases.phase2:
-		get_tree().quit()
+		is_dead = true
 
 
 

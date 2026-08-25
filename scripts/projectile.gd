@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var direction := 1
 
 
-
+var body_sprite = null
 func _physics_process(delta):
 	velocity = Vector2(direction * SPEED, 0)
 	move_and_slide()
