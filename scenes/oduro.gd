@@ -69,6 +69,8 @@ func flip():
 	$RayCast2D.target_position.x = 86 * direction
 
 func take_damage(damage:int):
+	get_node("AnimatedSprite2D").modulate = Color.RED
+	$Timer.start()
 	health -= damage
 	
 	
@@ -112,3 +114,7 @@ func update_facing():
 	else:
 		can_attack = false
 		
+
+
+func _on_timer_timeout() -> void:
+	get_node("AnimatedSprite2D").modulate = Color.WHITE

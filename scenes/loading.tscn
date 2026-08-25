@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://crjj3yrp16tqa"]
+
+[ext_resource type="Script" uid="uid://c1op042jivjal" path="res://scripts/loading.gd" id="1_ir5ef"]
+
+[node name="Loading" type="Node2D" unique_id=19574989]
+script = ExtResource("1_ir5ef")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=295583524]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 218.0
+offset_top = 703.0
+offset_right = 1766.0
+offset_bottom = 730.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4

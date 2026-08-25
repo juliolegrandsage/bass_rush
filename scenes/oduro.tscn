@@ -91,4 +91,9 @@ wait_time = 0.9
 [node name="player_detector" type="RayCast2D" parent="." unique_id=159717559]
 target_position = Vector2(-900, 0)
 
+[node name="Timer" type="Timer" parent="." unique_id=1311856622]
+wait_time = 0.058
+one_shot = true
+
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

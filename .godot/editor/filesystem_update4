@@ -1,0 +1,5 @@
+res://scenes/projectile.tscn
+res://scenes/level_1.tscn
+res://scripts/projectile.gd
+res://scenes/oduro.tscn
+res://scenes/oduro.gd
