@@ -36,7 +36,6 @@ func _process(delta: float) -> void:
 		if global_position.x > player.global_position.x:
 			$AnimatedSprite2D.flip_h = false
 
-
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta

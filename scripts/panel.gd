@@ -47,3 +47,5 @@ func _on_body_exited(body: Node2D) -> void:
 		dialogue_box.new_text = message
 		if x_indicator.visible == true:
 			x_indicator.visible = false
+			
+			

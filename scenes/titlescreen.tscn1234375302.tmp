@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dxoaq2hucbyuk"]
+
+[ext_resource type="Texture2D" uid="uid://bs7x7cd7jij54" path="res://assets/sprites/bassrushdemologo.png" id="1_6d6rd"]
+[ext_resource type="Script" uid="uid://dcaqqba6xl8ap" path="res://scenes/titlescreen.gd" id="1_tt55a"]
+[ext_resource type="AudioStream" uid="uid://ddx28dx2e6mxw" path="res://assets/audio/1 - title.wav" id="2_3jj3l"]
+
+[node name="Node2D" type="Node2D" unique_id=2013002765]
+script = ExtResource("1_tt55a")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1271697786]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup" unique_id=2114299185]
+position = Vector2(960, 540)
+scale = Vector2(3.6484375, 3.6484375)
+texture = ExtResource("1_6d6rd")
+
+[node name="Label" type="Label" parent="CanvasGroup" unique_id=1057119988]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 389.0
+offset_right = 1924.0
+offset_bottom = 1469.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+text = "Press Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1386193525]
+stream = ExtResource("2_3jj3l")
+volume_db = -5.0
+autoplay = true

@@ -227,5 +227,10 @@ collision_base_size = 0.0
 draw_order = 2
 process_material = SubResource("ParticleProcessMaterial_qwiki")
 
+[node name="CoyoteTimeTimer" type="Timer" parent="." unique_id=1948695732]
+wait_time = 0.116
+one_shot = true
+ignore_time_scale = true
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="paralysis_timer" to="." method="_on_paralysis_timer_timeout"]

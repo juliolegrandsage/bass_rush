@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dtajg8vp082yx" path="res://scenes/level_transition.tscn" id="5_4nkto"]
 [ext_resource type="Texture2D" uid="uid://fv16tm3qtpbf" path="res://assets/sprites/window.png" id="5_6dial"]
 [ext_resource type="PackedScene" uid="uid://ypfumjx4fw0k" path="res://scenes/panel.tscn" id="6_15mv3"]
-[ext_resource type="PackedScene" uid="uid://befxwttone5jw" path="res://scenes/oduro.tscn" id="6_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://cvd2rmilu082o" path="res://scenes/dialogue_manager.tscn" id="6_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://dtc1mmtlbybjm" path="res://scenes/ui.tscn" id="8_15mv3"]
 [ext_resource type="PackedScene" uid="uid://mh355lqmodug" path="res://scenes/heart.tscn" id="9_2y5yt"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://3ww3rryxamjb" path="res://scenes/transition_screen.tscn" id="12_go7sj"]
 [ext_resource type="PackedScene" uid="uid://mjjyieyrcoxf" path="res://scenes/boss_transition.tscn" id="13_7gny6"]
 [ext_resource type="Texture2D" uid="uid://bwbcqhbrtkbmw" path="res://assets/sprites/arrow_indicator.png" id="14_2aecg"]
+[ext_resource type="PackedScene" uid="uid://2mg8k8vkr3al" path="res://scenes/oduro_infinite_mode.tscn" id="15_6dial"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_go7sj"]
 texture = ExtResource("3_2os1m")
@@ -120,10 +120,6 @@ canvas_layer = NodePath("../CanvasLayer2")
 [node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("2_rus8k")]
 position = Vector2(-313, 141)
 
-[node name="oduro" parent="." unique_id=1890799837 instance=ExtResource("6_fcfvj")]
-position = Vector2(186.99998, -63.000004)
-scale = Vector2(0.97, 0.97)
-
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=863640929]
 z_index = -999
 position = Vector2(-2, 0)
@@ -142,34 +138,34 @@ tile_set = SubResource("TileSet_qwiki")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=422085059]
 position = Vector2(8, -50)
-zoom = Vector2(1.975, 1.975)
+zoom = Vector2(1.925, 1.925)
 limit_enabled = false
 
 [node name="Camera2D2" type="Camera2D" parent="." unique_id=588317514]
 position = Vector2(16, 487)
-zoom = Vector2(1.975, 1.975)
+zoom = Vector2(2.16, 2.16)
 limit_enabled = false
 
 [node name="Camera2D3" type="Camera2D" parent="." unique_id=1503899755]
 position = Vector2(19, 979)
-zoom = Vector2(1.975, 1.975)
+zoom = Vector2(2.16, 2.16)
 limit_enabled = false
 
 [node name="Camera2D4" type="Camera2D" parent="." unique_id=1714786998]
 position = Vector2(0, 1560)
-zoom = Vector2(1.705, 1.705)
+zoom = Vector2(1.69, 1.69)
 limit_enabled = false
 
 [node name="Camera2D5" type="Camera2D" parent="." unique_id=874933581]
 position = Vector2(1127, 1557)
 scale = Vector2(1.3968229, 0.2370782)
-zoom = Vector2(1.58, 1.58)
+zoom = Vector2(1.64, 1.64)
 limit_enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 10.645
 
 [node name="LevelTransition" parent="." unique_id=1034926432 node_paths=PackedStringArray("current_cam", "new_cam") instance=ExtResource("5_4nkto")]
-position = Vector2(383, 228)
+position = Vector2(382, 231)
 current_cam = NodePath("../Camera2D")
 new_cam = NodePath("../Camera2D2")
 
@@ -226,10 +222,6 @@ player = NodePath("../CharacterBody2D")
 
 [node name="heart" parent="." unique_id=369458415 instance=ExtResource("9_2y5yt")]
 position = Vector2(-337, 591)
-
-[node name="oduro2" parent="." unique_id=2134736835 instance=ExtResource("6_fcfvj")]
-position = Vector2(145, 1471)
-scale = Vector2(0.97, 0.97)
 
 [node name="Node" type="Node" parent="." unique_id=363308329]
 script = ExtResource("10_2y5yt")
@@ -290,3 +282,9 @@ position = Vector2(358, 96.00006)
 rotation = 1.5213553
 scale = Vector2(1.84375, 1.84375)
 texture = ExtResource("14_2aecg")
+
+[node name="oduro" parent="." unique_id=1890799837 instance=ExtResource("15_6dial")]
+position = Vector2(150, -63)
+
+[node name="oduro2" parent="." unique_id=235948658 instance=ExtResource("15_6dial")]
+position = Vector2(164, 1469)

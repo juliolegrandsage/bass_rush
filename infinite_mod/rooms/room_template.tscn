@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d16exxscc356d"]
+
+[ext_resource type="Script" uid="uid://cjj07w8h181oy" path="res://infinite_mod/rooms/room_template.gd" id="1_b55uf"]
+
+[node name="Node2D" type="Node2D" unique_id=1402171849]
+
+[node name="Room" type="Node2D" parent="." unique_id=257177351]
+script = ExtResource("1_b55uf")
+metadata/_custom_type_script = "uid://cjj07w8h181oy"

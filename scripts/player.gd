@@ -66,10 +66,9 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or gc.launched):
+	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or gc.launched or $CoyoteTimeTimer.is_stopped() == false):
 		velocity.y += JUMP_VELOCITY
 		gc.retract()
-
 
 			
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -182,6 +181,4 @@ func take_boss_3_web_attack():
 
 func _on_paralysis_timer_timeout() -> void:
 	is_paralyzed = false
-	
-
 	
