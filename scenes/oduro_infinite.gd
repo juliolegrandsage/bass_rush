@@ -44,7 +44,8 @@ func _physics_process(delta: float) -> void:
 	# petit offset de sécurité
 	if is_on_floor() and !$RayCast2D.is_colliding():
 		flip()
-	
+	if is_on_wall():
+		flip()
 	distance_to_player = player.global_position.distance_to(self.global_position)
 	if can_attack:
 		if distance_to_player <= 300:
