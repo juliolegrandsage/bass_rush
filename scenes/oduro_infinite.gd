@@ -5,6 +5,8 @@ var SPEED = 100.0
 
 var facing_right = false
 
+signal dead
+
 @onready var player = get_tree().get_first_node_in_group("player")
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_player_detected:bool
@@ -76,7 +78,7 @@ func take_damage(damage:int):
 	
 func die():
 	queue_free()
-	
+	emit_signal("dead")
 func attack():
 
 	print(can_attack)

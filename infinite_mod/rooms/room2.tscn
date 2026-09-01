@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cjj07w8h181oy" path="res://infinite_mod/rooms/room_template.gd" id="1_b3me8"]
 [ext_resource type="Texture2D" uid="uid://cbtv2vd82tf6q" path="res://assets/sprites/tileset2.png" id="2_44fa7"]
+[ext_resource type="PackedScene" uid="uid://byyiaiw84rh4x" path="res://scenes/space_cherub.tscn" id="3_6cghi"]
 [ext_resource type="PackedScene" uid="uid://2mg8k8vkr3al" path="res://scenes/oduro_infinite_mode.tscn" id="3_44fa7"]
+[ext_resource type="Texture2D" uid="uid://mkmehn6t4cs6" path="res://assets/sprites/tileset_level.png" id="4_tbw2o"]
+[ext_resource type="Script" uid="uid://bebss7wj0oym0" path="res://scripts/infinite_mode_door.gd" id="5_ghyno"]
+[ext_resource type="PackedScene" uid="uid://mh355lqmodug" path="res://scenes/heart.tscn" id="6_w11wa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sf0ot"]
 texture = ExtResource("2_44fa7")
@@ -21,12 +25,55 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_sf0ot")
 
-[node name="Room1" type="Node2D" unique_id=339347580]
-script = ExtResource("1_b3me8")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(68, 311)
 
-[node name="oduro" parent="." unique_id=1890799837 instance=ExtResource("3_44fa7")]
-position = Vector2(126, 321)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lww2r"]
+texture = ExtResource("4_tbw2o")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_yf5fn"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_lww2r")
+
+[node name="Room1" type="Node2D" unique_id=339347580 node_paths=PackedStringArray("doors_objects")]
+script = ExtResource("1_b3me8")
+doors_objects = NodePath("Doors")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=551394460 groups=["tilemap"]]
-tile_map_data = PackedByteArray("AAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAABAAAAAAD//wcAAAABAAAAAAD//wsAAAABAAAAAAAAAAAAAAABAAAAAAAAAAsAAAABAAAAAAABAAAAAAABAAAAAAABAAsAAAABAAAAAAACAAAAAAABAAAAAAACAAsAAAABAAAAAAADAAAAAAABAAAAAAADAAsAAAABAAAAAAAEAAAAAAABAAAAAAAEAAsAAAABAAAAAAAFAAAAAAABAAAAAAAFAAsAAAABAAAAAAAGAAAAAAABAAAAAAAGAAsAAAABAAAAAAAHAAAAAAABAAAAAAAHAAsAAAABAAAAAAAIAAAAAAABAAAAAAAIAAsAAAABAAAAAAAJAAAAAAABAAAAAAAJAAsAAAABAAAAAAAKAAEAAAABAAAAAAAKAAIAAAABAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAAAAAAKAAUAAAABAAAAAAAKAAYAAAABAAAAAAAKAAcAAAABAAAAAAAKAAsAAAABAAAAAAAAAAYAAAABAAAAAAABAAYAAAABAAAAAAACAAYAAAABAAAAAAAJAAQAAAABAAAAAAAIAAQAAAABAAAAAAAHAAQAAAABAAAAAAAGAAQAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAABAAAAAAD//wcAAAABAAAAAAD//wsAAAABAAAAAAAAAAAAAAABAAAAAAAAAAsAAAABAAAAAAABAAAAAAABAAAAAAABAAsAAAABAAAAAAACAAAAAAABAAAAAAACAAsAAAABAAAAAAADAAAAAAABAAAAAAADAAsAAAABAAAAAAAEAAAAAAABAAAAAAAEAAsAAAABAAAAAAAFAAAAAAABAAAAAAAFAAsAAAABAAAAAAAGAAAAAAABAAAAAAAGAAsAAAABAAAAAAAHAAAAAAABAAAAAAAHAAsAAAABAAAAAAAIAAAAAAABAAAAAAAIAAsAAAABAAAAAAAJAAAAAAABAAAAAAAJAAsAAAABAAAAAAAKAAEAAAABAAAAAAAKAAIAAAABAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAAAAAAKAAUAAAABAAAAAAAKAAYAAAABAAAAAAAKAAcAAAABAAAAAAAKAAsAAAABAAAAAAAAAAcAAAABAAAAAAABAAcAAAABAAAAAAACAAcAAAABAAAAAAADAAcAAAABAAAAAAADAAgAAAABAAAAAAADAAkAAAABAAAAAAAJAAcAAAABAAAAAAAIAAcAAAABAAAAAAAHAAcAAAABAAAAAAAGAAcAAAABAAAAAAAGAAgAAAABAAAAAAAGAAkAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_g4v7s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1621846744]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1120338849]
+position = Vector2(605, 616)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=966300852]
+position = Vector2(39, 627)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="SpaceCherub" parent="." unique_id=130952627 instance=ExtResource("3_6cghi")]
+position = Vector2(103, 238)
+
+[node name="Doors" type="TileMapLayer" parent="." unique_id=139484898]
+tile_map_data = PackedByteArray("AAD//wgAAQAAAAAAAAD//wkAAQAAAAAAAAD//woAAQAAAAAAAAAKAAgAAQAAAAAAAAAKAAkAAQAAAAAAAAAKAAoAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_yf5fn")
+script = ExtResource("5_ghyno")
+
+[node name="heart" parent="." unique_id=369458415 instance=ExtResource("6_w11wa")]
+position = Vector2(608, 378)
+
+[node name="oduro" parent="." unique_id=1890799837 instance=ExtResource("3_44fa7")]
+position = Vector2(484, 384)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_room_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

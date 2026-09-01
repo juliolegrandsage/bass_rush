@@ -1,3 +1,7 @@
-res://infinite_mod/rooms/room2.tscn
+res://infinite_mod/rooms/room4.tscn
+res://infinite_mod/rooms/room5.tscn
 res://scenes/infinite_mode.tscn
-res://scenes/oduro_infinite.gd
+res://infinite_mod/rooms/room6.tscn
+res://infinite_mod/rooms/boss_infinite1.tscn
+res://scripts/infinite_mode.gd
+res://infinite_mod/rooms/room_template.gd

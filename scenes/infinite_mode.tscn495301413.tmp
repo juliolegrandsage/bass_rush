@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cnj8wppst5qs2"]
+
+[ext_resource type="Script" uid="uid://bbhb46516iouk" path="res://scripts/infinite_mode.gd" id="1_ix4cq"]
+[ext_resource type="PackedScene" uid="uid://6td1vxu12xw0" path="res://infinite_mod/rooms/room1.tscn" id="2_2jtjp"]
+[ext_resource type="PackedScene" uid="uid://cwook5gh3lnor" path="res://infinite_mod/rooms/room2.tscn" id="3_mfr1g"]
+[ext_resource type="PackedScene" uid="uid://bsa5g5yq0d1dr" path="res://scenes/player.tscn" id="4_aga4w"]
+[ext_resource type="PackedScene" uid="uid://dtc1mmtlbybjm" path="res://scenes/ui.tscn" id="5_l0nhx"]
+
+[node name="InfiniteMode" type="Node2D" unique_id=1247889500 node_paths=PackedStringArray("player")]
+script = ExtResource("1_ix4cq")
+room_templates = Array[PackedScene]([ExtResource("2_2jtjp"), ExtResource("3_mfr1g")])
+player = NodePath("CharacterBody2D")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1150034398]
+
+[node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("4_aga4w")]
+position = Vector2(340, 663)
+
+[node name="CanvasLayer" parent="." unique_id=1079517282 instance=ExtResource("5_l0nhx")]

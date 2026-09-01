@@ -1,0 +1,221 @@
+[gd_scene format=4 uid="uid://bjxca2wvdbhns"]
+
+[ext_resource type="Script" uid="uid://cjj07w8h181oy" path="res://infinite_mod/rooms/room_template.gd" id="1_vtebv"]
+[ext_resource type="Texture2D" uid="uid://cbtv2vd82tf6q" path="res://assets/sprites/tileset2.png" id="2_cnspf"]
+[ext_resource type="Texture2D" uid="uid://mkmehn6t4cs6" path="res://assets/sprites/tileset_level.png" id="3_kggu3"]
+[ext_resource type="Script" uid="uid://bebss7wj0oym0" path="res://scripts/infinite_mode_door.gd" id="4_5hhfs"]
+[ext_resource type="Script" uid="uid://ci4hjdghrd5r6" path="res://scripts/boss_hand_spawner.gd" id="5_5hhfs"]
+[ext_resource type="Script" uid="uid://bln5j67w7jl26" path="res://scripts/demo_boss_controller.gd" id="6_yj6qr"]
+[ext_resource type="Texture2D" uid="uid://bnl1m60fn7qc4" path="res://assets/sprites/boss_sprites/boss1.png" id="7_tnj4n"]
+[ext_resource type="Script" uid="uid://cx4ve42mxa2m2" path="res://scenes/bosses_scenes/boss_sprite.gd" id="8_7gsw5"]
+[ext_resource type="Texture2D" uid="uid://dnwumwbgiwwxg" path="res://assets/sprites/explosion.png" id="9_ubye0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sf0ot"]
+texture = ExtResource("2_cnspf")
+texture_region_size = Vector2i(64, 64)
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:0/0 = 0
+5:0/0 = 0
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g4v7s"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_sf0ot")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(68, 311)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lww2r"]
+texture = ExtResource("3_kggu3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_yf5fn"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_lww2r")
+
+[sub_resource type="Animation" id="Animation_i7pjh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(261, 265)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_tnj4n")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:texture:atlas:atlas")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_ubye0")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 64, 64)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Player:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.615, 0.615)]
+}
+
+[sub_resource type="Animation" id="Animation_yuh76"]
+resource_name = "death"
+length = 1.52
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.050940275, 0.08150444, 0.13244471, 0.15485844, 0.20579872, 0.23840049, 0.28934076, 0.33009297, 0.38103324, 0.39937174, 0.45031202, 0.47272575, 0.523666, 0.56645584, 0.6173961, 0.67648685, 0.7274271, 0.80689394, 0.8578342),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265), Vector2(261, 265), Vector2(259, 265)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.88228554, 0.9013911, 0.9414161, 1.4418631),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_tnj4n"), ExtResource("7_tnj4n"), ExtResource("9_ubye0"), ExtResource("9_ubye0"), null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:texture:atlas:atlas")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.93333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_ubye0")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.90193194, 0.9023648, 1.0666667, 1.2666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 64, 64), Rect2(0, 0, 64, 64), Rect2(64, 0, 64, 64), Rect2(128, 0, 64, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8y6p2"]
+_data = {
+&"RESET": SubResource("Animation_i7pjh"),
+&"death": SubResource("Animation_yuh76")
+}
+
+[node name="Room1" type="Node2D" unique_id=339347580 node_paths=PackedStringArray("doors_objects")]
+script = ExtResource("1_vtebv")
+doors_objects = NodePath("Doors")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=551394460 groups=["tilemap"]]
+tile_map_data = PackedByteArray("AAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAABAAAAAAD//wcAAAABAAAAAAD//wsAAAABAAAAAAAAAAAAAAABAAAAAAAAAAsAAAABAAAAAAABAAAAAAABAAAAAAABAAsAAAABAAAAAAACAAAAAAABAAAAAAACAAsAAAABAAAAAAADAAAAAAABAAAAAAADAAsAAAABAAAAAAAEAAAAAAABAAAAAAAEAAsAAAABAAAAAAAFAAAAAAABAAAAAAAFAAsAAAABAAAAAAAGAAAAAAABAAAAAAAGAAsAAAABAAAAAAAHAAAAAAABAAAAAAAHAAsAAAABAAAAAAAIAAAAAAABAAAAAAAIAAsAAAABAAAAAAAJAAAAAAABAAAAAAAJAAsAAAABAAAAAAAKAAEAAAABAAAAAAAKAAIAAAABAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAAAAAAKAAUAAAABAAAAAAAKAAYAAAABAAAAAAAKAAcAAAABAAAAAAAKAAsAAAABAAAAAAAJAAcAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_g4v7s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1621846744]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1120338849]
+position = Vector2(605, 616)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=966300852]
+position = Vector2(39, 627)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Doors" type="TileMapLayer" parent="." unique_id=139484898]
+tile_map_data = PackedByteArray("AAD//wgAAQAAAAAAAAD//wkAAQAAAAAAAAD//woAAQAAAAAAAAAKAAgAAQAAAAAAAAAKAAkAAQAAAAAAAAAKAAoAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_yf5fn")
+script = ExtResource("4_5hhfs")
+
+[node name="boss_hand_spawner" type="Node2D" parent="." unique_id=2090293039 groups=["boss_controller"]]
+script = ExtResource("5_5hhfs")
+
+[node name="Timer" type="Timer" parent="boss_hand_spawner" unique_id=1475825043]
+autostart = true
+
+[node name="demo_boss_controller" type="Node2D" parent="." unique_id=464946506]
+script = ExtResource("6_yj6qr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1694791851]
+z_index = -2
+position = Vector2(261, 265)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("7_tnj4n")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+script = ExtResource("8_7gsw5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=809148612]
+libraries/ = SubResource("AnimationLibrary_8y6p2")
+
+[node name="Timer2" type="Timer" parent="Sprite2D" unique_id=1643360087]
+one_shot = true
+
+[node name="spawn_point" type="Node2D" parent="." unique_id=641079188]
+position = Vector2(0, 240)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_room_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="boss_hand_spawner/Timer" to="boss_hand_spawner" method="_on_timer_timeout"]

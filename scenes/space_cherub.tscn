@@ -115,6 +115,7 @@ _data = {
 }
 
 [node name="SpaceCherub" type="CharacterBody2D" unique_id=130952627 groups=["enemies"]]
+motion_mode = 1
 script = ExtResource("1_kufl5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1721976620]

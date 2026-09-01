@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var health = 3
-@export var player: CharacterBody2D
+var player: CharacterBody2D 
 
 @onready var explosion = preload("res://scenes/explosion.tscn")
 
@@ -14,6 +14,7 @@ var can_attack: bool
 var has_exploded = false
 
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
 	can_attack = false
 	$AnimationPlayer.play("idle")
 
@@ -53,7 +54,7 @@ func take_damage(damage: int):
 func _on_explode_timer_timeout() -> void:
 	var explosion_asset = explosion.instantiate()
 	explosion_asset.does_affect_player = true
-	explosion_asset.global_position = global_position
+	explosion_asset.position = position
 	add_sibling(explosion_asset)
 	
 

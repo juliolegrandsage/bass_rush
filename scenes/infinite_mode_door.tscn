@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cmmshffisrgh1"]
+
+[ext_resource type="Texture2D" uid="uid://dtui2idytpo32" path="res://assets/sprites/door.png" id="1_txeaa"]
+[ext_resource type="Script" uid="uid://bebss7wj0oym0" path="res://scripts/infinite_mode_door.gd" id="2_u7hni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
+size = Vector2(20, 69)
+
+[node name="Door" type="Node2D" unique_id=1897291731]
+script = ExtResource("2_u7hni")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1149763291]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1961199844]
+position = Vector2(0, -24.5)
+shape = SubResource("RectangleShape2D_3gngh")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D" unique_id=1071526080]
+texture = ExtResource("1_txeaa")

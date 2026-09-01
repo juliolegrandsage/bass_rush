@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var anim_player = $"AnimationPlayer"
 @onready var particle_emitter = $GPUParticles2D
 var config_save_file = "user://save.cfg"
-
+signal player_dead
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 
@@ -160,7 +160,7 @@ func shoot():
 	get_parent().add_child(bullet)
 	
 func die():
-	get_tree().reload_current_scene()
+	emit_signal("player_dead")
 	
 func take_damage(damage):
 	health -= damage
