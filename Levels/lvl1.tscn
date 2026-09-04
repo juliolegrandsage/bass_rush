@@ -26,6 +26,7 @@ sources/0 = SubResource("TileSetAtlasSource_xen6a")
 size = Vector2(20, 201)
 
 [node name="Lvl1" type="Node2D" unique_id=2140303297]
+visible = false
 
 [node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("2_c1b7m")]
 position = Vector2(83, -24)

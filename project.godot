@@ -11,22 +11,22 @@ config_version=5
 [application]
 
 config/name="bass_rush"
-run/main_scene="uid://cnj8wppst5qs2"
+run/main_scene="uid://dxoaq2hucbyuk"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
+ScreenSizeAutoAdapt="*uid://d4dxeuvud7d7r"
 Save="*uid://bgiu6pbjri2l1"
+ScreenAdapter="*uid://c6nxmfwr2lxw6"
+PlayerStats="*uid://b70pdb8kcrxfr"
+Settings="*uid://dv5a1is8641c4"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=480
-window/size/mode=3
-window/size/borderless=true
-window/stretch/mode="canvas_items"
+window/size/resizable=false
 window/use_filter=true
 window/stretch_mode=1
 window/show_image=true
@@ -42,6 +42,8 @@ player=""
 camera=""
 tilemap=""
 boss_controller=""
+breakable=""
+music_player=""
 
 [input]
 

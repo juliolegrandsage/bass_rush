@@ -2,7 +2,7 @@ extends Node2D
 class_name Room
 
 
-var infinite_mode_scene: Node2D
+var infinite_mode_scene = preload("res://scenes/infinite_mode.tscn")
 
 @export var room_id: int
 @export var enemies_account: int

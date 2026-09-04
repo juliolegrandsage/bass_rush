@@ -17,3 +17,4 @@ func _on_body_entered(body: Node2D) -> void:
 func _process(delta: float) -> void:
 	if new_cam.is_current() and is_new_cam_following_player:
 		new_cam.position.x = player.position.x
+		new_cam.position.y = player.position.y

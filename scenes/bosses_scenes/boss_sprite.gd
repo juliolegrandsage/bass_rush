@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if boss_controller.is_dead == false:
-		position.x = player.position.x
+		position.x = player.position.x + 5
 	else:
 		launch_death_animation()
 		

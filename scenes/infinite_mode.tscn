@@ -11,11 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://c4ybir6645tbx" path="res://infinite_mod/rooms/room6.tscn" id="7_2kotj"]
 [ext_resource type="AudioStream" uid="uid://jde5jnk02ocm" path="res://assets/audio/2-infinty-jungle.ogg" id="8_8rylr"]
 [ext_resource type="Script" uid="uid://v8bopy5fm3lg" path="res://scripts/camera_shake.gd" id="8_gv6ko"]
+[ext_resource type="PackedScene" uid="uid://c05shg1se85gx" path="res://scenes/pause_menu.tscn" id="11_fs7ec"]
 
 [node name="InfiniteMode" type="Node2D" unique_id=1247889500 node_paths=PackedStringArray("player")]
 script = ExtResource("1_ix4cq")
+rooms_counter = 1
 room_templates = Array[PackedScene]([ExtResource("2_2jtjp"), ExtResource("3_mfr1g"), ExtResource("4_xuirb"), ExtResource("5_8rylr"), ExtResource("6_3gu3q"), ExtResource("7_2kotj")])
 player = NodePath("CharacterBody2D")
+
+[node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("4_aga4w")]
+position = Vector2(353, 673)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1150034398 groups=["camera"]]
 position = Vector2(0, -184.695)
@@ -24,9 +29,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 5.47
 script = ExtResource("8_gv6ko")
-
-[node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("4_aga4w")]
-position = Vector2(340, 663)
 
 [node name="CanvasLayer" parent="." unique_id=1079517282 instance=ExtResource("5_l0nhx")]
 
@@ -44,6 +46,9 @@ offset_right = 60.0
 offset_bottom = 138.0
 text = "PB :"
 
+[node name="PauseMenu2" parent="CanvasLayer" unique_id=1061106251 instance=ExtResource("11_fs7ec")]
+process_mode = 3
+
 [node name="Timer" type="Timer" parent="." unique_id=841846046]
 wait_time = 5.0
 autostart = true
@@ -52,8 +57,6 @@ autostart = true
 stream = ExtResource("8_8rylr")
 volume_db = -8.465
 autoplay = true
-
-[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=1782790235]
 
 [connection signal="player_dead" from="CharacterBody2D" to="." method="_on_character_body_2d_player_dead"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,6 +1,5 @@
 extends Resource
 class_name PlayerData
-var infinite_scene = preload("res://scenes/infinite_mode.tscn")
 
 const saver_file = "user://save.tres"
 
@@ -26,3 +25,5 @@ static func load_data() -> PlayerData:
 		if loaded is PlayerData:
 			return loaded
 	return PlayerData.new()
+	
+	

@@ -1,7 +1,9 @@
-res://infinite_mod/rooms/room4.tscn
-res://infinite_mod/rooms/room5.tscn
-res://scenes/infinite_mode.tscn
-res://infinite_mod/rooms/room6.tscn
-res://infinite_mod/rooms/boss_infinite1.tscn
-res://scripts/infinite_mode.gd
-res://infinite_mod/rooms/room_template.gd
+res://scenes/player.tscn
+res://scripts/player.gd
+res://scenes/titlescreen.tscn
+res://scenes/main_menu.tscn
+res://scenes/main_menu.gd
+res://save.gd
+res://settings.gd
+res://default_bus_layout.tres
+res://scenes/level_1.tscn

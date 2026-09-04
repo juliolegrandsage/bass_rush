@@ -39,6 +39,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	$CanvasLayer/Label.text = "Room " + str(score)
+
 func generate_start_room():
 	var start_room_instance = start_room.instantiate() as Room
 	start_room_instance.position = Vector2(0, 0)
@@ -57,14 +58,19 @@ func generate_roomset():
 	)
 	add_child(room)
 	rooms.append(room)
-	if room.emit_signal("_on_area_2d_body_entered"):
-		rooms_counter += 1
 
+
+
+
+	
 
 func _on_character_body_2d_player_dead() -> void:
 	if data.update_pb(score):
 		pb = data.infinite_pb
 	get_tree().reload_current_scene()
+	rooms_counter += 1
+
+
 
 
 func load_pb():

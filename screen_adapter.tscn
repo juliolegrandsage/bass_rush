@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c6nxmfwr2lxw6"]
+
+[ext_resource type="Script" uid="uid://d4dxeuvud7d7r" path="res://screen_size_auto_adapt.gd" id="1_s5vpq"]
+
+[node name="ScreenAdapter" type="Node2D" unique_id=2053316556]
+script = ExtResource("1_s5vpq")

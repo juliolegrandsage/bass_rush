@@ -1,12 +1,13 @@
 extends Area2D
 
 @export var life_add = 3
-
+@export var is_mega_heart= false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	if is_mega_heart:
+		$AnimatedSprite2D.modulate = Color.YELLOW
+		life_add = 20
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -15,6 +16,6 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		if body.health < body.max_health:
-			body.health += life_add
+		if PlayerStats.player_hp < body.max_health:
+			PlayerStats.player_hp += min(PlayerStats.player_hp + life_add, body.max_health)
 			queue_free()

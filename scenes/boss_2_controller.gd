@@ -8,12 +8,14 @@ extends CharacterBody2D
 @export var speed : float = 1
 var time := 0.0
 
+var is_dead = false
+
 var can_attack = false
 
 ## STATS DU BOSS
-var health = 20
+var health = 60
 
-var max_health = 20
+var max_health = 60
 
 enum phases{
 	phase1,
@@ -40,7 +42,11 @@ func _process(delta: float) -> void:
 		$Timer.wait_time = 0.85
 		$AnimationPlayer.speed_scale = 3
 	elif health <= 0 and current_phase == phases.phase2:
-		die()
+		if is_dead == false:
+			die()
+	
+	if is_dead:
+		can_attack = false
 
 func take_damage(damage):
 	if can_attack:	
@@ -50,7 +56,12 @@ func take_damage(damage):
 		$damage_indicator_timer.start()
 	
 func die():
-	get_tree().quit()
+	$AnimationPlayer.stop()
+	$CollisionShape2D/AnimationPlayer.stop()
+	$attack_repeater.stop()
+	$Timer.stop()
+	is_dead = true
+	$AnimationPlayer.play("die")
 
 func attack():
 	if can_attack:

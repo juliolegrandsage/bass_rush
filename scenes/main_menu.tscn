@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c88gk58ipyq86"]
+
+[ext_resource type="Script" uid="uid://bm55d82gxd8pp" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://qgqfucubpcop" path="res://scenes/button.gd" id="2_ekxnf"]
+[ext_resource type="AudioStream" uid="uid://ca2wvi5lfkbnu" path="res://assets/audio/3 - menu2.ogg" id="3_bqqt6"]
+
+[node name="MainMenu" type="Node2D" unique_id=1025285425]
+script = ExtResource("1_l6cm7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1454474058]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1664811077]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=2101478220]
+custom_minimum_size = Vector2(-0.705, 0)
+custom_maximum_size = Vector2(500, 500)
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1171181514]
+layout_mode = 2
+text = "Story mode"
+script = ExtResource("2_ekxnf")
+
+[node name="Button2" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=881924313]
+layout_mode = 2
+text = "Infinite mode"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Panel/VBoxContainer" unique_id=383938793]
+layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=492134350 groups=["music_player"]]
+stream = ExtResource("3_bqqt6")
+volume_db = -16.34
+autoplay = true
+bus = &"music"
+
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="value_changed" from="CanvasLayer/Panel/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

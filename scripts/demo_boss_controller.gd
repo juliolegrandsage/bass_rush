@@ -2,8 +2,8 @@
 
 extends Node2D
 
-@export var health = 30
-@export var max_health := 30
+@export var health = 100
+@export var max_health := 100
 
 @export var current_phase = Phases.phase1
 
@@ -24,10 +24,11 @@ func _process(delta: float) -> void:
 	if health <= 0 and current_phase == Phases.phase1:
 		current_phase = Phases.phase2
 		switch_phase.emit()
-		health = 30
+		health = 120 
 	if health <= 0 and current_phase == Phases.phase2:
 		is_dead = true
-
+	if current_phase == Phases.phase2:
+		$"../AudioStreamPlayer".pitch_scale = 1.25
 
 
 func take_damage(damage):

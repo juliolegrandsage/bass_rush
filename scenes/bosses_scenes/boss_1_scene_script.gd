@@ -23,3 +23,9 @@ func zoom_to_boss():
 	camera.position = Vector2(0, 0)
 	camera.zoom *= 2
 	is_camera_zoomed_on_boss = true
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.scene_file_path == "res://scenes/projectile.tscn":
+		boss_controller.take_damage(10)
+		

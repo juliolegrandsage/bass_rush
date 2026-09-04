@@ -25,7 +25,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		queue_free()
 	elif body.is_in_group("tilemap"):
 		queue_free()
-
+	elif body.is_in_group("breakable"):
+		var tile_position = body.local_to_map(body.to_local(position))
+		body.erase_cell(tile_position)
+		queue_free()
+		
 
 func _on_timer_2_timeout() -> void:
 	print("timer up")

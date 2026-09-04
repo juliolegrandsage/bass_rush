@@ -2,6 +2,9 @@ extends Node2D
 
 
 
+var autosizescreensize : Script
+func _ready() -> void:
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("start"):
@@ -9,5 +12,6 @@ func _process(delta: float) -> void:
 		$LaunchGame.start()
 
 
+
 func _on_launch_game_timeout() -> void:
-	get_tree().change_scene_to_file("res://scenes/level_1.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

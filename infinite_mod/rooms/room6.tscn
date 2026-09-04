@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://mkmehn6t4cs6" path="res://assets/sprites/tileset_level.png" id="4_hna0c"]
 [ext_resource type="Script" uid="uid://bebss7wj0oym0" path="res://scripts/infinite_mode_door.gd" id="5_msxqf"]
 [ext_resource type="PackedScene" uid="uid://2mg8k8vkr3al" path="res://scenes/oduro_infinite_mode.tscn" id="6_5croc"]
+[ext_resource type="PackedScene" uid="uid://2pfuwudbu0it" path="res://scenes/launchpad.tscn" id="7_qufar"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sf0ot"]
 texture = ExtResource("2_qufar")
@@ -73,6 +74,9 @@ position = Vector2(545, 385)
 
 [node name="SpaceCherub" parent="." unique_id=130952627 instance=ExtResource("3_6amd0")]
 position = Vector2(319, 598)
+
+[node name="launchpad" parent="." unique_id=393045003 instance=ExtResource("7_qufar")]
+position = Vector2(321, 673)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_room_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

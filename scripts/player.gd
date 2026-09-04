@@ -8,15 +8,16 @@ extends CharacterBody2D
 @onready var collider = $CollisionShape2D
 @onready var anim_player = $"AnimationPlayer"
 @onready var particle_emitter = $GPUParticles2D
-var config_save_file = "user://save.cfg"
+
+
 signal player_dead
-const SPEED = 200.0
+var SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 
 const GRAPPLE_ACCELERATION = 0.1
-
+@onready var pause_menu = preload("res://scenes/pause_menu.tscn")
 @export var is_paralyzed = false
-@export var health = 20
+@export var health = PlayerStats.player_hp
 var max_health = 20
 
 var on_ladder := false
@@ -26,7 +27,7 @@ var on_ladder := false
 const DASH_SPEED = 900
 var dashing = false
 var jumping = false
-
+var is_game_paused = false
 @export var is_interacting = false
 
 var is_crouched = false
@@ -37,8 +38,10 @@ func _ready() -> void:
 	elif sprite.flip_h == false:
 		projectile_spawn_point.position.x = 40
 	collision_mask = 1
+	
 func _process(delta: float) -> void:
-	if health <= 0:
+	health = PlayerStats.player_hp
+	if PlayerStats.player_hp <= 0:
 		die()
 	
 	if Input.is_action_just_pressed("dash") and !is_on_floor():
@@ -59,8 +62,10 @@ func _process(delta: float) -> void:
 			is_crouched = true
 		elif Input.is_action_just_released("ui_down"):
 			is_crouched = false
+	
 
 
+		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -158,13 +163,20 @@ func shoot():
 
 	
 	get_parent().add_child(bullet)
-	
+	if Input.has_joy_vibration(0):
+		Input.start_joy_vibration(0, 0.2, 0.2, 0.3)
 func die():
-	emit_signal("player_dead")
-	
+	if get_tree().current_scene == load("res://scenes/infinite_mode.tscn"):
+		emit_signal("player_dead")
+		
+	else:
+		get_tree().reload_current_scene()
+	PlayerStats.player_hp = max_health
 func take_damage(damage):
-	health -= damage
+	PlayerStats.player_hp -= damage
 	velocity.y = -150
+	if Input.has_joy_vibration(0):
+		Input.start_joy_vibration(0, 0.2, 0.2, 0.3)
 	
 
 

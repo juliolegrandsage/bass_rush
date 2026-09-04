@@ -5,35 +5,54 @@
 [ext_resource type="AudioStream" uid="uid://ddx28dx2e6mxw" path="res://assets/audio/1 - title.wav" id="2_3jj3l"]
 [ext_resource type="AudioStream" uid="uid://by6cpwqgafljf" path="res://assets/audio/pickupCoin.wav" id="4_t7v6v"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_e7eqh"]
+font_size = 117
+
+[sub_resource type="Animation" id="Animation_t7v6v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Label:label_settings:font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [117]
+}
+
+[sub_resource type="Animation" id="Animation_vhbaf"]
+resource_name = "start"
+length = 0.435
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Label:label_settings:font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.435),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [117, 67]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v6ms7"]
+_data = {
+&"RESET": SubResource("Animation_t7v6v"),
+&"start": SubResource("Animation_vhbaf")
+}
+
 [node name="Node2D" type="Node2D" unique_id=2013002765]
 script = ExtResource("1_tt55a")
 
-[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1271697786]
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup" unique_id=2114299185]
-position = Vector2(960, 540)
-scale = Vector2(3.6484375, 3.6484375)
-texture = ExtResource("1_6d6rd")
-
-[node name="Label" type="Label" parent="CanvasGroup" unique_id=1057119988]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 389.0
-offset_right = 1924.0
-offset_bottom = 1469.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 1
-text = "Press Start"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1386193525]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1386193525 groups=["music_player"]]
 stream = ExtResource("2_3jj3l")
 volume_db = -5.0
 autoplay = true
+bus = &"music"
 playback_type = 1
 
 [node name="bleep" type="AudioStreamPlayer" parent="." unique_id=254595162]
@@ -41,5 +60,23 @@ stream = ExtResource("4_t7v6v")
 volume_db = -9.989
 
 [node name="LaunchGame" type="Timer" parent="." unique_id=892280575]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=804401000]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1542014628]
+position = Vector2(928, 536)
+scale = Vector2(3.605, 3.605)
+texture = ExtResource("1_6d6rd")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=318193093]
+offset_left = 688.0
+offset_top = 816.0
+offset_right = 1298.0
+offset_bottom = 977.0
+text = "Press Start"
+label_settings = SubResource("LabelSettings_e7eqh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1850124347]
+libraries/ = SubResource("AnimationLibrary_v6ms7")
 
 [connection signal="timeout" from="LaunchGame" to="." method="_on_launch_game_timeout"]
