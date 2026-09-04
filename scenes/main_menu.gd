@@ -1,6 +1,11 @@
 extends Node2D
 
 
+func _ready() -> void:	
+	AudioServer.set_bus_volume_db(
+		1,
+		linear_to_db($CanvasLayer/Panel/VBoxContainer/HSlider.value)
+	)
 
 
 func _on_button_pressed() -> void:
@@ -17,3 +22,4 @@ func _on_h_slider_value_changed(value: float) -> void:
 		1,
 		linear_to_db($CanvasLayer/Panel/VBoxContainer/HSlider.value)
 	)
+	Settings.set_volume(linear_to_db($CanvasLayer/Panel/VBoxContainer/HSlider.value))
