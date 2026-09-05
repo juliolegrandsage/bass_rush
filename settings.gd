@@ -1,18 +1,24 @@
 extends Node
 
-var music_player: AudioStreamPlayer
-@export var music_slider: HSlider
+const FILE_PATH := "user://settings.ini"
+const MUSIC_BUS_INDEX := 1
 
+var config := ConfigFile.new()
+var music_volume: float = 1.0  # valeur linéaire, 0.0 à 1.0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	music_player = get_tree().get_first_node_in_group("music_player")
+	if !FileAccess.file_exists(FILE_PATH):
+		config.set_value("audio", "music_volume", 0.5)
+		config.save(FILE_PATH)
+	else:
+		config.load(FILE_PATH)
 
-func set_volume(value: float) -> void:
-	if music_player != null:
-		music_player.volume_db = linear_to_db(value)
-		
-func get_volume():
-	if music_player != null:
-		return db_to_linear(music_player.volume_db)
-	return 1.0	
+
+
+func save_audio_settings(key: String, value):
+	config.set_value("audio", key, value)
+	config.save(FILE_PATH)
+
+func load_audio_settings():
+	music_volume = config.get_value("audio", "music_volume", 0.5)
+	return music_volume

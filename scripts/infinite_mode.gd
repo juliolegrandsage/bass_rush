@@ -16,6 +16,8 @@ var ROOM_HEIGHT := 730
 var pb: int = 0
 const SAVE_FILE := "user://save.tres"
 
+
+
 var data: PlayerData
 
 var start_room = preload("res://infinite_mod/rooms/start_room.tscn")
@@ -25,7 +27,7 @@ func _ready() -> void:
 	data = PlayerData.load_data()
 	pb = data.infinite_pb
 	$CanvasLayer/Label2.text = "PB : " + str(pb)
-
+	Settings.load_audio_settings()
 	player.add_to_group("player")
 
 	generate_start_room()
@@ -36,10 +38,10 @@ func _ready() -> void:
 	var cam = $Camera2D
 	remove_child(cam)
 	player.add_child(cam)
-	
+	$AudioStreamPlayer.volume_db = Settings.config.get_value("audio", "music_volume")
 func _process(delta: float) -> void:
 	$CanvasLayer/Label.text = "Room " + str(score)
-
+	print(data.infinite_pb)
 func generate_start_room():
 	var start_room_instance = start_room.instantiate() as Room
 	start_room_instance.position = Vector2(0, 0)
@@ -68,7 +70,6 @@ func _on_character_body_2d_player_dead() -> void:
 	if data.update_pb(score):
 		pb = data.infinite_pb
 	get_tree().reload_current_scene()
-	rooms_counter += 1
 
 
 

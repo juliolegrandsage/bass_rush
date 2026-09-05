@@ -4,7 +4,8 @@ extends Node2D
 
 var autosizescreensize : Script
 func _ready() -> void:
-	pass
+	$AudioStreamPlayer.volume_db = Settings.config.get_value("audio", "music_volume")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("start"):

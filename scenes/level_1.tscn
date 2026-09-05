@@ -296,7 +296,7 @@ position = Vector2(164, 1469)
 [node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("15_7nomh")]
 position = Vector2(-291, 160)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1785672402]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1785672402 groups=["music_player"]]
 stream = ExtResource("16_7nomh")
 autoplay = true
 bus = &"music"

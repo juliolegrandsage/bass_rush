@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 ScreenSizeAutoAdapt="*uid://d4dxeuvud7d7r"
-Save="*uid://bgiu6pbjri2l1"
 ScreenAdapter="*uid://c6nxmfwr2lxw6"
 PlayerStats="*uid://b70pdb8kcrxfr"
 Settings="*uid://dv5a1is8641c4"

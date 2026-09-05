@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bm55d82gxd8pp" path="res://scenes/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://qgqfucubpcop" path="res://scenes/button.gd" id="2_ekxnf"]
+[ext_resource type="Script" uid="uid://dv5a1is8641c4" path="res://settings.gd" id="2_wu84c"]
 [ext_resource type="AudioStream" uid="uid://ca2wvi5lfkbnu" path="res://assets/audio/3 - menu2.ogg" id="3_bqqt6"]
 
-[node name="MainMenu" type="Node2D" unique_id=1025285425]
+[node name="MainMenu" type="Node2D" unique_id=1025285425 node_paths=PackedStringArray("music_player")]
 script = ExtResource("1_l6cm7")
+music_player = NodePath("AudioStreamPlayer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1454474058]
 
@@ -16,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
+script = ExtResource("2_wu84c")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=2101478220]
 custom_minimum_size = Vector2(-0.705, 0)

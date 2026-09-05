@@ -166,7 +166,7 @@ func shoot():
 	if Input.has_joy_vibration(0):
 		Input.start_joy_vibration(0, 0.2, 0.2, 0.3)
 func die():
-	if get_tree().current_scene == load("res://scenes/infinite_mode.tscn"):
+	if get_parent().name == "InfiniteMode":
 		emit_signal("player_dead")
 		
 	else:

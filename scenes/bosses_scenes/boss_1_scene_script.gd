@@ -12,7 +12,6 @@ var is_camera_zoomed_on_boss = false
 func _ready() -> void:
 	player.scale = Vector2(0.5, 0.5)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if boss_controller.health <= 0 and boss_controller.is_dead:
 		if !is_camera_zoomed_on_boss:

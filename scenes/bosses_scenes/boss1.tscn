@@ -262,7 +262,7 @@ level_file = "C:/Users/julio/Documents/godot_projects/bass_rush/scenes/level_2.t
 
 [node name="PauseMenu" parent="CanvasLayer2" unique_id=1061106251 instance=ExtResource("15_yuh76")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2102730372]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2102730372 groups=["music_player"]]
 stream = ExtResource("16_f23rf")
 autoplay = true
 
