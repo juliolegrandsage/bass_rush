@@ -1,82 +1,62 @@
-[gd_scene format=4 uid="uid://c4ybir6645tbx"]
+[gd_scene format=3 uid="uid://c4ybir6645tbx"]
 
-[ext_resource type="Script" uid="uid://cjj07w8h181oy" path="res://infinite_mod/rooms/room_template.gd" id="1_l655c"]
-[ext_resource type="Texture2D" uid="uid://cbtv2vd82tf6q" path="res://assets/sprites/tileset2.png" id="2_qufar"]
-[ext_resource type="PackedScene" uid="uid://byyiaiw84rh4x" path="res://scenes/space_cherub.tscn" id="3_6amd0"]
-[ext_resource type="Texture2D" uid="uid://mkmehn6t4cs6" path="res://assets/sprites/tileset_level.png" id="4_hna0c"]
-[ext_resource type="Script" uid="uid://bebss7wj0oym0" path="res://scripts/infinite_mode_door.gd" id="5_msxqf"]
-[ext_resource type="PackedScene" uid="uid://2mg8k8vkr3al" path="res://scenes/oduro_infinite_mode.tscn" id="6_5croc"]
-[ext_resource type="PackedScene" uid="uid://2pfuwudbu0it" path="res://scenes/launchpad.tscn" id="7_qufar"]
+[ext_resource type="Script" uid="uid://bbhb46516iouk" path="res://scripts/infinite_mode.gd" id="1_2dkrw"]
+[ext_resource type="PackedScene" uid="uid://6td1vxu12xw0" path="res://infinite_mod/rooms/room1.tscn" id="2_nfuv6"]
+[ext_resource type="PackedScene" uid="uid://cwook5gh3lnor" path="res://infinite_mod/rooms/room2.tscn" id="3_vvyik"]
+[ext_resource type="PackedScene" uid="uid://dy077oena4ix2" path="res://infinite_mod/rooms/room3.tscn" id="4_0nm2s"]
+[ext_resource type="PackedScene" uid="uid://cy2sqqjorwnyd" path="res://infinite_mod/rooms/room4.tscn" id="5_lsfxg"]
+[ext_resource type="PackedScene" uid="uid://3mnetx5dqkot" path="res://infinite_mod/rooms/room5.tscn" id="6_o1ism"]
+[ext_resource type="PackedScene" uid="uid://b1vgv1ja34lso" path="res://infinite_mod/rooms/room7.tscn" id="7_n5cmp"]
+[ext_resource type="PackedScene" uid="uid://bsa5g5yq0d1dr" path="res://scenes/player.tscn" id="8_xgrno"]
+[ext_resource type="Script" uid="uid://v8bopy5fm3lg" path="res://scripts/camera_shake.gd" id="9_ruit7"]
+[ext_resource type="PackedScene" uid="uid://dtc1mmtlbybjm" path="res://scenes/ui.tscn" id="10_slmi2"]
+[ext_resource type="PackedScene" uid="uid://c05shg1se85gx" path="res://scenes/pause_menu.tscn" id="11_qfojg"]
+[ext_resource type="AudioStream" uid="uid://jde5jnk02ocm" path="res://assets/audio/2-infinty-jungle.ogg" id="12_0ccmp"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sf0ot"]
-texture = ExtResource("2_qufar")
-texture_region_size = Vector2i(64, 64)
-2:0/0 = 0
-3:0/0 = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-4:0/0 = 0
-5:0/0 = 0
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-0:0/0 = 0
+[node name="InfiniteMode" type="Node2D" unique_id=1247889500 node_paths=PackedStringArray("player")]
+script = ExtResource("1_2dkrw")
+rooms_counter = 1
+score = null
+room_templates = Array[PackedScene]([ExtResource("2_nfuv6"), ExtResource("3_vvyik"), ExtResource("4_0nm2s"), ExtResource("5_lsfxg"), ExtResource("6_o1ism"), null, ExtResource("7_n5cmp")])
+player = NodePath("CharacterBody2D")
 
-[sub_resource type="TileSet" id="TileSet_g4v7s"]
-tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_sf0ot")
+[node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("8_xgrno")]
+position = Vector2(353, 673)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(68, 311)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1150034398 groups=["camera"]]
+position = Vector2(0, -184.695)
+zoom = Vector2(0.625, 0.625)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 5.47
+script = ExtResource("9_ruit7")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lww2r"]
-texture = ExtResource("4_hna0c")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+[node name="CanvasLayer" parent="." unique_id=1079517282 instance=ExtResource("10_slmi2")]
 
-[sub_resource type="TileSet" id="TileSet_yf5fn"]
-tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_lww2r")
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=439367046]
+offset_left = 1.0
+offset_top = 72.0
+offset_right = 60.0
+offset_bottom = 95.0
+text = "Room 0"
 
-[node name="Room1" type="Node2D" unique_id=339347580 node_paths=PackedStringArray("doors_objects")]
-script = ExtResource("1_l655c")
-doors_objects = NodePath("Doors")
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1330195342]
+offset_left = 1.0
+offset_top = 115.0
+offset_right = 60.0
+offset_bottom = 138.0
+text = "PB :"
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=551394460 groups=["tilemap"]]
-tile_map_data = PackedByteArray("AAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAABAAAAAAD//wcAAAABAAAAAAD//wsAAAABAAAAAAAAAAAAAAABAAAAAAAAAAsAAAABAAAAAAABAAAAAAABAAAAAAABAAsAAAABAAAAAAACAAAAAAABAAAAAAACAAsAAAABAAAAAAADAAAAAAABAAAAAAADAAsAAAABAAAAAAAEAAAAAAABAAAAAAAEAAsAAAABAAAAAAAFAAAAAAABAAAAAAAFAAsAAAABAAAAAAAGAAAAAAABAAAAAAAGAAsAAAABAAAAAAAHAAAAAAABAAAAAAAHAAsAAAABAAAAAAAIAAAAAAABAAAAAAAIAAsAAAABAAAAAAAJAAAAAAABAAAAAAAJAAsAAAABAAAAAAAKAAEAAAABAAAAAAAKAAIAAAABAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAAAAAAKAAUAAAABAAAAAAAKAAYAAAABAAAAAAAKAAcAAAABAAAAAAAKAAsAAAABAAAAAAAAAAcAAAABAAAAAAABAAcAAAABAAAAAAACAAcAAAABAAAAAAAJAAcAAAABAAAAAAAIAAcAAAABAAAAAAAHAAcAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_g4v7s")
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1061106251 instance=ExtResource("11_qfojg")]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1621846744]
+[node name="Timer" type="Timer" parent="." unique_id=841846046]
+wait_time = 5.0
+autostart = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1120338849]
-position = Vector2(605, 616)
-shape = SubResource("RectangleShape2D_g4v7s")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1424119588 groups=["music_player"]]
+stream = ExtResource("12_0ccmp")
+volume_db = -8.465
+autoplay = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=966300852]
-position = Vector2(39, 627)
-shape = SubResource("RectangleShape2D_g4v7s")
-
-[node name="Doors" type="TileMapLayer" parent="." unique_id=139484898]
-tile_map_data = PackedByteArray("AAD//wgAAQAAAAAAAAD//wkAAQAAAAAAAAD//woAAQAAAAAAAAAKAAgAAQAAAAAAAAAKAAkAAQAAAAAAAAAKAAoAAQAAAAAAAAA=")
-tile_set = SubResource("TileSet_yf5fn")
-script = ExtResource("5_msxqf")
-
-[node name="oduro" parent="." unique_id=1890799837 instance=ExtResource("6_5croc")]
-position = Vector2(98, 379)
-
-[node name="oduro2" parent="." unique_id=1173274427 instance=ExtResource("6_5croc")]
-position = Vector2(545, 385)
-
-[node name="SpaceCherub" parent="." unique_id=130952627 instance=ExtResource("3_6amd0")]
-position = Vector2(319, 598)
-
-[node name="launchpad" parent="." unique_id=393045003 instance=ExtResource("7_qufar")]
-position = Vector2(321, 673)
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_room_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="player_dead" from="CharacterBody2D" to="." method="_on_character_body_2d_player_dead"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -39,8 +39,6 @@ func count_enemies_in_room():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		infinite_mode_scene.generate_roomset()
-		count_enemies_in_room()
-		print(enemies_account)
 		get_tree().create_timer(0.4).timeout
 		close_doors()
 		if enemies_account <= 0:

@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://3ww3rryxamjb" path="res://scenes/transition_screen.tscn" id="14_i7pjh"]
 [ext_resource type="PackedScene" uid="uid://c05shg1se85gx" path="res://scenes/pause_menu.tscn" id="15_yuh76"]
 [ext_resource type="AudioStream" uid="uid://hw8rwnsn2d1q" path="res://assets/audio/boss1.ogg" id="16_f23rf"]
+[ext_resource type="PackedScene" uid="uid://cw1pexsuwa5xd" path="res://scenes/save_handler.tscn" id="17_3nrtv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yuh76"]
 texture = ExtResource("3_ksx06")
@@ -257,7 +258,6 @@ wait_time = 2.0
 position = Vector2(0, 240)
 
 [node name="CanvasLayer2" parent="." unique_id=1046878331 instance=ExtResource("14_i7pjh")]
-visible = false
 level_file = "C:/Users/julio/Documents/godot_projects/bass_rush/scenes/level_2.tscn"
 
 [node name="PauseMenu" parent="CanvasLayer2" unique_id=1061106251 instance=ExtResource("15_yuh76")]
@@ -265,6 +265,8 @@ level_file = "C:/Users/julio/Documents/godot_projects/bass_rush/scenes/level_2.t
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2102730372 groups=["music_player"]]
 stream = ExtResource("16_f23rf")
 autoplay = true
+
+[node name="SaveHandler" parent="." unique_id=1585572616 instance=ExtResource("17_3nrtv")]
 
 [connection signal="timeout" from="boss_hand_spawner/Timer" to="boss_hand_spawner" method="_on_timer_timeout"]
 [connection signal="switch_phase" from="demo_boss_controller" to="Player" method="_on_boss_switch_phase"]

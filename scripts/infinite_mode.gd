@@ -33,6 +33,7 @@ func _ready() -> void:
 	generate_start_room()
 	
 	for i in range(5):
+		
 		generate_roomset()
 
 	var cam = $Camera2D
@@ -53,7 +54,6 @@ func generate_start_room():
 func generate_roomset():
 	
 	var room := room_templates[rng.randi_range(0 ,room_templates.size() - 1)].instantiate() as Room
-	
 	room.position = Vector2(
 		-ROOM_WIDTH * rooms.size(),
 		0

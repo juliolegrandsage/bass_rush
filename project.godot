@@ -22,6 +22,7 @@ ScreenSizeAutoAdapt="*uid://d4dxeuvud7d7r"
 ScreenAdapter="*uid://c6nxmfwr2lxw6"
 PlayerStats="*uid://b70pdb8kcrxfr"
 Settings="*uid://dv5a1is8641c4"
+SaveHandler="*uid://cw1pexsuwa5xd"
 
 [display]
 

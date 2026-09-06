@@ -5,10 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cwook5gh3lnor" path="res://infinite_mod/rooms/room2.tscn" id="3_mfr1g"]
 [ext_resource type="PackedScene" uid="uid://bsa5g5yq0d1dr" path="res://scenes/player.tscn" id="4_aga4w"]
 [ext_resource type="PackedScene" uid="uid://dy077oena4ix2" path="res://infinite_mod/rooms/room3.tscn" id="4_xuirb"]
-[ext_resource type="PackedScene" uid="uid://cy2sqqjorwnyd" path="res://infinite_mod/rooms/room4.tscn" id="5_8rylr"]
 [ext_resource type="PackedScene" uid="uid://dtc1mmtlbybjm" path="res://scenes/ui.tscn" id="5_l0nhx"]
-[ext_resource type="PackedScene" uid="uid://3mnetx5dqkot" path="res://infinite_mod/rooms/room5.tscn" id="6_3gu3q"]
-[ext_resource type="PackedScene" uid="uid://c4ybir6645tbx" path="res://infinite_mod/rooms/room6.tscn" id="7_2kotj"]
 [ext_resource type="AudioStream" uid="uid://jde5jnk02ocm" path="res://assets/audio/2-infinty-jungle.ogg" id="8_8rylr"]
 [ext_resource type="Script" uid="uid://v8bopy5fm3lg" path="res://scripts/camera_shake.gd" id="8_gv6ko"]
 [ext_resource type="PackedScene" uid="uid://c05shg1se85gx" path="res://scenes/pause_menu.tscn" id="11_fs7ec"]
@@ -16,7 +13,7 @@
 [node name="InfiniteMode" type="Node2D" unique_id=1247889500 node_paths=PackedStringArray("player")]
 script = ExtResource("1_ix4cq")
 rooms_counter = 1
-room_templates = Array[PackedScene]([ExtResource("2_2jtjp"), ExtResource("3_mfr1g"), ExtResource("4_xuirb"), ExtResource("5_8rylr"), ExtResource("6_3gu3q"), ExtResource("7_2kotj")])
+room_templates = Array[PackedScene]([ExtResource("2_2jtjp"), ExtResource("3_mfr1g"), ExtResource("4_xuirb")])
 player = NodePath("CharacterBody2D")
 
 [node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("4_aga4w")]
@@ -46,14 +43,13 @@ offset_right = 60.0
 offset_bottom = 138.0
 text = "PB :"
 
-[node name="PauseMenu2" parent="CanvasLayer" unique_id=1061106251 instance=ExtResource("11_fs7ec")]
-process_mode = 3
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1061106251 instance=ExtResource("11_fs7ec")]
 
 [node name="Timer" type="Timer" parent="." unique_id=841846046]
 wait_time = 5.0
 autostart = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1424119588]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1424119588 groups=["music_player"]]
 stream = ExtResource("8_8rylr")
 volume_db = -8.465
 autoplay = true

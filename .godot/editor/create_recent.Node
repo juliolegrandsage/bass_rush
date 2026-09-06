@@ -1,3 +1,4 @@
+Control
 HSlider
 Node2D
 Camera2D
@@ -12,4 +13,3 @@ Button
 VBoxContainer
 Panel
 CanvasLayer
-Label

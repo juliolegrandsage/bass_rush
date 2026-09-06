@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://b4dmdesecaacd"]
 
+[ext_resource type="Script" uid="uid://q4rsxmv8qgaj" path="res://scenes/level_1.gd" id="1_isj1j"]
 [ext_resource type="Texture2D" uid="uid://cjxab5bsxjmnb" path="res://assets/sprites/background_pattern.png" id="3_2os1m"]
 [ext_resource type="Texture2D" uid="uid://cbtv2vd82tf6q" path="res://assets/sprites/tileset2.png" id="3_rus8k"]
 [ext_resource type="Texture2D" uid="uid://dlpr5apoxgctw" path="res://assets/sprites/Sprite-0005.png" id="3_x2xxo"]
@@ -18,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://2mg8k8vkr3al" path="res://scenes/oduro_infinite_mode.tscn" id="15_6dial"]
 [ext_resource type="PackedScene" uid="uid://bsa5g5yq0d1dr" path="res://scenes/player.tscn" id="15_7nomh"]
 [ext_resource type="AudioStream" uid="uid://dsgvs067fi4pl" path="res://assets/audio/4 - lvl1.ogg" id="16_7nomh"]
+[ext_resource type="PackedScene" uid="uid://cw1pexsuwa5xd" path="res://scenes/save_handler.tscn" id="19_2cbcq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_go7sj"]
 texture = ExtResource("3_2os1m")
@@ -118,6 +120,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_5xbjy")
 
 [node name="Level1" type="Node2D" unique_id=152215072]
+script = ExtResource("1_isj1j")
 
 [node name="Area2D" parent="." unique_id=1877095652 node_paths=PackedStringArray("canvas_layer") instance=ExtResource("13_7gny6")]
 position = Vector2(6238, 4590)
@@ -326,3 +329,5 @@ position = Vector2(5592, 3782)
 position = Vector2(5934, 4665)
 life_add = 20
 is_mega_heart = true
+
+[node name="SaveHandler" parent="." unique_id=1585572616 instance=ExtResource("19_2cbcq")]

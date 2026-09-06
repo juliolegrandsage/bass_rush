@@ -7,11 +7,13 @@ extends Node2D
 
 @onready var player = $Player
 
+@onready var save_handler = $SaveHandler
+
 var is_camera_zoomed_on_boss = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player.scale = Vector2(0.5, 0.5)
-
+	save_handler.save_current_level()
 func _process(delta: float) -> void:
 	if boss_controller.health <= 0 and boss_controller.is_dead:
 		if !is_camera_zoomed_on_boss:

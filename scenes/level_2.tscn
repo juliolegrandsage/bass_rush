@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://ehyhrtcpi0np"]
 
+[ext_resource type="Script" uid="uid://b46gml2tqnss0" path="res://scenes/level_2.gd" id="1_bv48q"]
 [ext_resource type="Texture2D" uid="uid://dlpr5apoxgctw" path="res://assets/sprites/Sprite-0005.png" id="1_igmy8"]
 [ext_resource type="Texture2D" uid="uid://mkmehn6t4cs6" path="res://assets/sprites/tileset_level.png" id="1_jm1iu"]
 [ext_resource type="PackedScene" uid="uid://bsa5g5yq0d1dr" path="res://scenes/player.tscn" id="2_pbc48"]
@@ -83,6 +84,7 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_7qsfm")
 
 [node name="level_2" type="Node2D" unique_id=623091948]
+script = ExtResource("1_bv48q")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=609097324]
 
