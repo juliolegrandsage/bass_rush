@@ -6,14 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://bsa5g5yq0d1dr" path="res://scenes/player.tscn" id="4_aga4w"]
 [ext_resource type="PackedScene" uid="uid://dy077oena4ix2" path="res://infinite_mod/rooms/room3.tscn" id="4_xuirb"]
 [ext_resource type="PackedScene" uid="uid://dtc1mmtlbybjm" path="res://scenes/ui.tscn" id="5_l0nhx"]
+[ext_resource type="PackedScene" uid="uid://cy2sqqjorwnyd" path="res://infinite_mod/rooms/room4.tscn" id="5_u63es"]
+[ext_resource type="PackedScene" uid="uid://3mnetx5dqkot" path="res://infinite_mod/rooms/room5.tscn" id="6_mjrce"]
 [ext_resource type="AudioStream" uid="uid://jde5jnk02ocm" path="res://assets/audio/2-infinty-jungle.ogg" id="8_8rylr"]
+[ext_resource type="PackedScene" uid="uid://b1vgv1ja34lso" path="res://infinite_mod/rooms/room7.tscn" id="8_ey0jb"]
 [ext_resource type="Script" uid="uid://v8bopy5fm3lg" path="res://scripts/camera_shake.gd" id="8_gv6ko"]
+[ext_resource type="PackedScene" uid="uid://dr2ju4p5y2gfx" path="res://infinite_mod/rooms/room8.tscn" id="8_u63es"]
 [ext_resource type="PackedScene" uid="uid://c05shg1se85gx" path="res://scenes/pause_menu.tscn" id="11_fs7ec"]
 
 [node name="InfiniteMode" type="Node2D" unique_id=1247889500 node_paths=PackedStringArray("player")]
 script = ExtResource("1_ix4cq")
 rooms_counter = 1
-room_templates = Array[PackedScene]([ExtResource("2_2jtjp"), ExtResource("3_mfr1g"), ExtResource("4_xuirb")])
+room_templates = Array[PackedScene]([ExtResource("2_2jtjp"), ExtResource("3_mfr1g"), ExtResource("4_xuirb"), ExtResource("5_u63es"), ExtResource("6_mjrce"), ExtResource("8_ey0jb"), ExtResource("8_u63es")])
 player = NodePath("CharacterBody2D")
 
 [node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("4_aga4w")]

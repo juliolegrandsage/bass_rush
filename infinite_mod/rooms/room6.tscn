@@ -17,7 +17,7 @@
 script = ExtResource("1_2dkrw")
 rooms_counter = 1
 score = null
-room_templates = Array[PackedScene]([ExtResource("2_nfuv6"), ExtResource("3_vvyik"), ExtResource("4_0nm2s"), ExtResource("5_lsfxg"), ExtResource("6_o1ism"), null, ExtResource("7_n5cmp")])
+room_templates = Array[PackedScene]([ExtResource("2_nfuv6"), ExtResource("3_vvyik"), ExtResource("4_0nm2s"), ExtResource("5_lsfxg"), ExtResource("6_o1ism"), ExtResource("7_n5cmp")])
 player = NodePath("CharacterBody2D")
 
 [node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("8_xgrno")]

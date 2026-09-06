@@ -1,4 +1,12 @@
-res://scenes/infinite_mode.tscn
-res://scripts/infinite_mode.gd
 res://infinite_mod/rooms/room1.tscn
 res://infinite_mod/rooms/room_template.gd
+res://scenes/infinite_mode.tscn
+res://infinite_mod/rooms/room6.tscn
+res://infinite_mod/rooms/room5.tscn
+res://infinite_mod/rooms/room4.tscn
+res://infinite_mod/rooms/room3.tscn
+res://scenes/player.tscn
+res://scripts/player.gd
+res://infinite_mod/rooms/room8.tscn
+res://scenes/pause_menu.tscn
+res://scripts/pause_menu.gd

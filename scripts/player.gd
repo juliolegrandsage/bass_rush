@@ -89,7 +89,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if dashing and velocity.x == 0 and dash_up_counter == 0:
-		velocity.y = -DASH_SPEED / 2
+		velocity.y = -DASH_SPEED / 1.5
 		dash_up_counter += 1	
 	
 	if is_on_floor() and dash_up_counter != 0:

@@ -1,15 +1,16 @@
-[gd_scene format=4 uid="uid://cy2sqqjorwnyd"]
+[gd_scene format=4 uid="uid://dr2ju4p5y2gfx"]
 
-[ext_resource type="Script" uid="uid://cjj07w8h181oy" path="res://infinite_mod/rooms/room_template.gd" id="1_givi5"]
-[ext_resource type="Texture2D" uid="uid://cbtv2vd82tf6q" path="res://assets/sprites/tileset2.png" id="2_pxqaj"]
-[ext_resource type="PackedScene" uid="uid://byyiaiw84rh4x" path="res://scenes/space_cherub.tscn" id="3_ni1fw"]
-[ext_resource type="Texture2D" uid="uid://mkmehn6t4cs6" path="res://assets/sprites/tileset_level.png" id="4_xik33"]
-[ext_resource type="Script" uid="uid://bebss7wj0oym0" path="res://scripts/infinite_mode_door.gd" id="5_akrn0"]
-[ext_resource type="PackedScene" uid="uid://2mg8k8vkr3al" path="res://scenes/oduro_infinite_mode.tscn" id="6_pxqaj"]
-[ext_resource type="PackedScene" uid="uid://2pfuwudbu0it" path="res://scenes/launchpad.tscn" id="7_ni1fw"]
+[ext_resource type="Script" uid="uid://cjj07w8h181oy" path="res://infinite_mod/rooms/room_template.gd" id="1_ar0yl"]
+[ext_resource type="Texture2D" uid="uid://cbtv2vd82tf6q" path="res://assets/sprites/tileset2.png" id="2_dnjxn"]
+[ext_resource type="Texture2D" uid="uid://mkmehn6t4cs6" path="res://assets/sprites/tileset_level.png" id="3_jbuhe"]
+[ext_resource type="Script" uid="uid://bebss7wj0oym0" path="res://scripts/infinite_mode_door.gd" id="4_v8r7c"]
+[ext_resource type="PackedScene" uid="uid://2pfuwudbu0it" path="res://scenes/launchpad.tscn" id="5_3fed8"]
+[ext_resource type="PackedScene" uid="uid://2mg8k8vkr3al" path="res://scenes/oduro_infinite_mode.tscn" id="6_gdsef"]
+[ext_resource type="PackedScene" uid="uid://byyiaiw84rh4x" path="res://scenes/space_cherub.tscn" id="7_poro4"]
+[ext_resource type="PackedScene" uid="uid://mh355lqmodug" path="res://scenes/heart.tscn" id="8_dnjxn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sf0ot"]
-texture = ExtResource("2_pxqaj")
+texture = ExtResource("2_dnjxn")
 texture_region_size = Vector2i(64, 64)
 2:0/0 = 0
 3:0/0 = 0
@@ -29,7 +30,7 @@ sources/0 = SubResource("TileSetAtlasSource_sf0ot")
 size = Vector2(68, 311)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lww2r"]
-texture = ExtResource("4_xik33")
+texture = ExtResource("3_jbuhe")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -44,11 +45,11 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lww2r")
 
 [node name="Room1" type="Node2D" unique_id=339347580 node_paths=PackedStringArray("doors_objects")]
-script = ExtResource("1_givi5")
+script = ExtResource("1_ar0yl")
 doors_objects = NodePath("Doors")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=551394460 groups=["tilemap"]]
-tile_map_data = PackedByteArray("AAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAABAAAAAAD//wcAAAABAAAAAAD//wsAAAABAAAAAAAAAAAAAAABAAAAAAAAAAsAAAABAAAAAAABAAAAAAABAAAAAAABAAsAAAABAAAAAAACAAAAAAABAAAAAAACAAsAAAABAAAAAAADAAAAAAABAAAAAAADAAsAAAABAAAAAAAEAAAAAAABAAAAAAAEAAsAAAABAAAAAAAFAAAAAAABAAAAAAAFAAsAAAABAAAAAAAGAAAAAAABAAAAAAAGAAsAAAABAAAAAAAHAAAAAAABAAAAAAAHAAsAAAABAAAAAAAIAAAAAAABAAAAAAAIAAsAAAABAAAAAAAJAAAAAAABAAAAAAAJAAsAAAABAAAAAAAKAAEAAAABAAAAAAAKAAIAAAABAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAAAAAAKAAUAAAABAAAAAAAKAAYAAAABAAAAAAAKAAcAAAABAAAAAAAKAAsAAAABAAAAAAAAAAcAAAABAAAAAAABAAcAAAABAAAAAAACAAcAAAABAAAAAAAJAAcAAAABAAAAAAAIAAcAAAABAAAAAAAHAAcAAAABAAAAAAAFAAYAAAABAAAAAAAEAAYAAAABAAAAAAAEAAUAAAABAAAAAAAFAAUAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAABAAAAAAD//wcAAAABAAAAAAD//wsAAAABAAAAAAAAAAAAAAABAAAAAAAAAAsAAAABAAAAAAABAAAAAAABAAAAAAABAAsAAAABAAAAAAACAAAAAAABAAAAAAACAAsAAAABAAAAAAADAAAAAAABAAAAAAADAAsAAAABAAAAAAAEAAAAAAABAAAAAAAEAAsAAAABAAAAAAAFAAAAAAABAAAAAAAFAAsAAAABAAAAAAAGAAAAAAABAAAAAAAGAAsAAAABAAAAAAAHAAAAAAABAAAAAAAHAAsAAAABAAAAAAAIAAAAAAABAAAAAAAIAAsAAAABAAAAAAAJAAAAAAABAAAAAAAJAAsAAAABAAAAAAAKAAEAAAABAAAAAAAKAAIAAAABAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAAAAAAKAAUAAAABAAAAAAAKAAYAAAABAAAAAAAKAAcAAAABAAAAAAAKAAsAAAABAAAAAAAAAAcAAAABAAAAAAAJAAcAAAABAAAAAAAJAAMAAAABAAAAAAAIAAMAAAABAAAAAAAHAAMAAAABAAAAAAAGAAMAAAABAAAAAAADAAMAAAABAAAAAAACAAMAAAABAAAAAAABAAMAAAABAAAAAAAAAAMAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_g4v7s")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1621846744]
@@ -61,19 +62,22 @@ shape = SubResource("RectangleShape2D_g4v7s")
 position = Vector2(39, 627)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="SpaceCherub" parent="." unique_id=130952627 instance=ExtResource("3_ni1fw")]
-position = Vector2(501, 302)
-
 [node name="Doors" type="TileMapLayer" parent="." unique_id=139484898]
 tile_map_data = PackedByteArray("AAD//wgAAQAAAAAAAAD//wkAAQAAAAAAAAD//woAAQAAAAAAAAAKAAgAAQAAAAAAAAAKAAkAAQAAAAAAAAAKAAoAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_yf5fn")
-script = ExtResource("5_akrn0")
+script = ExtResource("4_v8r7c")
 
-[node name="oduro" parent="." unique_id=1890799837 instance=ExtResource("6_pxqaj")]
-position = Vector2(98, 379)
+[node name="launchpad" parent="." unique_id=393045003 instance=ExtResource("5_3fed8")]
+position = Vector2(321, 673)
 
-[node name="launchpad" parent="." unique_id=393045003 instance=ExtResource("7_ni1fw")]
-position = Vector2(317, 672)
+[node name="oduro" parent="." unique_id=1890799837 instance=ExtResource("6_gdsef")]
+position = Vector2(103, 378)
+
+[node name="SpaceCherub" parent="." unique_id=130952627 instance=ExtResource("7_poro4")]
+position = Vector2(482, 353)
+
+[node name="heart" parent="." unique_id=369458415 instance=ExtResource("8_dnjxn")]
+position = Vector2(522, 129)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_room_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -37,3 +37,12 @@ func _on_h_slider_value_changed(value: float) -> void:
 	audioplayer.volume_db = linear_to_db(value)
 	Settings.save_audio_settings("music_volume", value)
 	
+
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_continue_pressed() -> void:
+	resume()
