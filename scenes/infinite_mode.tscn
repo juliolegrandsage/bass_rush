@@ -12,12 +12,15 @@
 [ext_resource type="PackedScene" uid="uid://b1vgv1ja34lso" path="res://infinite_mod/rooms/room7.tscn" id="8_ey0jb"]
 [ext_resource type="Script" uid="uid://v8bopy5fm3lg" path="res://scripts/camera_shake.gd" id="8_gv6ko"]
 [ext_resource type="PackedScene" uid="uid://dr2ju4p5y2gfx" path="res://infinite_mod/rooms/room8.tscn" id="8_u63es"]
+[ext_resource type="PackedScene" uid="uid://xm8km2ur28fj" path="res://infinite_mod/rooms/room9.tscn" id="9_614e6"]
+[ext_resource type="PackedScene" uid="uid://dfesf08gvljr6" path="res://infinite_mod/rooms/room11.tscn" id="10_ey0jb"]
+[ext_resource type="PackedScene" uid="uid://86xl0rvewokg" path="res://infinite_mod/rooms/room12.tscn" id="11_ey0jb"]
 [ext_resource type="PackedScene" uid="uid://c05shg1se85gx" path="res://scenes/pause_menu.tscn" id="11_fs7ec"]
 
 [node name="InfiniteMode" type="Node2D" unique_id=1247889500 node_paths=PackedStringArray("player")]
 script = ExtResource("1_ix4cq")
 rooms_counter = 1
-room_templates = Array[PackedScene]([ExtResource("2_2jtjp"), ExtResource("3_mfr1g"), ExtResource("4_xuirb"), ExtResource("5_u63es"), ExtResource("6_mjrce"), ExtResource("8_ey0jb"), ExtResource("8_u63es")])
+room_templates = Array[PackedScene]([ExtResource("2_2jtjp"), ExtResource("3_mfr1g"), ExtResource("4_xuirb"), ExtResource("5_u63es"), ExtResource("6_mjrce"), ExtResource("8_ey0jb"), ExtResource("8_u63es"), ExtResource("9_614e6"), ExtResource("10_ey0jb"), ExtResource("11_ey0jb")])
 player = NodePath("CharacterBody2D")
 
 [node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("4_aga4w")]

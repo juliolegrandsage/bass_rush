@@ -12,13 +12,14 @@ func _ready() -> void:
 		config.save(FILE_PATH)
 	else:
 		config.load(FILE_PATH)
-
-
+	config.load(FILE_PATH)
 
 func save_audio_settings(key: String, value):
 	config.set_value("audio", key, value)
 	config.save(FILE_PATH)
 
 func load_audio_settings():
-	music_volume = config.get_value("audio", "music_volume", 0.5)
+	music_volume = config.get_value("audio", "music_volume")
+	get_tree().get_first_node_in_group("music_player").volume_linear = config.get_value("audio", "music_volume")
+
 	return music_volume

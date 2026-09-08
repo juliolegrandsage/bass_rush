@@ -1,0 +1,81 @@
+[gd_scene format=4 uid="uid://dfesf08gvljr6"]
+
+[ext_resource type="Script" uid="uid://cjj07w8h181oy" path="res://infinite_mod/rooms/room_template.gd" id="1_oy411"]
+[ext_resource type="Texture2D" uid="uid://cbtv2vd82tf6q" path="res://assets/sprites/tileset2.png" id="2_535yv"]
+[ext_resource type="Texture2D" uid="uid://mkmehn6t4cs6" path="res://assets/sprites/tileset_level.png" id="3_lbh4h"]
+[ext_resource type="Script" uid="uid://bebss7wj0oym0" path="res://scripts/infinite_mode_door.gd" id="4_0jdqq"]
+[ext_resource type="PackedScene" uid="uid://2mg8k8vkr3al" path="res://scenes/oduro_infinite_mode.tscn" id="5_4nqxe"]
+[ext_resource type="PackedScene" uid="uid://2pfuwudbu0it" path="res://scenes/launchpad.tscn" id="6_535yv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sf0ot"]
+texture = ExtResource("2_535yv")
+texture_region_size = Vector2i(64, 64)
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:0/0 = 0
+5:0/0 = 0
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g4v7s"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_sf0ot")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(68, 311)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lww2r"]
+texture = ExtResource("3_lbh4h")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_yf5fn"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_lww2r")
+
+[node name="Room1" type="Node2D" unique_id=339347580 node_paths=PackedStringArray("doors_objects")]
+script = ExtResource("1_oy411")
+doors_objects = NodePath("Doors")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=551394460 groups=["tilemap"]]
+tile_map_data = PackedByteArray("AAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAABAAAAAAD//wcAAAABAAAAAAD//wsAAAABAAAAAAAAAAAAAAABAAAAAAAAAAsAAAABAAAAAAABAAAAAAABAAAAAAABAAsAAAABAAAAAAACAAAAAAABAAAAAAACAAsAAAABAAAAAAADAAAAAAABAAAAAAADAAsAAAABAAAAAAAEAAAAAAABAAAAAAAEAAsAAAABAAAAAAAFAAAAAAABAAAAAAAFAAsAAAABAAAAAAAGAAAAAAABAAAAAAAGAAsAAAABAAAAAAAHAAAAAAABAAAAAAAHAAsAAAABAAAAAAAIAAAAAAABAAAAAAAIAAsAAAABAAAAAAAJAAAAAAABAAAAAAAJAAsAAAABAAAAAAAKAAEAAAABAAAAAAAKAAIAAAABAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAAAAAAKAAUAAAABAAAAAAAKAAYAAAABAAAAAAAKAAcAAAABAAAAAAAKAAsAAAABAAAAAAAFAAEAAAABAAAAAAAFAAIAAAABAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAAFAAUAAAABAAAAAAAJAAUAAAABAAAAAAAIAAUAAAABAAAAAAAEAAEAAAABAAAAAAAEAAIAAAABAAAAAAAEAAMAAAABAAAAAAAEAAQAAAABAAAAAAAEAAUAAAABAAAAAAABAAUAAAABAAAAAAAAAAUAAAABAAAAAAACAAUAAAABAAAAAAAHAAUAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_g4v7s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1621846744]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1120338849]
+position = Vector2(605, 616)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=966300852]
+position = Vector2(39, 627)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Doors" type="TileMapLayer" parent="." unique_id=139484898]
+tile_map_data = PackedByteArray("AAD//wgAAQAAAAAAAAD//wkAAQAAAAAAAAD//woAAQAAAAAAAAAKAAgAAQAAAAAAAAAKAAkAAQAAAAAAAAAKAAoAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_yf5fn")
+script = ExtResource("4_0jdqq")
+
+[node name="oduro" parent="." unique_id=1890799837 instance=ExtResource("5_4nqxe")]
+position = Vector2(137, 252)
+
+[node name="oduro2" parent="." unique_id=1656487861 instance=ExtResource("5_4nqxe")]
+position = Vector2(557, 254)
+
+[node name="launchpad" parent="." unique_id=393045003 instance=ExtResource("6_535yv")]
+position = Vector2(424, 667)
+
+[node name="launchpad2" parent="." unique_id=1677867335 instance=ExtResource("6_535yv")]
+position = Vector2(222, 667)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_room_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -8,4 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#get_tree().get_first_node_in_group("music_player").volume_linear = Settings.config.get_value("audio", "music_volume")
 	pass

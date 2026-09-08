@@ -4,11 +4,12 @@ extends Node2D
 
 var autosizescreensize : Script
 func _ready() -> void:
-	$AudioStreamPlayer.volume_db = Settings.config.get_value("audio", "music_volume")
+	Settings.config.load("user://settings.ini")
 	if !FileAccess.file_exists(SaveHandler.save_file):
 		SaveHandler.save_progress()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$AudioStreamPlayer.volume_linear = Settings.config.get_value("audio", "music_volume")
 	if Input.is_action_just_pressed("start"):
 		$bleep.play()
 		$LaunchGame.start()

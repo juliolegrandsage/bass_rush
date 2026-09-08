@@ -27,11 +27,11 @@ func _ready() -> void:
 	data = PlayerData.load_data()
 	pb = data.infinite_pb
 	$CanvasLayer/Label2.text = "PB : " + str(pb)
-	Settings.load_audio_settings()
 	player.add_to_group("player")
 
 	generate_start_room()
-	
+	$AudioStreamPlayer.add_to_group("music_player")
+	Settings.load_audio_settings()
 	for i in range(5):
 		
 		generate_roomset()
