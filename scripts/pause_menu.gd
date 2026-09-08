@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func resume():
 	get_tree().paused = false
-	
+	$Panel.visible = false
 func pause():
 	get_tree().paused = true
 	$Panel/VBoxContainer/HSlider.grab_focus(true)
