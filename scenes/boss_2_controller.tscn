@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://bi68q1owy6k1b"]
 
 [ext_resource type="Script" uid="uid://p4klmgektm0r" path="res://scenes/boss_2_controller.gd" id="1_x3len"]
-[ext_resource type="Texture2D" uid="uid://csdc36ayoouba" path="res://assets/sprites/boss_sprites/boss2_top.png" id="2_36eh4"]
-[ext_resource type="Texture2D" uid="uid://c6su6k0vev0dm" path="res://assets/sprites/boss_sprites/boss2_bottom.png" id="3_w2owl"]
-[ext_resource type="Texture2D" uid="uid://cgrcrvjbb35by" path="res://assets/sprites/boss_sprites/bossglotte.png" id="4_w2owl"]
+[ext_resource type="Texture2D" uid="uid://d3bf7t3csxrgo" path="res://assets/sprites/facetop.png" id="2_w2owl"]
+[ext_resource type="Texture2D" uid="uid://b8plv0gwvxmgo" path="res://assets/sprites/facebottom.png" id="3_w2owl"]
+[ext_resource type="Texture2D" uid="uid://dq5aspel1njbq" path="res://assets/sprites/glotteduboss2.png" id="4_w2owl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52hpk"]
-size = Vector2(50, 59)
+size = Vector2(121.34832, 101.12361)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of8l7"]
-size = Vector2(43, 22)
+size = Vector2(121.42859, 58.380955)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fr7od"]
 size = Vector2(5.928753, 15.571247)
@@ -132,6 +132,28 @@ tracks/6/keys = {
 "points": PackedFloat32Array(25.945, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CollisionShape2D:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.567232, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Face_bottom:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_6b6mb"]
 resource_name = "boss2_open_mouth"
@@ -144,10 +166,10 @@ tracks/0/path = NodePath("Face_bottom:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 4.95, 5.366667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 4.95, 5.366667, 5.525),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 28), Vector2(0, 51.045), Vector2(0, 51.045), Vector2(0, 28)]
+"values": [Vector2(0, 12.000001), Vector2(0, 51.045), Vector2(0, 51.045), Vector2(0, 28), Vector2(0, 12.000001)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -176,9 +198,9 @@ tracks/2/path = NodePath("CollisionShape2D:position:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(16.76, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(10.000002, 0, 0, 0.92083335, -2.6666667, 3.600002, -0.36833334, 1.0666667, 0.5525, -1.6, 10.000002, 0, 0, 0.92083335, -2.6666667),
+"times": PackedFloat32Array(0, 2.3333333, 5.5)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -187,9 +209,9 @@ tracks/3/path = NodePath("CollisionShape2D:position:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(25.945, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(14.000002, 0, 0, 0.92083335, 0.99999964, 16.400002, -0.36833334, -0.39999986, 0.5525, 0.5999998, 14.000002, 0, 0, 0.92083335, 0.99999964),
+"times": PackedFloat32Array(0, 2.3333333, 5.5)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -212,6 +234,28 @@ tracks/5/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CollisionShape2D:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(-0.6457718, 0, 0, 0.92083335, 0.20216732, -0.14519796, -0.36833334, -0.080866925, 0.5525, 0.12130039, -0.6457718, 0, 0, 0.92083335, 0.20216732),
+"times": PackedFloat32Array(0, 2.3333333, 5.5)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Face_bottom:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 5.525)
 }
 
 [sub_resource type="Animation" id="Animation_of8l7"]
@@ -297,27 +341,33 @@ bottom_position_max = 1.245
 speed = 350.0
 
 [node name="Face_top" type="Sprite2D" parent="." unique_id=28636771]
-texture = ExtResource("2_36eh4")
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("2_w2owl")
 
 [node name="Area2D" type="Area2D" parent="Face_top" unique_id=1775171525]
 position = Vector2(15, -2.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Face_top/Area2D" unique_id=2111665950]
+position = Vector2(-10.505613, -14.353935)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_52hpk")
 
 [node name="Face_bottom" type="Sprite2D" parent="." unique_id=1807256485]
 position = Vector2(0, 28)
+scale = Vector2(0.42, 0.42)
 texture = ExtResource("3_w2owl")
 
 [node name="Area2D" type="Area2D" parent="Face_bottom" unique_id=846338642]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Face_bottom/Area2D" unique_id=505573941]
-position = Vector2(11, 5)
+position = Vector2(2.3809521, 21.42857)
+scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_of8l7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2034320119]
 z_index = -2
 position = Vector2(16.76, 25.945)
+rotation = 0.567232
 scale = Vector2(1.83, 1.83)
 shape = SubResource("RectangleShape2D_fr7od")
 
@@ -334,7 +384,7 @@ autoplay = &"glotte_boss2"
 libraries/ = SubResource("AnimationLibrary_agqi0")
 
 [node name="ProjectileSpawnPoint" type="Node2D" parent="." unique_id=759727894]
-position = Vector2(-3, 24)
+position = Vector2(-24, 22)
 
 [node name="attack_repeater" type="Timer" parent="." unique_id=1956065327]
 wait_time = 5.0

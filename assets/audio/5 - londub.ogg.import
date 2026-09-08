@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://br8yn6lrse57t"
+path="res://.godot/imported/5 - londub.ogg-e87542c1a0a72ed607110f503d2d8597.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/5 - londub.ogg"
+dest_files=["res://.godot/imported/5 - londub.ogg-e87542c1a0a72ed607110f503d2d8597.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=116.0
+beat_count=0
+bar_beats=4

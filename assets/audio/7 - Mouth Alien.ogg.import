@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://5dvgc54m715j"
+path="res://.godot/imported/7 - Mouth Alien.ogg-9cd57548f867ac0b01f5ff1cb56f67eb.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/7 - Mouth Alien.ogg"
+dest_files=["res://.godot/imported/7 - Mouth Alien.ogg-9cd57548f867ac0b01f5ff1cb56f67eb.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=140.0
+beat_count=0
+bar_beats=4

@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://cvd2rmilu082o" path="res://scenes/dialogue_manager.tscn" id="13_guvtl"]
 [ext_resource type="PackedScene" uid="uid://c05shg1se85gx" path="res://scenes/pause_menu.tscn" id="14_7qsfm"]
 [ext_resource type="Texture2D" uid="uid://cjxab5bsxjmnb" path="res://assets/sprites/background_pattern.png" id="17_wdtqu"]
+[ext_resource type="AudioStream" uid="uid://dw1b32kmt5nvu" path="res://assets/audio/6 - schroomz.ogg" id="20_k6a82"]
+[ext_resource type="PackedScene" uid="uid://c3yj5m47hwbrn" path="res://scripts/disk.tscn" id="21_k6a82"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqxsl"]
 texture = ExtResource("1_jm1iu")
@@ -209,6 +211,13 @@ position = Vector2(3990, 1539)
 
 [node name="SpaceCherub10" parent="." unique_id=86813403 instance=ExtResource("11_hey2k")]
 position = Vector2(4237, 1464)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1138650697 groups=["music_player"]]
+stream = ExtResource("20_k6a82")
+autoplay = true
+
+[node name="Disk" parent="." unique_id=964219480 instance=ExtResource("21_k6a82")]
+position = Vector2(4163, 1664)
 
 [connection signal="body_entered" from="water/Area2D" to="water" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="water/Area2D" to="water" method="_on_area_2d_body_exited"]

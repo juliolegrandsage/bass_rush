@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bsa5g5yq0d1dr" path="res://scenes/player.tscn" id="2_i5wfx"]
 [ext_resource type="PackedScene" uid="uid://bi68q1owy6k1b" path="res://scenes/boss_2_controller.tscn" id="4_ilttx"]
 [ext_resource type="Texture2D" uid="uid://mkmehn6t4cs6" path="res://assets/sprites/tileset_level.png" id="5_508v3"]
+[ext_resource type="AudioStream" uid="uid://5dvgc54m715j" path="res://assets/audio/7 - Mouth Alien.ogg" id="7_324qi"]
+[ext_resource type="PackedScene" uid="uid://c05shg1se85gx" path="res://scenes/pause_menu.tscn" id="8_yhvvx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f2e1"]
 texture = ExtResource("5_508v3")
@@ -46,12 +48,14 @@ grow_horizontal = 2
 script = ExtResource("2_508v3")
 boss_controller = NodePath("../../Boss2Controller")
 
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1061106251 instance=ExtResource("8_yhvvx")]
+
 [node name="CharacterBody2D" parent="." unique_id=584086009 instance=ExtResource("2_i5wfx")]
 position = Vector2(80, -63)
 
 [node name="Boss2Controller" parent="." unique_id=948884509 instance=ExtResource("4_ilttx")]
-position = Vector2(313, -126.00001)
-scale = Vector2(5.155, 5.155)
+position = Vector2(336, -118.000015)
+scale = Vector2(3.78, 3.78)
 top_position_max = -241.0
 bottom_position_max = -100.0
 speed = 2.0
@@ -59,5 +63,9 @@ speed = 2.0
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2137167941 groups=["tilemap"]]
 tile_map_data = PackedByteArray("AAAHAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAP//AAAAAAAAAAAHAP7/AAAAAAAAAAAHAP3/AAAAAAAAAAAHAPz/AAAAAAAAAAAHAPv/AAAAAAAAAAAGAPv/AAAAAAAAAAAFAPv/AAAAAAAAAAAEAPv/AAAAAAAAAAADAPv/AAAAAAAAAAACAPv/AAAAAAAAAAABAPv/AAAAAAAAAAAAAPv/AAAAAAAAAAD///v/AAAAAAAAAAD+//v/AAAAAAAAAAD9//v/AAAAAAAAAAD8//v/AAAAAAAAAAD7//v/AAAAAAAAAAD6//v/AAAAAAAAAAD6//z/AAAAAAAAAAD6//3/AAAAAAAAAAD6//7/AAAAAAAAAAD6////AAAAAAAAAAD6/wAAAAAAAAAAAAD6/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAD7/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAACAPz/AAAAAAAAAAACAP3/AAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_g4v7s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2106818347 groups=["music_player"]]
+stream = ExtResource("7_324qi")
+autoplay = true
 
 [connection signal="player_dead" from="CharacterBody2D" to="." method="_on_character_body_2d_player_dead"]

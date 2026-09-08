@@ -3,7 +3,8 @@ extends Node2D
 var save_file = "user://progress.json"
 
 var current_progress = {
-	"current_level": ""
+	"current_level": "",
+	"disks": [] as Array[DiskSystem]
 }
 
 func load_progress():
@@ -44,3 +45,7 @@ func load_current_level():
 	else:
 		push_warning("Aucun niveau sauvegardé, lancement du niveau par défaut.")
 		get_tree().change_scene_to_file("res://scenes/level_1.tscn")
+		
+func save_disks(disk_res: Resource):
+	current_progress["disks"].append(disk_res.resource_path)
+	save_progress()

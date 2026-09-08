@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Disks" format=3 uid="uid://cb1p2t6ubedod"]
+
+[ext_resource type="Script" uid="uid://c3iwdcmywb57a" path="res://scripts/disk_system.gd" id="1_j7fkq"]
+[ext_resource type="Resource" uid="uid://5vlfkdf88uau" path="res://resources/londub.tres" id="2_2mtsf"]
+[ext_resource type="Script" uid="uid://b4v2pp4hm6kxy" path="res://disk_bag.gd" id="3_mxsiq"]
+
+[resource]
+script = ExtResource("3_mxsiq")
+disks_items = Array[ExtResource("1_j7fkq")]([ExtResource("2_2mtsf"), ExtResource("2_2mtsf"), ExtResource("2_2mtsf")])
+metadata/_custom_type_script = "uid://b4v2pp4hm6kxy"

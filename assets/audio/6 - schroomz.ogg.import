@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dw1b32kmt5nvu"
+path="res://.godot/imported/6 - schroomz.ogg-2e53efd6b37e02db1b10df7d4ccf765a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/6 - schroomz.ogg"
+dest_files=["res://.godot/imported/6 - schroomz.ogg-2e53efd6b37e02db1b10df7d4ccf765a.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=112.0
+beat_count=0
+bar_beats=4

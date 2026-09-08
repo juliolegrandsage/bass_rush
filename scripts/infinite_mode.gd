@@ -69,6 +69,7 @@ func generate_roomset():
 func _on_character_body_2d_player_dead() -> void:
 	if data.update_pb(score):
 		pb = data.infinite_pb
+		$AudioStreamPlayer.queue_free()
 	get_tree().reload_current_scene()
 
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DiskSystem" format=3 uid="uid://5vlfkdf88uau"]
+
+[ext_resource type="Texture2D" uid="uid://d26uccq8e5rkv" path="res://assets/sprites/disk.png" id="1_fhsdp"]
+[ext_resource type="Script" uid="uid://c3iwdcmywb57a" path="res://scripts/disk_system.gd" id="1_qasxm"]
+
+[resource]
+script = ExtResource("1_qasxm")
+ogg_file_path = "res://assets/audio/5 - londub.ogg"
+music_name = "Londeub"
+disk_cover = ExtResource("1_fhsdp")
+metadata/_custom_type_script = "uid://c3iwdcmywb57a"
