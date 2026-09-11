@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://recb8wktrb3n"]
+
+[ext_resource type="Script" uid="uid://dx6le7dqnwi4h" path="res://scenes/user_settings_menu.gd" id="1_j78np"]
+
+[node name="UserSettingsMenu" type="Control" unique_id=350317004]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j78np")
+
+[node name="Panel" type="Panel" parent="." unique_id=783884440]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1123565894]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=1168213836]
+layout_mode = 2
+text = "Save"

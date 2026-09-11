@@ -1,7 +1,7 @@
 extends Control
 
 var audioplayer = AudioStreamPlayer
-
+@onready var input_settings = preload("res://scenes/user_settings_menu.tscn")
 func _ready() -> void:
 	visible = false
 	get_tree().paused = false
@@ -18,7 +18,7 @@ func resume():
 func pause():
 	get_tree().paused = true
 	$Panel/VBoxContainer/HSlider.grab_focus(true)
-
+	$Panel.visible = true
 
 
 func _input(event: InputEvent) -> void:
@@ -46,3 +46,11 @@ func _on_quit_pressed() -> void:
 
 func _on_continue_pressed() -> void:
 	resume()
+
+
+func _on_bindings_pressed() -> void:
+	pause()
+	$Panel.visible = false
+	var input_menu = input_settings.instantiate()
+	add_child(input_menu)
+	

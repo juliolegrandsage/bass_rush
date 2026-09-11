@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://7gdcgv3rnt2a"]
+
+[ext_resource type="Script" uid="uid://dxcbjgkg3poiy" path="res://scenes/inpurt_remap_btn.gd" id="1_2ixan"]
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=1084655876]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="." unique_id=1627013292]
+layout_mode = 2
+text = "Up"
+
+[node name="InputButton" type="Button" parent="." unique_id=1823982169]
+layout_mode = 2
+script = ExtResource("1_2ixan")
+metadata/_custom_type_script = "uid://dxcbjgkg3poiy"

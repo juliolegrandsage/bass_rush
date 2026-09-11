@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://v0v1dtkrgs20"]
+
+[node name="InpurtRemapBtn" type="Button" unique_id=396695552]
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 1
