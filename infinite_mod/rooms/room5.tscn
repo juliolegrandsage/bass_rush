@@ -2,12 +2,22 @@
 
 [ext_resource type="Script" uid="uid://cjj07w8h181oy" path="res://infinite_mod/rooms/room_template.gd" id="1_1gs10"]
 [ext_resource type="Texture2D" uid="uid://cbtv2vd82tf6q" path="res://assets/sprites/tileset2.png" id="2_3qvgf"]
+[ext_resource type="Texture2D" uid="uid://4e0sosp62n22" path="res://assets/infinitebg.png" id="2_na12w"]
 [ext_resource type="PackedScene" uid="uid://byyiaiw84rh4x" path="res://scenes/space_cherub.tscn" id="3_hiirj"]
 [ext_resource type="Texture2D" uid="uid://mkmehn6t4cs6" path="res://assets/sprites/tileset_level.png" id="4_na12w"]
 [ext_resource type="Script" uid="uid://bebss7wj0oym0" path="res://scripts/infinite_mode_door.gd" id="5_50bxy"]
 [ext_resource type="PackedScene" uid="uid://2mg8k8vkr3al" path="res://scenes/oduro_infinite_mode.tscn" id="6_nmksk"]
 [ext_resource type="PackedScene" uid="uid://2pfuwudbu0it" path="res://scenes/launchpad.tscn" id="7_3qvgf"]
 [ext_resource type="PackedScene" uid="uid://mh355lqmodug" path="res://scenes/heart.tscn" id="8_hiirj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_50bxy"]
+texture = ExtResource("2_na12w")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_nmksk"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_50bxy")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sf0ot"]
 texture = ExtResource("2_3qvgf")
@@ -47,6 +57,10 @@ sources/1 = SubResource("TileSetAtlasSource_lww2r")
 [node name="Room1" type="Node2D" unique_id=339347580 node_paths=PackedStringArray("doors_objects")]
 script = ExtResource("1_1gs10")
 doors_objects = NodePath("Doors")
+
+[node name="bg" type="TileMapLayer" parent="." unique_id=429802848]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAACAAEAAAAAAAAAAAABAAEAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAABAAMAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_nmksk")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=551394460 groups=["tilemap"]]
 tile_map_data = PackedByteArray("AAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAABAAAAAAD//wcAAAABAAAAAAD//wsAAAABAAAAAAAAAAAAAAABAAAAAAAAAAsAAAABAAAAAAABAAAAAAABAAAAAAABAAsAAAABAAAAAAACAAAAAAABAAAAAAACAAsAAAABAAAAAAADAAAAAAABAAAAAAADAAsAAAABAAAAAAAEAAAAAAABAAAAAAAEAAsAAAABAAAAAAAFAAAAAAABAAAAAAAFAAsAAAABAAAAAAAGAAAAAAABAAAAAAAGAAsAAAABAAAAAAAHAAAAAAABAAAAAAAHAAsAAAABAAAAAAAIAAAAAAABAAAAAAAIAAsAAAABAAAAAAAJAAAAAAABAAAAAAAJAAsAAAABAAAAAAAKAAEAAAABAAAAAAAKAAIAAAABAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAAAAAAKAAUAAAABAAAAAAAKAAYAAAABAAAAAAAKAAcAAAABAAAAAAAKAAsAAAABAAAAAAAAAAcAAAABAAAAAAABAAcAAAABAAAAAAACAAcAAAABAAAAAAAJAAcAAAABAAAAAAAIAAcAAAABAAAAAAAHAAcAAAABAAAAAAAGAAEAAAABAAAAAAAGAAIAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAAAAAADAAEAAAABAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAAAAAADAAQAAAABAAAAAAAEAAoAAAABAAAAAAAEAAkAAAABAAAAAAAFAAkAAAABAAAAAAAFAAoAAAABAAAAAAA=")

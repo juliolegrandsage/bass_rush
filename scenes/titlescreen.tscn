@@ -69,11 +69,11 @@ scale = Vector2(3.605, 3.605)
 texture = ExtResource("1_6d6rd")
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=318193093]
-offset_left = 688.0
-offset_top = 816.0
-offset_right = 1298.0
-offset_bottom = 977.0
-text = "Press Start"
+offset_left = 482.0
+offset_top = 798.0
+offset_right = 1502.0
+offset_bottom = 959.0
+text = "Press Start / Enter"
 label_settings = SubResource("LabelSettings_e7eqh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1850124347]

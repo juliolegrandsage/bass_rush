@@ -159,6 +159,7 @@ initial_velocity_max = 177.2
 gravity = Vector3(0, 0, 0)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=584086009 groups=["player"]]
+z_index = 999
 collision_layer = 9
 script = ExtResource("2_onrkg")
 
