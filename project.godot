@@ -26,6 +26,9 @@ SaveHandler="*uid://cw1pexsuwa5xd"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/size/resizable=false
 window/use_filter=true
 window/stretch_mode=1

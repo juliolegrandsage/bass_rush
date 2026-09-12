@@ -48,6 +48,13 @@ _data = {
 [node name="Node2D" type="Node2D" unique_id=2013002765]
 script = ExtResource("1_tt55a")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1662475700]
+offset_left = -787.0
+offset_top = -32.0
+offset_right = 2087.0
+offset_bottom = 1421.0
+color = Color(0.15917143, 0.8110576, 0.9999998, 1)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1386193525 groups=["music_player"]]
 stream = ExtResource("2_3jj3l")
 volume_db = -5.0

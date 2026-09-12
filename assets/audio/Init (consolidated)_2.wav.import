@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cuy8nt17lgyu5"
+path="res://.godot/imported/Init (consolidated)_2.wav-b3b59a43e45dd695d0ee56860d471eca.sample"
+
+[deps]
+
+source_file="res://assets/audio/Init (consolidated)_2.wav"
+dest_files=["res://.godot/imported/Init (consolidated)_2.wav-b3b59a43e45dd695d0ee56860d471eca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

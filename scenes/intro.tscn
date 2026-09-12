@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://be56w51ccvyh"]
+
+[ext_resource type="Script" uid="uid://b1bqkwx0wtks0" path="res://scripts/intro.gd" id="1_ioskq"]
+[ext_resource type="Texture2D" uid="uid://bs7x7cd7jij54" path="res://assets/sprites/bassrushdemologo.png" id="2_yjqpq"]
+[ext_resource type="AudioStream" uid="uid://bdrhm73ufelyb" path="res://assets/audio/Init (consolidated)_3.ogg" id="3_4bx60"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 42
+
+[sub_resource type="Animation" id="Animation_yjqpq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4bx60"]
+resource_name = "show_logo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.68),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.69),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(2.3102762e-06, 0.66080505, 0.82084674, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2l1n"]
+_data = {
+&"RESET": SubResource("Animation_yjqpq"),
+&"show_logo": SubResource("Animation_4bx60")
+}
+
+[node name="Intro" type="Node2D" unique_id=1348329181 node_paths=PackedStringArray("label")]
+script = ExtResource("1_ioskq")
+messages = Array[String](["Year 2420", "London has been invaded by the Kilouhas,", "From the planet Kilo", "...", "They stole all the music records from the city.", "But one man rose..."])
+label = NodePath("CanvasLayer/Control/ColorRect/Label")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=655093944]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=238870734]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=935012738]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/ColorRect" unique_id=452150016]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/ColorRect" unique_id=448887710]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/ColorRect/Control" unique_id=1784795245]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(4.97, 4.97)
+texture = ExtResource("2_yjqpq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=584507251]
+root_node = NodePath("../CanvasLayer/Control/ColorRect/Control/Sprite2D")
+libraries/ = SubResource("AnimationLibrary_i2l1n")
+
+[node name="Timer" type="Timer" parent="." unique_id=403972014]
+wait_time = 3.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1732310682 groups=["music_player"]]
+stream = ExtResource("3_4bx60")
+autoplay = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

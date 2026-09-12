@@ -1,16 +1,1 @@
-res://scenes/main_menu.tscn
-res://infinite_mod/rooms/room1.tscn
-res://infinite_mod/rooms/room2.tscn
-res://infinite_mod/rooms/room12.tscn
-res://infinite_mod/rooms/room3.tscn
-res://infinite_mod/rooms/room4.tscn
-res://infinite_mod/rooms/room5.tscn
-res://infinite_mod/rooms/room6.tscn
-res://infinite_mod/rooms/room7.tscn
-res://infinite_mod/rooms/room8.tscn
-res://infinite_mod/rooms/room9.tscn
-res://infinite_mod/rooms/room10.tscn
-res://infinite_mod/rooms/room11.tscn
 res://scenes/titlescreen.tscn
-res://scenes/player.tscn
-res://scenes/pause_menu.tscn

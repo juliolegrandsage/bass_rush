@@ -32,4 +32,4 @@ func _on_h_slider_value_changed(value: float) -> void:
 
 
 func _on_button_3_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/level_1.tscn")
+	get_tree().change_scene_to_file("res://scenes/intro.tscn")
