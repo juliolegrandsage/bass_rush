@@ -1,5 +1,5 @@
 9cad1ddce9e5a63143ba340c9520626b
-::res://::1789232281
+::res://::1789667598
 default_bus_layout.tres::AudioBusLayout::7248961458275558674::1788564481::0::1::::<><><>0<>0<><>::
 diskmanager.gd::GDScript::7207122183099112952::1788856565::0::1::::<>Node<><>0<>0<><>::
 disk_bag.gd::GDScript::4466916060729458470::1788857684::0::1::::Disks<>Resource<><>0<>0<><>::
@@ -12,7 +12,7 @@ README.md::TextFile::-1::1783189284::0::1::::<><><>0<>0<><>::
 save.gd::GDScript::2825339256847193772::1788731896::0::1::::PlayerData<>Resource<><>0<>0<><>::
 screen_adapter.tscn::PackedScene::6976950648739861391::1788483106::0::1::::<><><>0<>0<><>::uid://d4dxeuvud7d7r::::res://screen_size_auto_adapt.gd
 screen_size_auto_adapt.gd::GDScript::9202336367675545293::1788484584::0::1::::<>Node<><>0<>0<><>::
-settings.gd::GDScript::8695205980276549825::1788996409::0::1::::<>Node<><>0<>0<><>::
+settings.gd::GDScript::8695205980276549825::1789329921::0::1::::<>Node<><>0<>0<><>::
 ::res://addons/::1787856749
 appimage_export_plugin.gd::GDScript::2129817279418939547::1787856749::0::1::::AppimageExportPlugin<>EditorExportPlugin<><>0<>0<><>::
 plugin.cfg::TextFile::-1::1787856749::0::1::::<><><>0<>0<><>::
@@ -24,8 +24,9 @@ plugin.cfg::TextFile::-1::1783189284::0::1::::<><><>0<>0<><>::
 ::res://addons/Images/::1787856749
 addon.png::CompressedTexture2D::8472605768246953357::1787856749::1787856749::1::::<><><>0<>0<>aa3109a4f8a5d93e709b5323ae4681db<>res://.godot/imported/addon.png-b52ca71c6a6034243aa4a76f0b556c14.ctex::
 settings.png::CompressedTexture2D::6177359989112103542::1787856749::1787856749::1::::<><><>0<>0<>bc6c7ee32e7403101da95c438383ea32<>res://.godot/imported/settings.png-b9da6d6a52a735a731457cc0496f2d75.ctex::
-::res://assets/::1789176956
+::res://assets/::1789334386
 infinitebg.png::CompressedTexture2D::2045284809486044429::1789176956::1789176956::1::::<><><>0<>0<>ce4f19ff7fd98dea0e1e015735fdfeaa<>res://.godot/imported/infinitebg.png-33ba71f801c1ef953bd1e67d004af196.ctex::
+outside1.png::CompressedTexture2D::2563987155382339169::1789334386::1789334386::1::::<><><>0<>0<>b40e74d745b5662e8d07d055ecc89526<>res://.godot/imported/outside1.png-264820e5b4bbb2689127801f43f492f1.ctex::
 shardtower.png::CompressedTexture2D::4046142076493212657::1789092874::1789092874::1::::<><><>0<>0<>c3235497a0e2c153036589fc634cdcd0<>res://.godot/imported/shardtower.png-08a279cb1ce09ee87db6b7a6fe8f7407.ctex::
 ::res://assets/audio/::1789208455
 1 - title.wav::AudioStreamWAV::7419007754674218156::1787789027::1787789028::1::::<><><>0<>0<>bc4817830843e76d6d47a94327f0ccd2<>res://.godot/imported/1 - title.wav-168bef1cf410c739e0d46206a7b651ae.sample::
@@ -63,19 +64,21 @@ platforms.png::CompressedTexture2D::2400778502132764539::1783189284::1787617404:
 slime_green.png::CompressedTexture2D::5930283476639078320::1783189284::1787617404::1::::<><><>0<>0<>3bb9251c20ff149fd0154ab3e8247e94<>res://.godot/imported/slime_green.png-7537a22022111bb8764aa544858b4d35.ctex::
 slime_purple.png::CompressedTexture2D::402569250389923275::1783189284::1787617404::1::::<><><>0<>0<>ef5dcb6b534017edc53d6b06d8495b57<>res://.godot/imported/slime_purple.png-eba899fd7a6bf06f36da4e8018847f7c.ctex::
 world_tileset.png::CompressedTexture2D::1851775967374030894::1783189284::1787617404::1::::<><><>0<>0<>03cdd168e617c77471d3c3f802bc393f<>res://.godot/imported/world_tileset.png-e79a61bbddfb4c4d3adb9fd28f1e547f.ctex::
-::res://assets/sprites/::1788870570
+::res://assets/sprites/::1789671123
 alpha_tileset.png::CompressedTexture2D::344221768544865610::1783189284::1787617404::1::::<><><>0<>0<>69fb6ef98a63b4765f1eca5303d18bc1<>res://.godot/imported/alpha_tileset.png-220e585eeab1dd9dc87a97c41cbb29c3.ctex::
 arrow_indicator.png::CompressedTexture2D::3932789998178327186::1787617375::1787617404::1::::<><><>0<>0<>549c83c899100525b2f2c0a0931a9374<>res://.godot/imported/arrow_indicator.png-d3656f247c4f02c2af7c1efd2b572651.ctex::
 background_pattern.png::CompressedTexture2D::5452025012360023459::1787617375::1787617404::1::::<><><>0<>0<>90eb4fe45848b99d0dad90e4178c994c<>res://.godot/imported/background_pattern.png-582dc84b6260ee3eecf8ef8b2a10324f.ctex::
 bassrushdemologo.png::CompressedTexture2D::3717333704693582157::1787788709::1787788709::1::::<><><>0<>0<>08f4acad14fb1ea9a825f0d5c6d33231<>res://.godot/imported/bassrushdemologo.png-9da52501af3c938416d2aab0e77b5476.ctex::
 bg.png::CompressedTexture2D::6398728625644162457::1783189284::1787617404::1::::<><><>0<>0<>1f93c06f8367e690c73cf3b0a14b08c9<>res://.godot/imported/bg.png-c77278129744470f7e66ac3bb62c4cd4.ctex::
 bg_lvl1.png::CompressedTexture2D::932377078611616895::1784561920::1787617404::1::::<><><>0<>0<>4165190bb221d1ccdb2ff6675a56850e<>res://.godot/imported/bg_lvl1.png-15b86def8bef34fa064f6bd699472b2c.ctex::
-bubble.png::CompressedTexture2D::3358033867339147720::1784561920::1787617404::1::::<><><>0<>0<>908b90678bbbcc0beb2b64c9fc5107b8<>res://.godot/imported/bubble.png-9b2731b7346f121ef1fc1a9c24d375f3.ctex::
+bouncepad.png::CompressedTexture2D::7590910136386194801::1789671123::1789671123::1::::<><><>0<>0<>9077b7328a076d919daed96ab51303a8<>res://.godot/imported/bouncepad.png-6d51ecf03b28493667166ed50bd1d6b5.ctex::
+bubble.png::CompressedTexture2D::3358033867339147720::1789499881::1789499881::1::::<><><>0<>0<>908b90678bbbcc0beb2b64c9fc5107b8<>res://.godot/imported/bubble.png-9b2731b7346f121ef1fc1a9c24d375f3.ctex::
 BUMPER.png::CompressedTexture2D::342535214332246941::1788376855::1788376855::1::::<><><>0<>0<>cc11c5185a8bad98cc0b3a00dfc3a015<>res://.godot/imported/BUMPER.png-b8448736bcb0906567d03c43ce196d72.ctex::
 button_indicator_empty.png::CompressedTexture2D::6658162503109321690::1784218517::1784218596::1::::<><><>0<>0<>8dc1cf20794cdac81fd2963e1edf04c1<>res://.godot/imported/button_indicator_empty.png-e2bf663eae01baeaf5b7e09c713b8d04.ctex::
 button_indicator_filled.png::CompressedTexture2D::6138936713129349619::1784218517::1784218596::1::::<><><>0<>0<>c44beb3f5a9f1f9230bb86fbb8621389<>res://.godot/imported/button_indicator_filled.png-eb9306f2747ca38ace8fd3202a688d12.ctex::
 bvoss2projectile.png::CompressedTexture2D::3385927078341601010::1783189284::1787617404::1::::<><><>0<>0<>4aa7ed7d706645ba4b4843d003124cde<>res://.godot/imported/bvoss2projectile.png-f3512b59198c1e3994f4b5db05e35e81.ctex::
 chest.png::CompressedTexture2D::292458732438478176::1783189284::1787617404::1::::<><><>0<>0<>2926122ca657db162316a7649fb9def9<>res://.godot/imported/chest.png-d0fe717f5372f18c2e87d4b680fda631.ctex::
+cloud.png::CompressedTexture2D::9091670494281047213::1789506108::1789506108::1::::<><><>0<>0<>912d2733bc166b0812c095a1d3914254<>res://.godot/imported/cloud.png-e04140f272f7320884c061f2fc3adef1.ctex::
 dash_particle.png::CompressedTexture2D::1879293807000667202::1787617375::1787617404::1::::<><><>0<>0<>c6dd31a74442317c824895e6560d0028<>res://.godot/imported/dash_particle.png-7174466f1cf10f5935ae6a042e594d1e.ctex::
 dialoguebubble.png::CompressedTexture2D::8564915357077801660::1784218517::1784218596::1::::<><><>0<>0<>1eab1211d2d08ad26de420958d4ca7a0<>res://.godot/imported/dialoguebubble.png-b0229ba6df05ee7c2992e26bb4155276.ctex::
 disk.png::CompressedTexture2D::9119574582394654077::1788855801::1788855801::1::::<><><>0<>0<>0b3f3a08d479cbd2bbf10a83a865695e<>res://.godot/imported/disk.png-38dfcd7ecd177c178fdda2d9f872b21f.ctex::
@@ -143,13 +146,13 @@ lvl1.tscn::PackedScene::8197816768923510657::1788464295::0::1::::<><><>0<>0<><>:
 disks.tres::Resource/Disks::4897664050699513435::1788857659::0::1::::<><><>0<>0<><>::uid://c3iwdcmywb57a::::res://scripts/disk_system.gd<>uid://5vlfkdf88uau::::res://resources/londub.tres<>uid://b4v2pp4hm6kxy::::res://disk_bag.gd
 londub.tres::Resource/DiskSystem::2149694588006693468::1788857917::0::1::::<><><>0<>0<><>::uid://d26uccq8e5rkv::::res://assets/sprites/disk.png<>uid://c3iwdcmywb57a::::res://scripts/disk_system.gd
 menu_theme.tres::Theme::7384002954760744379::1789092962::0::1::::<><><>0<>0<><>::
-::res://scenes/::1789213524
+::res://scenes/::1789670783
 bassrushdemologo.png::CompressedTexture2D::4744685380749200633::1789207576::1789207576::1::::<><><>0<>0<>cd27ccc7d49b97706a3a21b5bb46b6be<>res://.godot/imported/bassrushdemologo.png-2312d1a3b7029cd63c3fd61f55ca1ab8.ctex::
 boss_1_warning.gd::GDScript::7995739249629257714::1783189284::0::1::::<>Sprite2D<><>0<>0<><>::
 boss_1_warning.tscn::PackedScene::3067909210564283940::1783189284::0::1::::<><><>0<>0<><>::uid://nxj42kbp3yjg::::res://assets/sprites/warning.png<>uid://dl6gwl1r4ibyo::::res://scenes/boss_1_warning.gd
-boss_2_controller.gd::GDScript::1113327062843732555::1788389824::0::1::::<>CharacterBody2D<><>0<>0<><>::
+boss_2_controller.gd::GDScript::1113327062843732555::1789329261::0::1::::<>CharacterBody2D<><>0<>0<><>::
 boss_2_controller.tscn::PackedScene::3013960764904232661::1788870979::0::1::::<><><>0<>0<><>::uid://p4klmgektm0r::::res://scenes/boss_2_controller.gd<>uid://d3bf7t3csxrgo::::res://assets/sprites/facetop.png<>uid://b8plv0gwvxmgo::::res://assets/sprites/facebottom.png<>uid://dq5aspel1njbq::::res://assets/sprites/glotteduboss2.png
-boss_2_projectile.tscn::PackedScene::8253585425115075903::1783189284::0::1::::<><><>0<>0<><>::uid://8cebrou1rvay::::res://scripts/boss_2_projectile.gd<>uid://boifyvjraauni::::res://assets/sprites/bvoss2projectile.png
+boss_2_projectile.tscn::PackedScene::8253585425115075903::1789328767::0::1::::<><><>0<>0<><>::uid://8cebrou1rvay::::res://scripts/boss_2_projectile.gd<>uid://boifyvjraauni::::res://assets/sprites/bvoss2projectile.png
 boss_3_controller.tscn::PackedScene::7316200666891245919::1783189284::0::1::::<><><>0<>0<><>::uid://1cdoxjy5h6g5::::res://scripts/boss_3_controller.gd<>uid://cpv073sm2fd0y::::res://assets/sprites/boss_sprites/boss3 head1.png<>uid://bgh6kgct7jqb::::res://assets/sprites/boss_sprites/boss3 crosshaire.png<>uid://bkop3s55stket::::res://assets/sprites/boss_sprites/boss3leg.png<>uid://n5yi1qc7q8et::::res://assets/sprites/boss_sprites/boss3 head2.png
 boss_3_projectile.tscn::PackedScene::8233245982758924678::1783189284::0::1::::<><><>0<>0<><>::uid://ch402aloyeaoj::::res://scripts/boss_3_projectile.gd<>uid://uafx4agwfoox::::res://assets/sprites/boss_sprites/bomb.png
 boss_3_rocket.gd::GDScript::1136943525099785662::1783189284::0::1::::<>RigidBody2D<><>0<>0<><>::
@@ -158,6 +161,7 @@ boss_3_web.tscn::PackedScene::6518048709175579674::1783189284::0::1::::<><><>0<>
 boss_health_bar.gd::GDScript::6430820073606440574::1783189284::0::1::::<>ProgressBar<><>0<>0<><>::
 boss_selection_menu_demo.tscn::PackedScene::7279962753675634966::1789115676::0::1::::<><><>0<>0<><>::uid://byy3h2rxnw01t::::res://scripts/boss_selection_menu_demo.gd
 boss_transition.tscn::PackedScene::861435262910824555::1787617375::0::1::::<><><>0<>0<><>::uid://bm2s7bcfjapji::::res://scripts/boss_transition.gd
+bubble.tscn::PackedScene::5047522861008865677::1789669744::0::1::::<><><>0<>0<><>::uid://bn3wlehqws1ui::::res://assets/sprites/bubble.png<>uid://7h4hx2b6v85u::::res://scripts/bubble.gd
 button.gd::GDScript::1136389220053913595::1788302560::0::1::::<>Button<><>0<>0<><>::
 climbable_wire.tscn::PackedScene::4573858763056048276::1788854390::0::1::::<><><>0<>0<><>::uid://dtui2idytpo32::::res://assets/sprites/door.png<>uid://b5ap6owp6xkjv::::res://scripts/climbable_wire.gd
 dialogue_manager.tscn::PackedScene::6254670577514314384::1784561920::0::1::::<><><>0<>0<><>::uid://bbmjuujp8yvq0::::res://scripts/dialogue_manager.gd<>uid://bn3wlehqws1ui::::res://assets/sprites/bubble.png
@@ -167,7 +171,7 @@ explosive_projectile.gd::GDScript::8099781708390596473::1783189284::0::1::::<>Pr
 explosive_projectile.tscn::PackedScene::7186696351725350144::1783189284::0::1::::<><><>0<>0<><>::uid://jacyycxhcdg8::::res://scenes/projectile.tscn<>uid://dnnuhr4ylabd6::::res://scenes/explosive_projectile.gd<>uid://calk0rebc3gb2::::res://icon.svg
 health_giver.tscn::PackedScene::8388437705688373087::1783189284::0::1::::<><><>0<>0<><>::uid://6mivjg2bpd4n::::res://scripts/health_giver.gd<>uid://calk0rebc3gb2::::res://icon.svg
 heart.tscn::PackedScene::858472010986325034::1788557059::0::1::::<><><>0<>0<><>::uid://i52l57kxx2lm::::res://assets/sprites/heart_w_eye.png<>uid://ce7am0xv1l5nd::::res://scripts/heart.gd
-infinite_mode.tscn::PackedScene::5705919494561106783::1788867592::0::1::::<><><>0<>0<><>::uid://bbhb46516iouk::::res://scripts/infinite_mode.gd<>uid://6td1vxu12xw0::::res://infinite_mod/rooms/room1.tscn<>uid://cwook5gh3lnor::::res://infinite_mod/rooms/room2.tscn<>uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://dy077oena4ix2::::res://infinite_mod/rooms/room3.tscn<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://cy2sqqjorwnyd::::res://infinite_mod/rooms/room4.tscn<>uid://3mnetx5dqkot::::res://infinite_mod/rooms/room5.tscn<>uid://jde5jnk02ocm::::res://assets/audio/2-infinty-jungle.ogg<>uid://b1vgv1ja34lso::::res://infinite_mod/rooms/room7.tscn<>uid://v8bopy5fm3lg::::res://scripts/camera_shake.gd<>uid://dr2ju4p5y2gfx::::res://infinite_mod/rooms/room8.tscn<>uid://xm8km2ur28fj::::res://infinite_mod/rooms/room9.tscn<>uid://dfesf08gvljr6::::res://infinite_mod/rooms/room11.tscn<>uid://86xl0rvewokg::::res://infinite_mod/rooms/room12.tscn<>uid://c05shg1se85gx::::res://scenes/pause_menu.tscn
+infinite_mode.tscn::PackedScene::5705919494561106783::1789330121::0::1::::<><><>0<>0<><>::uid://bbhb46516iouk::::res://scripts/infinite_mode.gd<>uid://6td1vxu12xw0::::res://infinite_mod/rooms/room1.tscn<>uid://cwook5gh3lnor::::res://infinite_mod/rooms/room2.tscn<>uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://dy077oena4ix2::::res://infinite_mod/rooms/room3.tscn<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://cy2sqqjorwnyd::::res://infinite_mod/rooms/room4.tscn<>uid://3mnetx5dqkot::::res://infinite_mod/rooms/room5.tscn<>uid://jde5jnk02ocm::::res://assets/audio/2-infinty-jungle.ogg<>uid://b1vgv1ja34lso::::res://infinite_mod/rooms/room7.tscn<>uid://v8bopy5fm3lg::::res://scripts/camera_shake.gd<>uid://dr2ju4p5y2gfx::::res://infinite_mod/rooms/room8.tscn<>uid://xm8km2ur28fj::::res://infinite_mod/rooms/room9.tscn<>uid://dfesf08gvljr6::::res://infinite_mod/rooms/room11.tscn<>uid://86xl0rvewokg::::res://infinite_mod/rooms/room12.tscn<>uid://c05shg1se85gx::::res://scenes/pause_menu.tscn
 infinite_mode_door.tscn::PackedScene::5640985701247424264::1788195409::0::1::::<><><>0<>0<><>::uid://dtui2idytpo32::::res://assets/sprites/door.png<>uid://bebss7wj0oym0::::res://scripts/infinite_mode_door.gd
 inpt_btn.tscn::PackedScene::2258615334383941146::1789001024::0::1::::<><><>0<>0<><>::uid://dxcbjgkg3poiy::::res://scenes/inpurt_remap_btn.gd
 inpurt_remap_btn.gd::GDScript::8777811330298859096::1789001024::0::1::::InputButton<>Button<><>0<>0<><>::
@@ -179,10 +183,15 @@ inventory_system.tscn::PackedScene::7580408117357261222::1783189284::0::1::::<><
 ladder.gd::GDScript::6695461949197302898::1783189284::0::1::::<>Area2D<><>0<>0<><>::
 ladder.tscn::PackedScene::1263333858533521859::1783189284::0::1::::<><><>0<>0<><>::uid://c2nljr1onnx6a::::res://scenes/ladder.gd<>uid://cslogqebhxo6l::::res://assets/sprites/ladder.png
 launchpad.tscn::PackedScene::1926404931927950615::1788377673::0::1::::<><><>0<>0<><>::uid://chx1cye3lub02::::res://scripts/launchpad.gd<>uid://e46rfx74hwdx::::res://assets/sprites/BUMPER.png
+level2intro.tscn::PackedScene::2167543686099929158::1789334139::0::1::::<><><>0<>0<><>::uid://cthqxivp34r8o::::res://scripts/level2intro.gd<>uid://bs7x7cd7jij54::::res://assets/sprites/bassrushdemologo.png<>uid://bdrhm73ufelyb::::res://assets/audio/Init (consolidated)_3.ogg
+level3intro.tscn::PackedScene::742391528311883655::1789334182::0::1::::<><><>0<>0<><>::uid://dnvdvujis4xif::::res://scripts/level3intro.gd<>uid://bs7x7cd7jij54::::res://assets/sprites/bassrushdemologo.png<>uid://bdrhm73ufelyb::::res://assets/audio/Init (consolidated)_3.ogg
 level_1.gd::GDScript::1183954013817154769::1788731896::0::1::::<>Node2D<><>0<>0<><>::
 level_1.tscn::PackedScene::4428824481837426279::1788731896::0::1::::<><><>0<>0<><>::uid://q4rsxmv8qgaj::::res://scenes/level_1.gd<>uid://cjxab5bsxjmnb::::res://assets/sprites/background_pattern.png<>uid://cbtv2vd82tf6q::::res://assets/sprites/tileset2.png<>uid://dlpr5apoxgctw::::res://assets/sprites/Sprite-0005.png<>uid://dtajg8vp082yx::::res://scenes/level_transition.tscn<>uid://fv16tm3qtpbf::::res://assets/sprites/window.png<>uid://ypfumjx4fw0k::::res://scenes/panel.tscn<>uid://cvd2rmilu082o::::res://scenes/dialogue_manager.tscn<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://mh355lqmodug::::res://scenes/heart.tscn<>uid://byyiaiw84rh4x::::res://scenes/space_cherub.tscn<>uid://de8b6aw86frox::::res://scripts/save_manager.gd<>uid://3ww3rryxamjb::::res://scenes/transition_screen.tscn<>uid://c05shg1se85gx::::res://scenes/pause_menu.tscn<>uid://mjjyieyrcoxf::::res://scenes/boss_transition.tscn<>uid://bwbcqhbrtkbmw::::res://assets/sprites/arrow_indicator.png<>uid://2mg8k8vkr3al::::res://scenes/oduro_infinite_mode.tscn<>uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://dsgvs067fi4pl::::res://assets/audio/4 - lvl1.ogg<>uid://cw1pexsuwa5xd::::res://scenes/save_handler.tscn
 level_2.gd::GDScript::4486279211407108429::1788854519::0::1::::<>Node2D<><>0<>0<><>::
-level_2.tscn::PackedScene::296676649573773405::1788868339::0::1::::<><><>0<>0<><>::uid://b46gml2tqnss0::::res://scenes/level_2.gd<>uid://dlpr5apoxgctw::::res://assets/sprites/Sprite-0005.png<>uid://mkmehn6t4cs6::::res://assets/sprites/tileset_level.png<>uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://r876oh3iad8v::::res://scenes/ladder.tscn<>uid://ddhu1alifrqim::::res://assets/sprites/Sprite-0001.png<>uid://bk7k8nl1d8nqv::::res://scripts/breakable_wall.gd<>uid://mh355lqmodug::::res://scenes/heart.tscn<>uid://2mg8k8vkr3al::::res://scenes/oduro_infinite_mode.tscn<>uid://bymqjaimo0cln::::res://assets/sprites/water.png<>uid://buny50cykg3et::::res://scripts/water.gd<>uid://2pfuwudbu0it::::res://scenes/launchpad.tscn<>uid://byyiaiw84rh4x::::res://scenes/space_cherub.tscn<>uid://mjjyieyrcoxf::::res://scenes/boss_transition.tscn<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://3ww3rryxamjb::::res://scenes/transition_screen.tscn<>uid://cvd2rmilu082o::::res://scenes/dialogue_manager.tscn<>uid://c05shg1se85gx::::res://scenes/pause_menu.tscn<>uid://cjxab5bsxjmnb::::res://assets/sprites/background_pattern.png<>uid://dw1b32kmt5nvu::::res://assets/audio/6 - schroomz.ogg<>uid://c3yj5m47hwbrn::::res://scripts/disk.tscn
+level_2.tscn::PackedScene::296676649573773405::1789505315::0::1::::<><><>0<>0<><>::uid://b46gml2tqnss0::::res://scenes/level_2.gd<>uid://dlpr5apoxgctw::::res://assets/sprites/Sprite-0005.png<>uid://mkmehn6t4cs6::::res://assets/sprites/tileset_level.png<>uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://r876oh3iad8v::::res://scenes/ladder.tscn<>uid://ddhu1alifrqim::::res://assets/sprites/Sprite-0001.png<>uid://bk7k8nl1d8nqv::::res://scripts/breakable_wall.gd<>uid://mh355lqmodug::::res://scenes/heart.tscn<>uid://2mg8k8vkr3al::::res://scenes/oduro_infinite_mode.tscn<>uid://bymqjaimo0cln::::res://assets/sprites/water.png<>uid://buny50cykg3et::::res://scripts/water.gd<>uid://2pfuwudbu0it::::res://scenes/launchpad.tscn<>uid://byyiaiw84rh4x::::res://scenes/space_cherub.tscn<>uid://mjjyieyrcoxf::::res://scenes/boss_transition.tscn<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://3ww3rryxamjb::::res://scenes/transition_screen.tscn<>uid://cvd2rmilu082o::::res://scenes/dialogue_manager.tscn<>uid://c05shg1se85gx::::res://scenes/pause_menu.tscn<>uid://cjxab5bsxjmnb::::res://assets/sprites/background_pattern.png<>uid://dw1b32kmt5nvu::::res://assets/audio/6 - schroomz.ogg<>uid://c3yj5m47hwbrn::::res://scripts/disk.tscn
+level_3.gd::GDScript::5229017450599148537::1789498148::0::1::::<>Node2D<><>0<>0<><>::
+level_3.tscn::PackedScene::5210750139322501088::1789670783::0::1::::<><><>0<>0<><>::uid://cgq8fhm5sti78::::res://scenes/level_3.gd<>uid://bcsaq15edqc2t::::res://assets/outside1.png<>uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://mh355lqmodug::::res://scenes/heart.tscn<>uid://cd6b71p0o6gq4::::res://scenes/bubble.tscn<>uid://d2scqql4wh0y8::::res://assets/sprites/cloud.png<>uid://2pfuwudbu0it::::res://scenes/launchpad.tscn<>uid://3ww3rryxamjb::::res://scenes/transition_screen.tscn<>uid://c05shg1se85gx::::res://scenes/pause_menu.tscn<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://cvd2rmilu082o::::res://scenes/dialogue_manager.tscn<>uid://dw1b32kmt5nvu::::res://assets/audio/6 - schroomz.ogg
+level_3_intro.gd::GDScript::2146555809575576732::1789334050::0::1::::<>Node2D<><>0<>0<><>::
 level_transition.tscn::PackedScene::8493409014327962347::1787617420::0::1::::<><><>0<>0<><>::uid://bv7o3hsf7gbwc::::res://scripts/level_transition.gd
 loading.tscn::PackedScene::5985228851723121444::1784760768::0::1::::<><><>0<>0<><>::uid://c1op042jivjal::::res://scripts/loading.gd
 loot_chest.gd::GDScript::5893335070227763902::1784561920::0::1::::<>StaticBody2D<><>0<>0<><>::
@@ -216,27 +225,27 @@ shooting_enemy.tscn::PackedScene::8194735802831829654::1783189284::0::1::::<><><
 shooting_enemy_raycast.gd::GDScript::7321106076807390777::1783189284::0::1::::<>RayCast2D<><>0<>0<><>::
 space_cherub.tscn::PackedScene::4120984188756742917::1788029654::0::1::::<><><>0<>0<><>::uid://cct18n0maoo6w::::res://assets/sprites/space_cherubim.png<>uid://5a0xtnhq6fih::::res://scripts/space_cherub.gd
 titlescreen.gd::GDScript::7300639836905164219::1788854390::0::1::::<>Node2D<><>0<>0<><>::
-titlescreen.tscn::PackedScene::8802536745868896890::1789177333::0::1::::<><><>0<>0<><>::uid://bs7x7cd7jij54::::res://assets/sprites/bassrushdemologo.png<>uid://dcaqqba6xl8ap::::res://scenes/titlescreen.gd<>uid://ddx28dx2e6mxw::::res://assets/audio/1 - title.wav<>uid://by6cpwqgafljf::::res://assets/audio/pickupCoin.wav
+titlescreen.tscn::PackedScene::8802536745868896890::1789232790::0::1::::<><><>0<>0<><>::uid://bs7x7cd7jij54::::res://assets/sprites/bassrushdemologo.png<>uid://dcaqqba6xl8ap::::res://scenes/titlescreen.gd<>uid://ddx28dx2e6mxw::::res://assets/audio/1 - title.wav<>uid://by6cpwqgafljf::::res://assets/audio/pickupCoin.wav
 transition_screen.tscn::PackedScene::2012090628804248723::1787617375::0::1::::<><><>0<>0<><>::uid://bxrh4fqw0iv3c::::res://scripts/transition_screen.gd
 tutorial.tscn::PackedScene::2060683648006514682::1783189284::0::1::::<><><>0<>0<><>::uid://c7jhq6l878mj8::::res://scripts/tutorial.gd<>uid://1naqkptikh2m::::res://assets/brackeys_platformer_assets/sprites/world_tileset.png<>uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://c58suwktqeyft::::res://assets/sprites/panneau.png<>uid://efqchflsv23o::::res://scenes/tutorial_card.tscn
 tutorial_card.tscn::PackedScene::292052682706675994::1783189284::0::1::::<><><>0<>0<><>::uid://7yph1r5krakg::::res://scripts/tutorial_card.gd
 ui.tscn::PackedScene::8498579567182381234::1788301840::0::1::::<><><>0<>0<><>::uid://cxvewxebiwct7::::res://scenes/boss_health_bar.gd<>uid://b7fru2hyy40r::::res://scenes/player_health_bar.gd
 user_settings_menu.gd::GDScript::8838277881352783681::1789000709::0::1::::<>Control<><>0<>0<><>::
 user_settings_menu.tscn::PackedScene::1201592840378894273::1789000834::0::1::::<><><>0<>0<><>::uid://dx6le7dqnwi4h::::res://scenes/user_settings_menu.gd
-::res://scenes/bosses_scenes/::1789209430
+::res://scenes/bosses_scenes/::1789329922
 boss1.tscn::PackedScene::5837674401909712648::1789209430::0::1::::<><><>0<>0<><>::uid://b241j4osjuiim::::res://scenes/bosses_scenes/boss_1_scene_script.gd<>uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://v8bopy5fm3lg::::res://scripts/camera_shake.gd<>uid://cjxab5bsxjmnb::::res://assets/sprites/background_pattern.png<>uid://njwd5c8n6g84::::res://assets/sprites/bg_lvl1.png<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://cbtv2vd82tf6q::::res://assets/sprites/tileset2.png<>uid://cxvewxebiwct7::::res://scenes/boss_health_bar.gd<>uid://ci4hjdghrd5r6::::res://scripts/boss_hand_spawner.gd<>uid://bln5j67w7jl26::::res://scripts/demo_boss_controller.gd<>uid://bnl1m60fn7qc4::::res://assets/sprites/boss_sprites/boss1.png<>uid://cx4ve42mxa2m2::::res://scenes/bosses_scenes/boss_sprite.gd<>uid://dnwumwbgiwwxg::::res://assets/sprites/explosion.png<>uid://3ww3rryxamjb::::res://scenes/transition_screen.tscn<>uid://c05shg1se85gx::::res://scenes/pause_menu.tscn<>uid://hw8rwnsn2d1q::::res://assets/audio/boss1.ogg<>uid://cw1pexsuwa5xd::::res://scenes/save_handler.tscn
-boss2.tscn::PackedScene::2632812974138393677::1788870813::0::1::::<><><>0<>0<><>::uid://b8kfxkdk0vut1::::res://scenes/bosses_scenes/boss_2.gd<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://cxvewxebiwct7::::res://scenes/boss_health_bar.gd<>uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://bi68q1owy6k1b::::res://scenes/boss_2_controller.tscn<>uid://mkmehn6t4cs6::::res://assets/sprites/tileset_level.png<>uid://5dvgc54m715j::::res://assets/audio/7 - Mouth Alien.ogg<>uid://c05shg1se85gx::::res://scenes/pause_menu.tscn
+boss2.tscn::PackedScene::2632812974138393677::1789329922::0::1::::<><><>0<>0<><>::uid://b8kfxkdk0vut1::::res://scenes/bosses_scenes/boss_2.gd<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://cxvewxebiwct7::::res://scenes/boss_health_bar.gd<>uid://bsa5g5yq0d1dr::::res://scenes/player.tscn<>uid://bi68q1owy6k1b::::res://scenes/boss_2_controller.tscn<>uid://mkmehn6t4cs6::::res://assets/sprites/tileset_level.png<>uid://5dvgc54m715j::::res://assets/audio/7 - Mouth Alien.ogg<>uid://c05shg1se85gx::::res://scenes/pause_menu.tscn
 boss_1.gd::GDScript::3011062603343279991::1783189284::0::1::::<>Node2D<><>0<>0<><>::
 boss_1_scene_script.gd::GDScript::4342982676379857324::1788891821::0::1::::<>Node2D<><>0<>0<><>::
-boss_2.gd::GDScript::4723641489868938920::1788869355::0::1::::<>Node2D<><>0<>0<><>::
+boss_2.gd::GDScript::4723641489868938920::1789329859::0::1::::<>Node2D<><>0<>0<><>::
 boss_2_projectile_spawnpoint.gd::GDScript::3388820348511277293::1783189284::0::1::::<>Node2D<><>0<>0<><>::
 boss_3.tscn::PackedScene::7894228066857793921::1783189284::0::1::::<><><>0<>0<><>::uid://1naqkptikh2m::::res://assets/brackeys_platformer_assets/sprites/world_tileset.png<>uid://dtc1mmtlbybjm::::res://scenes/ui.tscn<>uid://cxvewxebiwct7::::res://scenes/boss_health_bar.gd<>uid://dcia0yaydxjj8::::res://scenes/boss_3_controller.tscn<>uid://bsa5g5yq0d1dr::::res://scenes/player.tscn
 boss_sprite.gd::GDScript::6448335491415261647::1788388631::0::1::::<>Sprite2D<><>0<>0<><>::
 ::res://scenes/items/::1783189284
 ammo_basic.tres::Resource/Item::2202031542165021617::1783189284::0::1::::<><><>0<>0<><>::uid://c857kawo04nby::::res://assets/sprites/slash.png<>uid://x2guc1cxgykw::::res://scripts/inventory_item.gd
 explosive_ammo.tres::Resource/Item::3356718873007272058::1783189284::0::1::::<><><>0<>0<><>::uid://calk0rebc3gb2::::res://icon.svg<>uid://x2guc1cxgykw::::res://scripts/inventory_item.gd
-::res://scripts/::1789208704
-boss_2_projectile.gd::GDScript::2320606164796518932::1783189284::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://scripts/::1789669744
+boss_2_projectile.gd::GDScript::2320606164796518932::1789328799::0::1::::<>CharacterBody2D<><>0<>0<><>::
 boss_3_controller.gd::GDScript::1829247065261073982::1787617375::0::1::::<>CharacterBody2D<><>0<>0<><>::
 boss_3_projectile.gd::GDScript::5325596386635930373::1783189284::0::1::::<>RigidBody2D<><>0<>0<><>::
 boss_3_web.gd::GDScript::274090271887973617::1783189284::0::1::::<>RigidBody2D<><>0<>0<><>::
@@ -244,6 +253,7 @@ boss_hand_spawner.gd::GDScript::5394660329632499809::1787617375::0::1::::<>Node2
 boss_selection_menu_demo.gd::GDScript::4122212018913518731::1787617375::0::1::::<>Control<><>0<>0<><>::
 boss_transition.gd::GDScript::3285575113836037414::1787617375::0::1::::<>Area2D<><>0<>0<><>::
 breakable_wall.gd::GDScript::3155036010312907041::1788363561::0::1::::<>TileMapLayer<><>0<>0<><>::
+bubble.gd::GDScript::2262268183877515404::1789669744::0::1::::<>Area2D<><>0<>0<><>::
 camera_shake.gd::GDScript::1542176726685894620::1783189284::0::1::::<>Camera2D<><>0<>0<><>::
 climbable_wire.gd::GDScript::4493052877373094135::1788854390::0::1::::<>Node2D<><>0<>0<><>::
 demo_boss_controller.gd::GDScript::3187174135142677609::1788457018::0::1::::<>Node2D<><>0<>0<><>::
@@ -256,13 +266,15 @@ explosion.gd::GDScript::2949099918514080534::1783189284::0::1::::<>Area2D<><>0<>
 grapple_controller.gd::GDScript::5728166069748439557::1783189284::0::1::::<>Node2D<><>0<>0<><>::
 health_giver.gd::GDScript::2201150406649520347::1783189284::0::1::::<>Area2D<><>0<>0<><>::
 heart.gd::GDScript::5119679609198714509::1788731896::0::1::::<>Area2D<><>0<>0<><>::
-infinite_mode.gd::GDScript::2471174352416626010::1788867579::0::1::::<>Node2D<><>0<>0<><>::
+infinite_mode.gd::GDScript::2471174352416626010::1789330042::0::1::::<>Node2D<><>0<>0<><>::
 infinite_mode_door.gd::GDScript::2670367201335182257::1788731896::0::1::::<>TileMapLayer<><>0<>0<><>::
 input_ui.gd::GDScript::8772793749286423721::1787618242::0::1::::<>Node2D<><>0<>0<><>::
 intro.gd::GDScript::4214385518069563901::1789208704::0::1::::<>Node2D<><>0<>0<><>::
 inventory_item.gd::GDScript::1670481766202541098::1783189284::0::1::::Item<>Resource<><>0<>0<><>::
 inventory_system.gd::GDScript::3693327525759689346::1783189284::0::1::::<>Node<><>0<>0<><>::
 launchpad.gd::GDScript::5313227442622842305::1788377639::0::1::::<>Node2D<><>0<>0<><>::
+level2intro.gd::GDScript::6121893039279115132::1789329629::0::1::::<>Node2D<><>0<>0<><>::
+level3intro.gd::GDScript::8115289668618228409::1789334182::0::1::::<>Node2D<><>0<>0<><>::
 level_transition.gd::GDScript::3927346924089869634::1788449382::0::1::::<>Area2D<><>0<>0<><>::
 loading.gd::GDScript::6627609555578319031::1784760768::0::1::::<>Node2D<><>0<>0<><>::
 londub_res.tres::Resource/DiskSystem::3013871283109523365::1788855841::0::1::::<><><>0<>0<><>::uid://d26uccq8e5rkv::::res://assets/sprites/disk.png<>uid://c3iwdcmywb57a::::res://scripts/disk_system.gd

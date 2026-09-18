@@ -68,4 +68,8 @@ tile_set = SubResource("TileSet_g4v7s")
 stream = ExtResource("7_324qi")
 autoplay = true
 
+[node name="DieTImer" type="Timer" parent="." unique_id=796193336]
+one_shot = true
+
 [connection signal="player_dead" from="CharacterBody2D" to="." method="_on_character_body_2d_player_dead"]
+[connection signal="timeout" from="DieTImer" to="." method="_on_die_t_imer_timeout"]

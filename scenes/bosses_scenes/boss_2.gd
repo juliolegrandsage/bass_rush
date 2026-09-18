@@ -6,3 +6,8 @@ func _ready() -> void:
 
 func _on_character_body_2d_player_dead() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_die_t_imer_timeout() -> void:
+	SaveHandler.save_current_level()
+	get_tree().change_scene_to_file("res://scenes/level3.tscn")

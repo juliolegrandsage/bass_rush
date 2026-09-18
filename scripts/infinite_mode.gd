@@ -39,7 +39,6 @@ func _ready() -> void:
 	var cam = $Camera2D
 	remove_child(cam)
 	player.add_child(cam)
-	$AudioStreamPlayer.volume_db = Settings.config.get_value("audio", "music_volume")
 func _process(delta: float) -> void:
 	$CanvasLayer/Label.text = "Room " + str(score)
 	print(data.infinite_pb)
@@ -69,7 +68,7 @@ func generate_roomset():
 func _on_character_body_2d_player_dead() -> void:
 	if data.update_pb(score):
 		pb = data.infinite_pb
-		$AudioStreamPlayer.queue_free()
+
 	get_tree().reload_current_scene()
 
 

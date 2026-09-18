@@ -20,8 +20,10 @@ func _ready() -> void:
 		config.set_value("keybinding", "grapple", "RT")
 		
 		config.save(FILE_PATH)
+		load_audio_settings()
 	else:
 		config.load(FILE_PATH)
+		load_audio_settings()
 
 func save_audio_settings(key: String, value):
 	config.set_value("audio", key, value)

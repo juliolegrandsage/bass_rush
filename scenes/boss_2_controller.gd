@@ -56,13 +56,13 @@ func take_damage(damage):
 		$damage_indicator_timer.start()
 	
 func die():
+	is_dead = true
 	$AnimationPlayer.stop()
 	$CollisionShape2D/AnimationPlayer.stop()
 	$attack_repeater.stop()
 	$Timer.stop()
-	is_dead = true
 	$AnimationPlayer.play("die")
-
+	$"../DieTImer".start()
 func attack():
 	if can_attack:
 		var platform_instance = platform_object.instantiate()

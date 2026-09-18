@@ -5,6 +5,9 @@ extends CharacterBody2D
 var SPEED = -500
 var is_planted := false
 
+var rng = RandomNumberGenerator.new()
+var heal_luck = rng.randi_range(0, 5)
+
 @onready var boss_2_controller = get_tree().get_first_node_in_group("boss_controller")
 func _ready() -> void:
 	velocity = Vector2(SPEED, 0)
@@ -14,11 +17,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
+	
 	if is_planted == true:
 		velocity = Vector2.ZERO
 	if boss_2_controller.current_phase == boss_2_controller.phases.phase2:
 		SPEED = -700
-
+	heal_luck = rng.randi_range(0, 5)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -30,7 +34,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			body.take_damage(2)
 		elif boss_2_controller.current_phase == boss_2_controller.phases.phase2:
 			body.take_damage(5)
+		elif heal_luck == 4:
+			$Sprite2D.modulate = Color.GREEN
+			if body.health != body.max_health:
+				body.health = min(body.health + 10, body.max_health)
 		queue_free()
+		
  	
 
 

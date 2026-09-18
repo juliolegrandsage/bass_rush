@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cd6b71p0o6gq4"]
+
+[ext_resource type="Texture2D" uid="uid://bn3wlehqws1ui" path="res://assets/sprites/bubble.png" id="1_2vdav"]
+[ext_resource type="Script" uid="uid://7h4hx2b6v85u" path="res://scripts/bubble.gd" id="1_pm753"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 32.0
+
+[sub_resource type="Animation" id="Animation_2vdav"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pm753"]
+resource_name = "bounce"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.27), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13040711, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.33), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b4vvx"]
+_data = {
+&"RESET": SubResource("Animation_2vdav"),
+&"bounce": SubResource("Animation_pm753")
+}
+
+[node name="Area2D" type="Area2D" unique_id=931489381]
+script = ExtResource("1_pm753")
+
+[node name="Timer" type="Timer" parent="." unique_id=865454069]
+wait_time = 0.984
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1863662177]
+texture = ExtResource("1_2vdav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1969534058]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Destination" type="Marker2D" parent="." unique_id=2080524641]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=927459584]
+libraries/ = SubResource("AnimationLibrary_b4vvx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
