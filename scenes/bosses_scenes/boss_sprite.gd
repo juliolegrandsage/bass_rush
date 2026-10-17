@@ -8,16 +8,11 @@ extends Sprite2D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _ready() -> void:
-	animation_player.play("RESET")
+	pass
 
 func _process(delta: float) -> void:
 	if boss_controller.is_dead == false:
 		position.x = player.position.x + 5
-	else:
-		launch_death_animation()
+
 		
 	
-func launch_death_animation():
-	animation_player.play("death")
-	await get_tree().create_timer(1.0).timeout
-	transition_to_menu.get_node("ColorRect/AnimationPlayer").play("fadeout")

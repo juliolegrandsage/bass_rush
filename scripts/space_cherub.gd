@@ -52,6 +52,7 @@ func take_damage(damage: int):
 	$Timer.start()
 
 func _on_explode_timer_timeout() -> void:
+	$AudioStreamPlayer.play()
 	var explosion_asset = explosion.instantiate()
 	explosion_asset.does_affect_player = true
 	explosion_asset.position = position

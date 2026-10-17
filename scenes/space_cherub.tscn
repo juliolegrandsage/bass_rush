@@ -1,27 +1,28 @@
 [gd_scene format=3 uid="uid://byyiaiw84rh4x"]
 
-[ext_resource type="Texture2D" uid="uid://cct18n0maoo6w" path="res://assets/sprites/space_cherubim.png" id="1_imwve"]
 [ext_resource type="Script" uid="uid://5a0xtnhq6fih" path="res://scripts/space_cherub.gd" id="1_kufl5"]
+[ext_resource type="AudioStream" uid="uid://csh3e2m4cx8j7" path="res://assets/audio/sfx/explosion.wav" id="2_h4vnt"]
+[ext_resource type="Texture2D" uid="uid://gqnkhuaf5oo1" path="res://assets/sprites/spacecherub2.png" id="2_kufl5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_77ah2"]
 radius = 41.01219
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kufl5"]
-atlas = ExtResource("1_imwve")
-region = Rect2(0, 0, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4vnt"]
-atlas = ExtResource("1_imwve")
-region = Rect2(64, 0, 64, 64)
+atlas = ExtResource("2_kufl5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jukti"]
+atlas = ExtResource("2_kufl5")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1v1j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kufl5")
+"texture": SubResource("AtlasTexture_h4vnt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h4vnt")
+"texture": SubResource("AtlasTexture_jukti")
 }],
 "loop": 1,
 "name": &"default",
@@ -121,10 +122,15 @@ script = ExtResource("1_kufl5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1721976620]
 shape = SubResource("CircleShape2D_77ah2")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=837018238]
+stream = ExtResource("2_h4vnt")
+volume_db = -14.4
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=29108123]
+scale = Vector2(5.105, 5.105)
 sprite_frames = SubResource("SpriteFrames_r1v1j")
 autoplay = "default"
-frame_progress = 0.71150386
+frame_progress = 0.07271121
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=556768165]
 libraries/ = SubResource("AnimationLibrary_jukti")

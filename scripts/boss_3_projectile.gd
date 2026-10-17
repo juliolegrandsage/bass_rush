@@ -47,7 +47,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			get_tree().current_scene.add_child(explosion_instance)
 			explosion_instance.global_position = global_position
 		elif is_healing:
-			player_scene.health = min(player_scene.health + 5, player_scene.max_health)		
+			PlayerStats.player_hp = min(PlayerStats.player_hp + 5, player_scene.max_health)		
 		queue_free()
 	elif body.is_in_group("tilemap"):
 		if !is_healing:

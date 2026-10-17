@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b1bqkwx0wtks0" path="res://scripts/intro.gd" id="1_ioskq"]
 [ext_resource type="Texture2D" uid="uid://bs7x7cd7jij54" path="res://assets/sprites/bassrushdemologo.png" id="2_yjqpq"]
 [ext_resource type="AudioStream" uid="uid://bdrhm73ufelyb" path="res://assets/audio/Init (consolidated)_3.ogg" id="3_4bx60"]
+[ext_resource type="Texture2D" uid="uid://dyqhgaxmlhffx" path="res://assets/sprites/npc1.png" id="3_i2l1n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
 font_size = 42
@@ -69,21 +70,18 @@ _data = {
 
 [node name="Intro" type="Node2D" unique_id=1348329181 node_paths=PackedStringArray("label")]
 script = ExtResource("1_ioskq")
-messages = Array[String](["Year 2420", "London has been invaded by the Kilouhas,", "From the planet Kilo", "...", "They stole all the music records from the city.", "But one man rose..."])
-label = NodePath("CanvasLayer/Control/ColorRect/Label")
+messages = Array[String](["Hello", "In year 2420", "Earth were invaded by aliens", "...", "They stole all the music records from the city.", "But Jeff rose..."])
+label = NodePath("CanvasLayer/ColorRect/Label")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=655093944]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=238870734]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=806383737]
+z_index = 999
+position = Vector2(966.0001, 900.00006)
+scale = Vector2(12.61, 12.61)
+texture = ExtResource("3_i2l1n")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=935012738]
-layout_mode = 1
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=935012738]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -91,7 +89,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/ColorRect" unique_id=452150016]
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect" unique_id=452150016]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,7 +101,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/ColorRect" unique_id=448887710]
+[node name="Control" type="Control" parent="CanvasLayer/ColorRect" unique_id=448887710]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,14 +109,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/ColorRect/Control" unique_id=1784795245]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ColorRect/Control" unique_id=1784795245]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(960, 540)
 scale = Vector2(4.97, 4.97)
 texture = ExtResource("2_yjqpq")
 
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=238870734]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=584507251]
-root_node = NodePath("../CanvasLayer/Control/ColorRect/Control/Sprite2D")
+root_node = NodePath("../CanvasLayer/ColorRect/Control/Sprite2D")
 libraries/ = SubResource("AnimationLibrary_i2l1n")
 
 [node name="Timer" type="Timer" parent="." unique_id=403972014]

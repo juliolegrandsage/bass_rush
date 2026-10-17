@@ -165,7 +165,7 @@ shape = SubResource("RectangleShape2D_vadib")
 wait_time = 2.0
 
 [node name="restart_timer" type="Timer" parent="." unique_id=1152045551]
-wait_time = 4.340000000000001
+wait_time = 0.831
 
 [node name="attack_spawn_point" type="Node2D" parent="." unique_id=771339361]
 position = Vector2(0, -49.858356)
@@ -191,13 +191,13 @@ wait_time = 3.5749999999999997
 one_shot = true
 
 [node name="attack_timer" type="Timer" parent="." unique_id=248243539]
-wait_time = 1.1469999999999998
+wait_time = 0.408
 
 [node name="rope_raycast" type="RayCast2D" parent="." unique_id=27119108]
 target_position = Vector2(0, 500)
 
 [node name="transition_timer" type="Timer" parent="." unique_id=1719775303]
-wait_time = 5.0
+wait_time = 0.834
 one_shot = true
 
 [node name="laser_line" type="Line2D" parent="." unique_id=1362102312]
@@ -218,8 +218,8 @@ one_shot = true
 wait_time = 1.499
 one_shot = true
 
-[connection signal="timeout" from="stop_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="stop_timer" to="." method="_on_stop_timer_timeout"]
+[connection signal="timeout" from="stop_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="restart_timer" to="." method="_on_restart_timer_timeout"]
 [connection signal="timeout" from="descending_timer" to="." method="_on_descending_timer_timeout"]
 [connection signal="timeout" from="stop_ascending_timer" to="." method="_on_stop_ascending_timer_timeout"]

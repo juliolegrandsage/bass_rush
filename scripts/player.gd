@@ -80,6 +80,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		if dashing:
+			$dashAudio.play()
 			velocity.x = direction * DASH_SPEED
 		else:
 			velocity.x = direction * SPEED
@@ -96,6 +97,7 @@ func _physics_process(delta: float) -> void:
 		dash_up_counter = 0		
 	if !is_paralyzed:
 		move_and_slide()
+
 
 
 	
@@ -118,7 +120,7 @@ func _physics_process(delta: float) -> void:
 		sprite.play()
 	# play crouch animations
 	if is_crouched and velocity.x == 0:
-		sprite.play("crouch_idle")
+		print("crocuhed")
 	elif is_crouched and velocity.x != 0:
 		sprite.play("crouch_walk")
 		if velocity.x < 0:
@@ -160,7 +162,7 @@ func shoot():
 		elif $AnimatedSprite2D.flip_h == false:
 			bullet.direction = 1
 			bullet.get_node("Sprite2D").flip_h = true
-
+	$shootAudio.play()
 	
 	get_parent().add_child(bullet)
 	if Input.has_joy_vibration(0):

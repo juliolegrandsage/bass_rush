@@ -104,11 +104,11 @@ func update_facing():
 	var player_detector_collider = $player_detector.get_collider()
 	if global_position.x <= player.global_position.x:
 		$player_detector.target_position.x = 900
-		$projectile_spawn_point.position.x = 82
+		$projectile_spawn_point.position.x = 52
 		
 	elif global_position.x > player.global_position.x:
 		$player_detector.target_position.x = -900
-		$projectile_spawn_point.position.x = -82
+		$projectile_spawn_point.position.x = -52
 
 		
 	if player_detector_collider and player_detector_collider.is_in_group("player"):

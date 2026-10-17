@@ -43,8 +43,9 @@ func _input(event: InputEvent) -> void:
 			if current_message < messages.size():
 				show_message(current_message)
 			if current_message == messages.size():
-				$CanvasLayer/Control/ColorRect/Control/Sprite2D.visible = true
-				$CanvasLayer/Control/ColorRect/Label.text = ""
+				$CanvasLayer/ColorRect/Control/Sprite2D.visible = true
+				$CanvasLayer/ColorRect/Label.text = ""
+				$CanvasLayer/Sprite2D.visible = false
 				$AnimationPlayer.play("show_logo")
 				
 

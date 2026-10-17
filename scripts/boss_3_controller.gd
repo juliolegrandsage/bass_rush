@@ -53,10 +53,7 @@ func _process(delta: float) -> void:
 	if current_phase == Phases.phase2:
 		is_laser_active = true
 		
-	if current_state == States.transition:
-		if health < max_health:
-			health += 500 * delta
-			health = min(health, max_health)
+
 
 func _physics_process(delta: float) -> void:
 	if is_laser_locked:
@@ -81,6 +78,7 @@ func _physics_process(delta: float) -> void:
 
 			$Sprites/AnimationPlayer.play("RESET")
 			velocity = Vector2(0, descending_speed)
+			move_and_slide()
 			if $RayCast2D.is_colliding() and not has_hit_ground:
 				has_hit_ground = true
 				call_deferred("set_state", States.stop_before_ground)
@@ -142,6 +140,7 @@ func _on_state_enter(state):
 				$"../Label".text = "Phase laser"
 		States.transition:
 			velocity = Vector2.ZERO
+			$descending_timer.start()
 func _on_top_angle_body_entered(body: Node2D) -> void:
 	if body == self:
 		if not current_state == States.transition:
@@ -210,8 +209,8 @@ func _on_attack_timer_timeout() -> void:
 # Fonctions de prise de dégats et mort
 
 func take_damage(damage):
-	if not is_in_transition:
-		health -= damage
+
+	health -= damage
 	
 	if health > 0:
 		return
@@ -225,10 +224,11 @@ func take_damage(damage):
 
 func die():
 
-	queue_free()	
+	get_tree().change_scene_to_file("res://scenes/demoending.tscn")
 
 
 func enter_phase2():
+	is_in_transition = false
 	current_phase = Phases.phase2
 	health = max_health
 	speed = 420
@@ -252,8 +252,8 @@ func healing_transition():
 		add_sibling(projectile_instance)
 
 		await get_tree().create_timer(0.2).timeout
-
-	$transition_timer.start(5.0)
+		
+	$transition_timer.start(2.0)
 
 
 func _on_transition_timer_timeout() -> void:

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://jacyycxhcdg8"]
 
 [ext_resource type="Script" uid="uid://qg08uqtdyrag" path="res://scripts/projectile.gd" id="1_q3m7n"]
-[ext_resource type="Texture2D" uid="uid://dmdj3qpae678l" path="res://assets/sprites/projectile_v2.png" id="2_q3m7n"]
+[ext_resource type="Texture2D" uid="uid://00m5tr8jxjbu" path="res://assets/sprites/playerprojectile.png" id="2_q3m7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8fcr"]
-size = Vector2(14.368179, 239.87537)
+size = Vector2(28.73635, 99.94807)
 
 [node name="Projectile" type="CharacterBody2D" unique_id=1370931083]
 scale = Vector2(-0.41758958, 0.05002599)
@@ -12,7 +12,7 @@ script = ExtResource("1_q3m7n")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=645489261]
 position = Vector2(0, -3.436718)
-scale = Vector2(1, 9.162222)
+scale = Vector2(2.455, 22.485)
 texture = ExtResource("2_q3m7n")
 
 [node name="Timer" type="Timer" parent="." unique_id=1238949447]
@@ -30,7 +30,8 @@ ignore_time_scale = true
 [node name="Area2D" type="Area2D" parent="." unique_id=185169451]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=948419788]
-scale = Vector2(1, 0.9999999)
+position = Vector2(-5.7094013e-07, -9.994805)
+scale = Vector2(1.0000002, 0.9999999)
 shape = SubResource("RectangleShape2D_c8fcr")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

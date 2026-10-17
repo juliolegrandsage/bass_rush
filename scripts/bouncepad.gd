@@ -16,5 +16,5 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):		
 		player = body
-		player.velocity.x = player.SPEED * bounce_speed
+		player.velocity.x = bounce_speed * player.SPEED
 		player.move_and_slide()

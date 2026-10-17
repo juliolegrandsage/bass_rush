@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bldkrq2r05bve" path="res://scenes/oduro_infinite.gd" id="1_jishn"]
 [ext_resource type="Texture2D" uid="uid://x6p4wumpvpqm" path="res://assets/sprites/oduro.png" id="2_pm53d"]
+[ext_resource type="Texture2D" uid="uid://bectnqi1tsl0e" path="res://assets/sprites/odurov2.png" id="3_pm53d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2pqks"]
 atlas = ExtResource("2_pm53d")
@@ -11,21 +12,21 @@ region = Rect2(256, 0, 128, 128)
 atlas = ExtResource("2_pm53d")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2s8vf"]
-atlas = ExtResource("2_pm53d")
-region = Rect2(128, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8qt7"]
+atlas = ExtResource("3_pm53d")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l0ltd"]
-atlas = ExtResource("2_pm53d")
-region = Rect2(256, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xgfd"]
+atlas = ExtResource("3_pm53d")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5krp6"]
-atlas = ExtResource("2_pm53d")
-region = Rect2(384, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jlim"]
+atlas = ExtResource("3_pm53d")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yx3up"]
-atlas = ExtResource("2_pm53d")
-region = Rect2(512, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s73vt"]
+atlas = ExtResource("3_pm53d")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l0ltd"]
 animations = [{
@@ -42,10 +43,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2s8vf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l0ltd")
+"texture": SubResource("AtlasTexture_u8qt7")
 }],
 "loop": 1,
 "name": &"idle",
@@ -53,18 +51,24 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5krp6")
+"texture": SubResource("AtlasTexture_3xgfd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yx3up")
+"texture": SubResource("AtlasTexture_7jlim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xgfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s73vt")
 }],
 "loop": 1,
 "name": &"walk",
 "speed": 3.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l0ltd"]
-radius = 45.01111
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62qie"]
+size = Vector2(34, 80)
 
 [node name="oduro" type="CharacterBody2D" unique_id=1890799837 groups=["enemies"]]
 script = ExtResource("1_jishn")
@@ -74,19 +78,21 @@ position = Vector2(-62, 16)
 target_position = Vector2(-86.745, 68.64)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1713039543]
+position = Vector2(1, 17)
+scale = Vector2(2.66, 2.66)
 sprite_frames = SubResource("SpriteFrames_l0ltd")
-animation = &"attack"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=16350865]
-position = Vector2(0, 17)
-shape = SubResource("CircleShape2D_l0ltd")
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_62qie")
 
 [node name="projectile_spawn_point" type="Node2D" parent="." unique_id=1210361494]
-position = Vector2(-82, -23)
+position = Vector2(-18, 21)
 
 [node name="attack_timer" type="Timer" parent="." unique_id=1819661244]
-wait_time = 0.9
+wait_time = 0.713
 
 [node name="player_detector" type="RayCast2D" parent="." unique_id=159717559]
 position = Vector2(0, 25)

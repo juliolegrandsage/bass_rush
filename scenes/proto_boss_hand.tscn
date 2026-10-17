@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dbt8uln8tleet"]
 
-[ext_resource type="Texture2D" uid="uid://d1oqhb01xls5f" path="res://assets/sprites/Sprite-hand_proto_boss.png" id="1_asxk6"]
+[ext_resource type="Texture2D" uid="uid://bmu25qlrcrt5m" path="res://assets/sprites/bosshand.png" id="2_4e1jn"]
 [ext_resource type="Script" uid="uid://bu3wpdgyg6vrd" path="res://scenes/proto_boss_hand.gd" id="2_eqh83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqh83"]
@@ -20,8 +20,8 @@ scale = Vector2(1.295, 1.295)
 shape = SubResource("RectangleShape2D_eqh83")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2012916251]
-scale = Vector2(0.63, 0.63)
-texture = ExtResource("1_asxk6")
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("2_4e1jn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2093019662]
 shape = SubResource("RectangleShape2D_asxk6")

@@ -43,4 +43,4 @@ func _input(event: InputEvent) -> void:
 			if current_message < messages.size():
 				show_message(current_message)
 			if current_message == messages.size():
-				get_tree().change_scene_to_file("res://scenes/level_3.tscn")
+				get_tree().quit()

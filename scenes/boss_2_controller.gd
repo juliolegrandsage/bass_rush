@@ -14,7 +14,7 @@ var can_attack = false
 
 ## STATS DU BOSS
 var health = 60
-
+ 
 var max_health = 60
 
 enum phases{
@@ -62,7 +62,7 @@ func die():
 	$attack_repeater.stop()
 	$Timer.stop()
 	$AnimationPlayer.play("die")
-	$"../DieTImer".start()
+	get_tree().change_scene_to_file("res://scenes/level3intro.tscn")
 func attack():
 	if can_attack:
 		var platform_instance = platform_object.instantiate()
