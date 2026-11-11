@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dkbhwix7u8un2"]
+
+[ext_resource type="Texture2D" uid="uid://cs33d1cp10rym" path="res://assets/sprites/bone_platform.png" id="1_ucer6"]
+[ext_resource type="Script" uid="uid://csnceg8okpqho" path="res://scripts/bone_platform.gd" id="2_whd3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(16, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whd3o"]
+size = Vector2(14, 2)
+
+[node name="BonePlatform" type="Sprite2D" unique_id=10915316]
+texture = ExtResource("1_ucer6")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+script = ExtResource("2_whd3o")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=343590702]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=90326929]
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=974837651]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=212448202]
+shape = SubResource("RectangleShape2D_whd3o")
+
+[node name="BreakTimer" type="Timer" parent="." unique_id=43539210]
+wait_time = 0.121
+one_shot = true
+ignore_time_scale = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="BreakTimer" to="." method="_on_break_timer_timeout"]

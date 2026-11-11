@@ -9,6 +9,7 @@ extends Node2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:
+	$Timer.wait_time = 3
 	$Timer.start()
 	print("apparu")
 	boss_controller.is_dead = false
@@ -24,6 +25,7 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	# Invoque un poing du boss
+	$"../AnimatedSprite2D".animation = "attack"
 	var instance = boss_hand.instantiate()
 	add_child(instance)
 	boss_hand_instance_number += 1

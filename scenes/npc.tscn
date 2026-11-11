@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cmucy4mo8wdoi"]
+
+[ext_resource type="Script" uid="uid://rctqibyfy01e" path="res://scenes/npc.gd" id="1_abqhh"]
+[ext_resource type="Texture2D" uid="uid://sxiyrbsxurt2" path="res://assets/sprites/npcs.png" id="1_nh2m4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abqhh"]
+atlas = ExtResource("1_nh2m4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abqhh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SystemFont" id="SystemFont_hdlgl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1s4pk"]
+font = SubResource("SystemFont_hdlgl")
+font_size = 8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 32.0
+
+[node name="NPC" type="Node2D" unique_id=474897384]
+script = ExtResource("1_abqhh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=192307525]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+
+[node name="Label" type="Label" parent="AnimatedSprite2D" unique_id=743113791]
+visible = false
+offset_left = -56.0
+offset_top = -40.0
+offset_right = 53.0
+offset_bottom = -16.0
+text = "Press X to talk"
+label_settings = SubResource("LabelSettings_1s4pk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1305670157]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1472661364]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

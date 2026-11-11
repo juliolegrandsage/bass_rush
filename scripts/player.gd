@@ -40,8 +40,7 @@ func _ready() -> void:
 	collision_mask = 1
 	
 func _process(delta: float) -> void:
-	health = PlayerStats.player_hp
-	if PlayerStats.player_hp <= 0:
+	if health <= 0:
 		die()
 	
 	if Input.is_action_just_pressed("dash") and !is_on_floor():
@@ -67,12 +66,15 @@ func _process(delta: float) -> void:
 
 		
 func _physics_process(delta: float) -> void:
+
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or gc.launched or $CoyoteTimeTimer.is_stopped() == false):
 		velocity.y += JUMP_VELOCITY
+		$AnimationPlayer.play("jump_scale_update")
 		gc.retract()
 
 			
@@ -120,9 +122,10 @@ func _physics_process(delta: float) -> void:
 		sprite.play()
 	# play crouch animations
 	if is_crouched and velocity.x == 0:
+		sprite.animation = "crouch"
 		print("crocuhed")
 	elif is_crouched and velocity.x != 0:
-		sprite.play("crouch_walk")
+		sprite.animation = "crouch_walk"
 		if velocity.x < 0:
 			sprite.flip_h = true
 			projectile_spawn_point_crouched.position.x = -40
@@ -175,7 +178,7 @@ func die():
 		get_tree().reload_current_scene()
 	PlayerStats.player_hp = max_health
 func take_damage(damage):
-	PlayerStats.player_hp -= damage
+	health -= damage
 	velocity.y = -150
 	if Input.has_joy_vibration(0):
 		Input.start_joy_vibration(0, 0.2, 0.2, 0.3)

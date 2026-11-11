@@ -1,11 +1,28 @@
 [gd_scene format=3 uid="uid://bsa5g5yq0d1dr"]
 
 [ext_resource type="Texture2D" uid="uid://bs6gcsmrmamfn" path="res://assets/sprites/chrv2.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://iqt4fq52h07r" path="res://assets/sprites/chrv3.png" id="2_fjrip"]
 [ext_resource type="Script" uid="uid://bt8fkpmt8nsqe" path="res://scripts/player.gd" id="2_onrkg"]
 [ext_resource type="Script" uid="uid://cnu1b8mmup8u8" path="res://scripts/grapple_controller.gd" id="3_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://11lxu084uer7" path="res://assets/sprites/dash_particle.png" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://8elcuwxy0p8x" path="res://assets/audio/sfx/laserShoot.wav" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://b84f6vgv5h2ef" path="res://assets/audio/sfx/tp.wav" id="6_tuyoq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("2_fjrip")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("2_fjrip")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("2_fjrip")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("2_fjrip")
+region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("2_dqkch")
@@ -37,6 +54,28 @@ region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}],
+"loop": 1,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprun")
+}],
+"loop": 1,
+"name": &"crouch_walk",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qlg0r")
@@ -75,7 +114,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(22, 50)
+size = Vector2(22, 48)
 
 [sub_resource type="Curve" id="Curve_i3pqv"]
 _data = [Vector2(0.0212766, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.22471917), 0.0, 0.0, 0, 0]
@@ -106,10 +145,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0, 0.101115786, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": []
+"values": [Vector2(1, 1), Vector2(0.445, 1), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
@@ -134,11 +173,11 @@ script = ExtResource("2_onrkg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=986962442]
 scale = Vector2(3.555, 3.555)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"jump"
+animation = &"crouch"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1615213390]
-position = Vector2(-1, -4)
+position = Vector2(-1, -5)
 shape = SubResource("RectangleShape2D_qhqgy")
 
 [node name="ProjectileSpawnPoint" type="Node2D" parent="." unique_id=230220090]

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://deotnu2gxjqet"]
+
+[ext_resource type="Script" uid="uid://rctqibyfy01e" path="res://scenes/npc.gd" id="1_5643s"]
+[ext_resource type="Texture2D" uid="uid://sxiyrbsxurt2" path="res://assets/sprites/npcs.png" id="2_hdlgl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5643s"]
+atlas = ExtResource("2_hdlgl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_33qua"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5643s")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SystemFont" id="SystemFont_5643s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7nomh"]
+font = SubResource("SystemFont_5643s")
+font_size = 8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_67335"]
+radius = 32.0
+
+[node name="OldMan" type="Node2D" unique_id=1309591148 node_paths=PackedStringArray("npc_dialog", "sprite")]
+script = ExtResource("1_5643s")
+npc_name = "Old Man"
+npc_dialog = NodePath("AnimatedSprite2D/Label")
+sprite = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://rctqibyfy01e"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1662725683]
+sprite_frames = SubResource("SpriteFrames_33qua")
+
+[node name="Label" type="Label" parent="AnimatedSprite2D" unique_id=1724335795]
+offset_left = -56.0
+offset_top = -40.0
+offset_right = 53.0
+offset_bottom = -16.0
+text = "Press X to talk"
+label_settings = SubResource("LabelSettings_7nomh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1549298021]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1820599003]
+shape = SubResource("CircleShape2D_67335")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -50,9 +50,6 @@ func _process(delta: float) -> void:
 	if health <= 0:
 		die()
 	
-	
-
-		
 
 func _on_timer_timeout() -> void:
 	attack(0.5)
@@ -66,14 +63,17 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	moving = false
 	
 	if body.is_in_group("player") and isCure == false:
+		
 		if boss_controller.current_phase == boss_controller.Phases.phase1:
+			
 			body.take_damage(1)
 			queue_free()
 		elif boss_controller.current_phase == boss_controller.Phases.phase2:
+			
 			body.take_damage(2)
 			queue_free()
 	elif body.is_in_group("player") and isCure == true:
-		if body.health < body.max_health:
+		if body.health != body.max_health:
 			body.health += 1
 		queue_free()
 	if body.is_in_group("tilemap"):

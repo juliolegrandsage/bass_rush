@@ -44,7 +44,7 @@ func load_current_level():
 		get_tree().change_scene_to_file(level_path)
 	else:
 		push_warning("Aucun niveau sauvegardé, lancement du niveau par défaut.")
-		get_tree().change_scene_to_file("res://scenes/level_1.tscn")
+		get_tree().change_scene_to_file("res://scenes/intro_cutscene.tscn")
 		
 func save_disks(disk_res: Resource):
 	current_progress["disks"].append(disk_res.resource_path)

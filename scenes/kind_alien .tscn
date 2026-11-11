@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://82ntvnqyshvw"]
+
+[ext_resource type="Script" uid="uid://rctqibyfy01e" path="res://scenes/npc.gd" id="1_ko0yp"]
+[ext_resource type="Texture2D" uid="uid://sxiyrbsxurt2" path="res://assets/sprites/npcs.png" id="2_b1yex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ue26"]
+atlas = ExtResource("2_b1yex")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jhp6f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ue26")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SystemFont" id="SystemFont_5643s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_br0dv"]
+font = SubResource("SystemFont_5643s")
+font_size = 8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wi4ov"]
+radius = 32.0
+
+[node name="NPC" type="Node2D" unique_id=270080302 node_paths=PackedStringArray("npc_dialog", "sprite")]
+script = ExtResource("1_ko0yp")
+npc_name = "Kind Alien"
+npc_dialog = NodePath("AnimatedSprite2D/Label")
+text = "You can grapple with RT"
+sprite = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://rctqibyfy01e"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1774925700]
+sprite_frames = SubResource("SpriteFrames_jhp6f")
+
+[node name="Label" type="Label" parent="AnimatedSprite2D" unique_id=1944074441]
+offset_left = -56.0
+offset_top = -40.0
+offset_right = 53.0
+offset_bottom = -16.0
+text = "Press X to talk"
+label_settings = SubResource("LabelSettings_br0dv")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=222638734]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1606849936]
+shape = SubResource("CircleShape2D_wi4ov")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

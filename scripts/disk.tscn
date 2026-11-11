@@ -14,8 +14,7 @@ disk_res = ExtResource("2_r3tf8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1451794487]
 shape = SubResource("CircleShape2D_g4v7s")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=581071870]
-scale = Vector2(0.6, 0.6)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1112736719]
 texture = ExtResource("2_8n02g")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

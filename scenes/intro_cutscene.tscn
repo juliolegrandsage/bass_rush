@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://8qk326rodchr"]
+
+[ext_resource type="Script" uid="uid://cyk750iucsg6a" path="res://scenes/intro_cutscene.gd" id="1_dw6o5"]
+[ext_resource type="Texture2D" uid="uid://dffnlp7viu4fb" path="res://assets/sprites/shootingstar.png" id="1_vuduy"]
+[ext_resource type="Texture2D" uid="uid://d26rrox10077t" path="res://assets/sprites/city.png" id="2_juow0"]
+[ext_resource type="AudioStream" uid="uid://ddx28dx2e6mxw" path="res://assets/audio/1 - title.wav" id="2_jusdg"]
+[ext_resource type="Texture2D" uid="uid://b080kad2ipr1y" path="res://assets/sprites/spaceship.png" id="2_wifpd"]
+[ext_resource type="AudioStream" uid="uid://cgw8key4ce4us" path="res://assets/audio/rain.ogg" id="3_3438a"]
+[ext_resource type="AudioStream" uid="uid://ccth3lg2vswqc" path="res://assets/audio/spaceshipsfx.ogg" id="3_xeku4"]
+[ext_resource type="Texture2D" uid="uid://b8umjl6e0oei0" path="res://scenes/bassrushdemologo.png" id="8_dcu1r"]
+
+[sub_resource type="Animation" id="Animation_pbanw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.919]
+}
+
+[sub_resource type="Animation" id="Animation_fxsd4"]
+resource_name = "sfx_ship"
+length = 4.645
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -10.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rqbdd"]
+_data = {
+&"RESET": SubResource("Animation_pbanw"),
+&"sfx_ship": SubResource("Animation_fxsd4")
+}
+
+[sub_resource type="Animation" id="Animation_dw6o5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1214.0002, -293)]
+}
+
+[sub_resource type="Animation" id="Animation_xeku4"]
+resource_name = "forward"
+length = 7.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1260, -293), Vector2(-1214.0002, -293)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jusdg"]
+_data = {
+&"RESET": SubResource("Animation_dw6o5"),
+&"forward": SubResource("Animation_xeku4")
+}
+
+[sub_resource type="Animation" id="Animation_on3y1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wo2cs"]
+resource_name = "show"
+length = 2.185
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.1333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bprnf"]
+_data = {
+&"RESET": SubResource("Animation_on3y1"),
+&"show": SubResource("Animation_wo2cs")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 92
+
+[sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
+font_size = 86
+font_color = Color(1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_dcu1r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bprnf"]
+resource_name = "show"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.93333334, 2.05, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pbanw"]
+_data = {
+&"RESET": SubResource("Animation_dcu1r"),
+&"show": SubResource("Animation_bprnf")
+}
+
+[node name="IntroCutscene" type="Node2D" unique_id=953206861]
+script = ExtResource("1_dw6o5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=297599594]
+offset_left = -2344.0
+offset_top = -1124.0
+offset_right = 1989.0
+offset_bottom = 774.0
+color = Color(0.014336622, 0.06692023, 0.13107729, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1855649487]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=2014471212 groups=["music_player"]]
+stream = ExtResource("2_jusdg")
+pitch_scale = 0.99
+autoplay = true
+max_polyphony = 4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=219697003]
+stream = ExtResource("3_3438a")
+volume_db = -80.0
+autoplay = true
+
+[node name="shipSFX" type="AudioStreamPlayer2D" parent="." unique_id=1873706789]
+stream = ExtResource("3_xeku4")
+volume_db = -5.919
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="shipSFX" unique_id=1952088620]
+libraries/ = SubResource("AnimationLibrary_rqbdd")
+autoplay = &"sfx_ship"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1208322509]
+position = Vector2(-1214.0002, -293)
+scale = Vector2(9.84, 9.84)
+texture = ExtResource("2_wifpd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=1080275651]
+libraries/ = SubResource("AnimationLibrary_jusdg")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=831161776]
+position = Vector2(-2, -576)
+amount = 397
+texture = ExtResource("1_vuduy")
+lifetime = 1.33
+speed_scale = 1.69
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 1)
+direction = Vector2(18.115, 0)
+spread = 180.0
+gravity = Vector2(0, 2000)
+
+[node name="City" type="Sprite2D" parent="." unique_id=854097492]
+position = Vector2(14, 368)
+scale = Vector2(15.52, 15.52)
+texture = ExtResource("2_juow0")
+
+[node name="Timer" type="Timer" parent="." unique_id=1108359344]
+wait_time = 2.235
+autostart = true
+
+[node name="Bassrushdemologo" type="Sprite2D" parent="." unique_id=1883782255]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-16, -164)
+scale = Vector2(4.37, 4.37)
+texture = ExtResource("8_dcu1r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bassrushdemologo" unique_id=1558834750]
+libraries/ = SubResource("AnimationLibrary_bprnf")
+
+[node name="Timer2" type="Timer" parent="." unique_id=940863798]
+wait_time = 5.103000000000001
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1496759391]
+follow_viewport_enabled = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=922685028]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -558.0
+offset_top = 199.0
+offset_right = -574.0
+offset_bottom = -723.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Press any button to start"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1280990723]
+offset_left = -934.0
+offset_top = -523.0
+offset_right = -377.0
+offset_bottom = -405.0
+size_flags_vertical = 0
+text = "London, 2420"
+label_settings = SubResource("LabelSettings_yf5fn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Label2" unique_id=553209566]
+libraries/ = SubResource("AnimationLibrary_pbanw")
+autoplay = &"show"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="Bassrushdemologo/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

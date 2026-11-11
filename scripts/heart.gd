@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		if PlayerStats.player_hp < body.max_health:
-			PlayerStats.player_hp += life_add
+		if body.health < body.max_health:
+			body.health += life_add
 			clamp(PlayerStats.player_hp, 0, 20)
 			queue_free()

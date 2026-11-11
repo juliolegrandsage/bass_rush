@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://bi68q1owy6k1b"]
 
 [ext_resource type="Script" uid="uid://p4klmgektm0r" path="res://scenes/boss_2_controller.gd" id="1_x3len"]
-[ext_resource type="Texture2D" uid="uid://d3bf7t3csxrgo" path="res://assets/sprites/facetop.png" id="2_w2owl"]
-[ext_resource type="Texture2D" uid="uid://b8plv0gwvxmgo" path="res://assets/sprites/facebottom.png" id="3_w2owl"]
-[ext_resource type="Texture2D" uid="uid://dq5aspel1njbq" path="res://assets/sprites/glotteduboss2.png" id="4_w2owl"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_52hpk"]
-size = Vector2(121.34832, 101.12361)
+[ext_resource type="Texture2D" uid="uid://4awfpid5pem6" path="res://assets/sprites/boss_sprites/boss2jaw.png" id="2_w2owl"]
+[ext_resource type="Texture2D" uid="uid://bp1320dfkn382" path="res://assets/sprites/boss_sprites/bosshead2.png" id="3_52hpk"]
+[ext_resource type="Texture2D" uid="uid://0elxpl0cpiqj" path="res://assets/sprites/boss_sprites/boss2glotte.png" id="4_w2owl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of8l7"]
 size = Vector2(121.42859, 58.380955)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52hpk"]
+size = Vector2(121.34832, 101.12361)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fr7od"]
 size = Vector2(5.928753, 15.571247)
@@ -340,40 +340,43 @@ top_position_max = 17.56
 bottom_position_max = 1.245
 speed = 350.0
 
-[node name="Face_top" type="Sprite2D" parent="." unique_id=28636771]
-scale = Vector2(0.445, 0.445)
-texture = ExtResource("2_w2owl")
-
-[node name="Area2D" type="Area2D" parent="Face_top" unique_id=1775171525]
-position = Vector2(15, -2.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Face_top/Area2D" unique_id=2111665950]
-position = Vector2(-10.505613, -14.353935)
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_52hpk")
-
 [node name="Face_bottom" type="Sprite2D" parent="." unique_id=1807256485]
 position = Vector2(0, 28)
-scale = Vector2(0.42, 0.42)
-texture = ExtResource("3_w2owl")
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("2_w2owl")
 
 [node name="Area2D" type="Area2D" parent="Face_bottom" unique_id=846338642]
+scale = Vector2(0.25846153, 0.25846153)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Face_bottom/Area2D" unique_id=505573941]
 position = Vector2(2.3809521, 21.42857)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_of8l7")
 
+[node name="Face_top" type="Sprite2D" parent="." unique_id=28636771]
+scale = Vector2(1.655, 1.655)
+texture = ExtResource("3_52hpk")
+
+[node name="Area2D" type="Area2D" parent="Face_top" unique_id=1775171525]
+position = Vector2(3.429003, 0.5362538)
+scale = Vector2(0.2688822, 0.2688822)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Face_top/Area2D" unique_id=2111665950]
+position = Vector2(-10.505613, -14.353935)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_52hpk")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2034320119]
 z_index = -2
 position = Vector2(16.76, 25.945)
 rotation = 0.567232
-scale = Vector2(1.83, 1.83)
+scale = Vector2(4.095, 3.08)
 shape = SubResource("RectangleShape2D_fr7od")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1609661701]
-position = Vector2(1.224044, 1.6693994)
-scale = Vector2(0.155, 0.1875)
+z_index = 1
+position = Vector2(0.30280825, -0.6314932)
+scale = Vector2(0.3848771, 0.7085041)
 texture = ExtResource("4_w2owl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionShape2D" unique_id=1023396184]

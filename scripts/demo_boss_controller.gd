@@ -24,12 +24,13 @@ func _process(delta: float) -> void:
 	if health <= 0 and current_phase == Phases.phase1:
 		current_phase = Phases.phase2
 		switch_phase.emit()
-		health = 120 
+		health = 50
 	if health <= 0 and current_phase == Phases.phase2:
 		is_dead = true
 	if current_phase == Phases.phase2:
 		$"../AudioStreamPlayer".pitch_scale = 1.25
 
-
+	if is_dead:
+		get_tree().change_scene_to_file("res://scenes/level_2.tscn")
 func take_damage(damage):
 	health -= damage

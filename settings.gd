@@ -4,7 +4,7 @@ const FILE_PATH := "user://settings.ini"
 const MUSIC_BUS_INDEX := 1
 
 var config := ConfigFile.new()
-var music_volume: float = 1.0  # valeur linéaire, 0.0 à 1.0
+var music_volume: float = 1.0  
 
 func _ready() -> void:
 	if !FileAccess.file_exists(FILE_PATH):

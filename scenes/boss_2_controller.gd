@@ -62,7 +62,7 @@ func die():
 	$attack_repeater.stop()
 	$Timer.stop()
 	$AnimationPlayer.play("die")
-	get_tree().change_scene_to_file("res://scenes/level3intro.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_3.tscn")
 func attack():
 	if can_attack:
 		var platform_instance = platform_object.instantiate()
