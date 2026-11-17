@@ -257,6 +257,7 @@ text = "Press any button to start"
 label_settings = SubResource("LabelSettings_g4v7s")
 
 [node name="Label2" type="Label" parent="CanvasLayer" unique_id=1280990723]
+visible = false
 offset_left = -934.0
 offset_top = -523.0
 offset_right = -377.0

@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dhnquchlvoh8p"]
+
+[ext_resource type="Script" uid="uid://dspc2b56sv64n" path="res://scenes/boss_3_animation.gd" id="1_imked"]
+[ext_resource type="Texture2D" uid="uid://bs6gcsmrmamfn" path="res://assets/sprites/chrv2.png" id="2_0oww6"]
+[ext_resource type="AudioStream" uid="uid://bh31m03v1nktx" path="res://assets/audio/boss2transition.ogg" id="3_trthg"]
+[ext_resource type="Texture2D" uid="uid://dffnlp7viu4fb" path="res://assets/sprites/shootingstar.png" id="4_qjdb0"]
+
+[sub_resource type="Animation" id="Animation_0jnv7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -627)]
+}
+
+[sub_resource type="Animation" id="Animation_x62fx"]
+resource_name = "fall"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -627), Vector2(0, 500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qc4t0"]
+_data = {
+&"RESET": SubResource("Animation_0jnv7"),
+&"fall": SubResource("Animation_x62fx")
+}
+
+[node name="Boss1Animation" type="Node2D" unique_id=1374084189]
+script = ExtResource("1_imked")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1433621390]
+offset_left = -1217.0
+offset_top = -656.0
+offset_right = 1285.0
+offset_bottom = 856.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1480257796]
+zoom = Vector2(1.465, 1.465)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1832809224]
+position = Vector2(0, -627)
+scale = Vector2(6.24, 6.24)
+texture = ExtResource("2_0oww6")
+region_enabled = true
+region_rect = Rect2(80, 0, 16, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=1705897301]
+libraries/ = SubResource("AnimationLibrary_qc4t0")
+autoplay = &"fall"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=339242844 groups=["music_player"]]
+stream = ExtResource("3_trthg")
+autoplay = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1822228422]
+position = Vector2(0, 572)
+amount = 158
+texture = ExtResource("4_qjdb0")
+lifetime = 13.3
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(26.04, 13.84)
+spread = 180.0
+gravity = Vector2(0, -980)
+
+[node name="Timer" type="Timer" parent="." unique_id=1546356765]
+wait_time = 7.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

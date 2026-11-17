@@ -44,3 +44,7 @@ func _input(event: InputEvent) -> void:
 				show_message(current_message)
 			if current_message == messages.size():
 				get_tree().quit()
+
+
+func _on_button_pressed() -> void:
+	get_tree().quit()

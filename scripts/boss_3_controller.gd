@@ -1,12 +1,11 @@
 extends CharacterBody2D
 
 var speed = 350
-var health = 20
-var max_health = 80
+var health = 100
+var max_health = 100
 
 var head_down = false
 
-# Réferences aux projectiles du boss
 
 const projectile_reference = preload("res://scenes/boss_3_projectile.tscn")
 const web_reference = preload("res://scenes/boss_3_web.tscn")

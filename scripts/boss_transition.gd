@@ -13,8 +13,5 @@ func start_transition():
 	$Timer.start()
 	if canvas_layer != null:
 		canvas_layer.get_node("ColorRect/AnimationPlayer").play("fadeout")
-		# rappelle toi que dans "get_node" il faut pas mettre de signe $ comme si c'était une variable
-
-
 func _on_timer_timeout() -> void:
 	get_tree().change_scene_to_file(boss_scene)

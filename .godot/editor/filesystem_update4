@@ -1,2 +1,7 @@
-res://scenes/dialogue_box.tscn
-res://scripts/dialogue_box.gd
+res://scenes/level_3.tscn
+res://scripts/post_process.gdshader
+res://scenes/boss_1_animation.gd
+res://scenes/boss_2_animation.tscn
+res://scenes/boss_2_animation.gd
+res://scenes/boss_3_animation.gd
+res://scenes/boss_3_animation.tscn

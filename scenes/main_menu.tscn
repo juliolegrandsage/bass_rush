@@ -4,12 +4,23 @@
 [ext_resource type="Script" uid="uid://qgqfucubpcop" path="res://scenes/button.gd" id="2_ekxnf"]
 [ext_resource type="Script" uid="uid://dv5a1is8641c4" path="res://settings.gd" id="2_wu84c"]
 [ext_resource type="AudioStream" uid="uid://ca2wvi5lfkbnu" path="res://assets/audio/3 - menu2.ogg" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://d26rrox10077t" path="res://assets/sprites/city.png" id="5_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://dffnlp7viu4fb" path="res://assets/sprites/shootingstar.png" id="6_oa1go"]
 
 [sub_resource type="Theme" id="Theme_kup35"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
 
 [node name="MainMenu" type="Node2D" unique_id=1025285425 node_paths=PackedStringArray("music_player")]
 script = ExtResource("1_l6cm7")
 music_player = NodePath("AudioStreamPlayer")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1995295061]
+offset_left = -676.0
+offset_top = -325.0
+offset_right = 2203.0
+offset_bottom = 1227.0
+color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1454474058]
 
@@ -21,6 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
 theme = SubResource("Theme_kup35")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_g4v7s")
 script = ExtResource("2_wu84c")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=2101478220]
@@ -65,6 +77,24 @@ stream = ExtResource("3_bqqt6")
 volume_db = -16.34
 autoplay = true
 bus = &"music"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1100635467]
+position = Vector2(918, 879.14)
+scale = Vector2(16.5, 16.5)
+texture = ExtResource("5_rtw2f")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=916957578]
+position = Vector2(852, -132)
+amount = 397
+texture = ExtResource("6_oa1go")
+lifetime = 1.33
+speed_scale = 1.69
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 1)
+direction = Vector2(18.115, 0)
+spread = 180.0
+gravity = Vector2(0, 2000)
 
 [connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

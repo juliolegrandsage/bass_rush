@@ -29,10 +29,11 @@ func _ready() -> void:
 	$Timer.start()
 	
 func _physics_process(delta: float) -> void:
-	time += delta * speed
-	var range = (bottom_position_max - top_position_max) / 2
-	var center = (bottom_position_max + top_position_max) / 2
-	position.y = center + sin(time) * range
+	if is_dead == false:
+		time += delta * speed
+		var range = (bottom_position_max - top_position_max) / 2
+		var center = (bottom_position_max + top_position_max) / 2
+		position.y = center + sin(time) * range
 
 	
 func _process(delta: float) -> void:
@@ -62,7 +63,7 @@ func die():
 	$attack_repeater.stop()
 	$Timer.stop()
 	$AnimationPlayer.play("die")
-	get_tree().change_scene_to_file("res://scenes/level_3.tscn")
+	$"../DieTImer".start()
 func attack():
 	if can_attack:
 		var platform_instance = platform_object.instantiate()

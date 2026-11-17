@@ -69,7 +69,6 @@ autoplay = &"fall"
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=339242844 groups=["music_player"]]
 stream = ExtResource("3_cxf08")
 autoplay = true
-bus = &"music"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1822228422]
 position = Vector2(0, 572)
