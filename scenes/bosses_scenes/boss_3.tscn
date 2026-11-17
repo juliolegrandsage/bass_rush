@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dcia0yaydxjj8" path="res://scenes/boss_3_controller.tscn" id="2_r4aqb"]
 [ext_resource type="PackedScene" uid="uid://c05shg1se85gx" path="res://scenes/pause_menu.tscn" id="2_u6ro7"]
 [ext_resource type="PackedScene" uid="uid://bsa5g5yq0d1dr" path="res://scenes/player.tscn" id="3_8lhg8"]
-[ext_resource type="Texture2D" uid="uid://n5yi1qc7q8et" path="res://assets/sprites/boss_sprites/boss3 head2.png" id="6_ubtv7"]
 [ext_resource type="AudioStream" uid="uid://rn5si0cwfbbo" path="res://assets/audio/b3_2.ogg" id="7_41fxc"]
 [ext_resource type="Texture2D" uid="uid://dlpr5apoxgctw" path="res://assets/sprites/Sprite-0005.png" id="8_qnrac"]
 [ext_resource type="Texture2D" uid="uid://cxfuejgrw5iaj" path="res://assets/sprites/bg.png" id="9_vsveq"]
@@ -110,9 +109,6 @@ shape = SubResource("RectangleShape2D_u6ro7")
 [node name="boss3_controller" parent="." unique_id=2027411131 instance=ExtResource("2_r4aqb")]
 position = Vector2(396, 292)
 scale = Vector2(1.105, 1.105)
-
-[node name="head" parent="boss3_controller/Sprites" parent_id_path=PackedInt32Array(2027411131, 293383237) index="0" unique_id=488057610]
-texture = ExtResource("6_ubtv7")
 
 [node name="laser_shoot_timer" parent="boss3_controller/laser_spawn_point" parent_id_path=PackedInt32Array(2027411131, 1915546095) index="1" unique_id=2107084548]
 wait_time = 1.4
